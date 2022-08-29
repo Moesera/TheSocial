@@ -1,0 +1,27 @@
+{
+  "name": "css-frameworks_ca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sigvel/css-frameworks_ca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sigvel/css-frameworks_ca/issues"
+  },
+  "homepage": "https://github.com/Sigvel/css-frameworks_ca#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.54.5"
+  }
+}
