@@ -1,0 +1,8 @@
+// Custom variables import
+@import "variables.scss";
+
+// functions scss import from node_modules
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Bootstrap scss file import from node_modules
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
