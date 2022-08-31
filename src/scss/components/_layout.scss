@@ -1,0 +1,53 @@
+// Html element styles
+body {
+    background-color: $gray-700;
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: 100px auto 70px;
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
+}
+
+header {
+    grid-area: header;
+    background-color: $gray-700;
+    display: flex;
+    color: custom-styles.$text-color;
+    height: 90%;
+    font-family: gill-sans-nova, sans-serif;
+}
+
+main {
+    grid-area: main;
+    background-color: $gray-700;
+    display: flex;
+    color: custom-styles.$text-color;
+}
+
+footer {
+    grid-area: footer;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$container-shadow;
+}
+
+// Custom grid-area
+
+.banner-left {
+    width: 7%;
+    grid-area: banner-left;
+    color: custom-styles.$text-color;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$container-shadow;
+}
+
+.banner-right {
+    width: 7%;
+    grid-area: banner-right;
+    color: custom-styles.$text-color;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$container-shadow;
+}

@@ -1,0 +1,40 @@
+.logo-box {
+    width: 7%;
+    background-color: $gray-600;
+    margin-left: 8px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$text-color;
+}
+
+.logo {
+    width: 75%;
+}
+
+.navbar {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$text-color;
+}
+
+.profile-btn {
+    background-color: $gray-600;
+    margin-top: 10px;
+    margin-right: 8px;
+    display: flex;
+    width: 7%;
+    align-items: center;
+    justify-content: center;
+    @include custom-styles.element-border(5px, none);
+    box-shadow: custom-styles.$text-color;
+}
+
+.profile-btn h2 {
+    font-size: 1.1vw;
+}

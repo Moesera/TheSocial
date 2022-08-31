@@ -1,0 +1,9 @@
+// Sass styles
+$text-color: white;
+
+$container-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+@mixin element-border($radius, $style) {
+    border-radius: $radius;
+    border-style: $style;
+}

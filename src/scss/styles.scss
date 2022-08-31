@@ -1,8 +1,24 @@
-// Custom variables import
-@import "variables.scss";
+// Custom styles import
+@use "./components/custom-styles";
+
+// Bootstrap variables customization
+@import "variables";
+
+//Components imports
+
+// main content styles
+@import "./components/main-content";
+
+// page layout styles
+@import "./components/layout";
+
+//Styles for the header items
+@import "./components/header-items";
+
+// Bootstrap scss imports
 
 // functions scss import from node_modules
 @import "../../node_modules/bootstrap/scss/functions";
 
 // Bootstrap scss file import from node_modules
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap";
