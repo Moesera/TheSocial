@@ -1,40 +1,35 @@
 .logo-box {
-    width: 7%;
-    background-color: $gray-600;
-    margin-left: 8px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include custom-styles.element-border(5px, none);
-    box-shadow: custom-styles.$text-color;
-}
-
-.logo {
-    width: 75%;
+  width: 7%;
+  background-color: custom-styles.$box-color;
+  margin-left: 8px;
+  margin-top: 10px;
+  @include custom-styles.element-border(5px, none);
+  box-shadow: custom-styles.$container-shadow;
 }
 
 .navbar {
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    @include custom-styles.element-border(5px, none);
-    box-shadow: custom-styles.$text-color;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  @include custom-styles.element-border(5px, none);
+  box-shadow: custom-styles.$container-shadow;
+}
+
+.nav-item {
+  font-family: custom-styles.$gill-sans;
+  font-weight: custom-styles.$bold;
 }
 
 .profile-btn {
-    background-color: $gray-600;
-    margin-top: 10px;
-    margin-right: 8px;
-    display: flex;
-    width: 7%;
-    align-items: center;
-    justify-content: center;
-    @include custom-styles.element-border(5px, none);
-    box-shadow: custom-styles.$text-color;
+  background-color: custom-styles.$box-color;
+  margin-top: 10px;
+  margin-right: 8px;
+  width: 7%;
+  @include custom-styles.element-border(5px, none);
+  box-shadow: custom-styles.$container-shadow;
+  font-family: custom-styles.$gill-sans;
 }
 
 .profile-btn h2 {
-    font-size: 1.1vw;
+  font-size: 1.1vw;
 }

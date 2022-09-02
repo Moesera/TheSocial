@@ -1,5 +1,71 @@
 .main-content {
-    flex-basis: 100%;
-    margin-left: 4px;
-    margin-right: 4px;
+  flex-basis: 100%;
+  margin-left: 4px;
+  margin-right: 4px;
+  background-color: custom-styles.$bg-color;
+}
+
+.main-content h2 {
+  font-family: custom-styles.$gill-sans;
+}
+
+h3 {
+  font-family: custom-styles.$gill-sans;
+}
+
+input[type="text"],
+input[type="search"],
+textarea {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.box {
+  @include custom-styles.element-border(5px, none);
+}
+
+.btn {
+  box-shadow: custom-styles.$container-shadow;
+}
+
+.add-btn {
+  font-size: 2em;
+  font-family: custom-styles.$gill-sans;
+}
+
+.feed-img {
+  @include custom-styles.feed-image(50%, 80px);
+}
+
+.bold-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$bold;
+}
+
+.regular-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$regular;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  @include custom-styles.element-border(5px, none);
+  background-color: $danger;
+  display: inline-block;
+  padding: 6px 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-red;
+  }
+}
+
+.profile-box {
+  width: 250px;
+}
+
+.friends-img {
+  width: 75px;
 }
