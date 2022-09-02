@@ -8,32 +8,141 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://kit.fontawesome.com/d527618ed6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css" />
-    <title>TheSocial</title>
+    <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css">
+    <title>TheSocial | Homepage</title>
   </head>
   <body class="bg-secondary">
-    <header>
-      <div class="logo-box">
-        <img class="logo" src="/assets/The-social_logo.png" alt="TheSocial logo" />
-      </div>
-      <nav class="navbar bg-primary">
-        <div class="container-fluid">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </form>
+    <header class="fixed-top">
+      <a class="logo-box d-flex justify-content-center align-items-center" href="index.html">
+        <img class="w-75" src="/assets/The-social_logo.png" alt="TheSocial logo" />
+      </a>
+      <nav class="navbar navbar-expand-lg bg-primary shadow w-100">
+        <div class="container-fluid bg-primary">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/pages/profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/pages/login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn bg-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
         </div>
       </nav>
-      <div class="profile-btn">
-        <h2>PROFILE</h2>
-      </div>
+      <a class="profile-btn d-flex justify-content-center align-items-center" href="/pages/profile.html">
+       <h2>PROFILE</h2>
+      </a>
     </header>
     <main class="bg-secondary">
       <aside class="banner-left mx-2 my-2 bg-primary"></aside>
-      <div class="main-content my-2 bg-primary">
+      <div class="main-content my-2">
+        <h1 class="invisible overflow-hidden position-absolute">welcome to theSocial</h1>
         <h2>Create Post</h2>
+        <section>
+        <div class="bg-primary p-2 box">
+          <input class="form-control w-25" type="text" placeholder="Title" aria-label=".form-control-sm example" />
+        </div>
+        <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
+          <label for="exampleFormControlTextarea1" class="form-label"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Whats on your mind ?"></textarea>
+          <div class="d-flex justify-content-between mt-2">
+            <label class="custom-file-upload text-white">
+              IMAGE
+              <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" placeholder="IMAGE" />
+            </label>
+            <button type="button" class="post-add_btn btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
+        </section>
+        <h2>Feed</h2>
+        <section class="bg-primary p-2 box d-flex flex-wrap">
+          <img class="feed-img mt-4 ms-3" src="/assets/images/profile-image2.jpg" alt="Friends profile image" />
+          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-75">
+          <p class="mb-0 bold-calibri">Jonas Marko</p>
+          <p class="mb-1 regular-calibri">26/08/22 20:10</p>
+        </div>
+        <div class="mt-2 ms-3">
+          <h2 class="fs-5 bold-calibri">Who is the man</h2>
+          <p class="w-50 regular-calibri">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
+            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
+          </p>
+        </div>
+        <div class="d-flex align-items-end justify-content-end flex-fill me-5">
+        <div class="d-flex me-5 align-items-center fs-5">
+          <i class="fa-solid fa-comment text-success"></i>
+        <p class="m-0 ms-2">42</p>
+      </div>
+      <div class="d-flex align-items-center fs-5">
+        <i class="fa-solid fa-heart text-danger"></i>
+        <p class="m-0 ms-2">50</p>
+      </div>
+      </div>
+        </section>
+        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
+          <img class="feed-img mt-4 ms-3" src="/assets/images/logo-Jns.jpg" alt="Friends profile image" />
+          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-75">
+          <p class="mb-0 bold-calibri">Marko Staminski</p>
+          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
+        </div>
+        <div class="mt-2 ms-3">
+          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
+          <p class="w-50 regular-calibri">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
+            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
+          </p>
+        </div>
+        <div class="d-flex align-items-end justify-content-end flex-fill me-5">
+          <div class="d-flex me-5 align-items-center fs-5">
+            <i class="fa-solid fa-comment text-success"></i>
+          <p class="m-0 ms-2">10</p>
+        </div>
+        <div class="d-flex align-items-center fs-5">
+          <i class="fa-solid fa-heart text-danger"></i>
+          <p class="m-0 ms-2">1000</p>
+        </div>
+        </div>
+        </section>
+        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
+          <img class="feed-img mt-4 ms-3" src="/assets/images/Rubber ducky 3.jpg" alt="Friends profile image" />
+          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-75">
+          <p class="mb-0 bold-calibri">Pedro Manjano</p>
+          <p class="mb-1 regular-calibri">26/08/22 19:00</p>
+        </div>
+        <div class="mt-2 ms-3">
+          <h2 class="fs-5 bold-calibri">Freedom of speech</h2>
+          <p class="w-50 regular-calibri">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
+            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
+          </p>
+        </div>
+        <div class="d-flex align-items-end justify-content-end flex-fill me-5">
+          <div class="d-flex me-5 align-items-center fs-5">
+            <i class="fa-solid fa-comment text-success"></i>
+          <p class="m-0 ms-2">90</p>
+        </div>
+        <div class="d-flex align-items-center fs-5">
+          <i class="fa-solid fa-heart text-danger"></i>
+          <p class="m-0 ms-2">30</p>
+        </div>
+        </div>
+        </section>
       </div>
       <aside class="banner-right mx-2 my-2 bg-primary"></aside>
     </main>
-    <footer class="mx-2 my-2 bg-primary">Im the footer</footer>
+    <footer class="mx-2 my-2 bg-primary"></footer>
   </body>
 </html>
