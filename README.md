@@ -1,6 +1,6 @@
-Goal
+# Goal
 To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.
-Brief
+# Brief
 You are tasked with creating 3 pages in HTML using Bootstrap and SASS:
 Homepage
 Profile page
