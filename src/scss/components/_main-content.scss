@@ -27,11 +27,6 @@ textarea {
   box-shadow: custom-styles.$container-shadow;
 }
 
-.add-btn {
-  font-size: 2em;
-  font-family: custom-styles.$gill-sans;
-}
-
 .feed-img {
   @include custom-styles.feed-image(50%, 80px);
 }
@@ -50,7 +45,7 @@ input[type="file"] {
   display: none;
 }
 
-.custom-file-upload {
+.custom-file-btn {
   @include custom-styles.element-border(5px, none);
   background-color: $danger;
   display: inline-block;

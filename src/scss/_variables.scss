@@ -10,6 +10,7 @@ $green: #59b872;
 $teal: #20c997;
 $cyan: #0dcaf0;
 $light-red: #c67476;
+$light-green: #72c387;
 
 //Solid white to black colors
 $white: #fff;
@@ -46,6 +47,7 @@ $theme-colors: (
   "light": $light,
   "dark": $dark,
   "hover-red": $light-red,
+  "hover-green": $light-green,
 );
 // scss-docs-end theme-colors-map
 
@@ -59,6 +61,7 @@ $danger: $red;
 $light: $gray-100;
 $dark: $gray-900;
 $hover-red: $light-red;
+$hover-green: $light-green;
 // scss-docs-end theme-color-variables
 
 //Spacing and margins
