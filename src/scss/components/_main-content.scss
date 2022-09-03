@@ -57,10 +57,26 @@ input[type="file"] {
   }
 }
 
-.profile-box {
-  width: 250px;
+.profile-img {
+  max-width: 100px;
 }
 
 .friends-img {
   width: 75px;
+}
+
+.fa-heart {
+  color: $danger;
+  cursor: pointer;
+  &:hover {
+    color: $hover-red;
+  }
+}
+
+.fa-comment {
+  color: $success;
+  cursor: pointer;
+  &:hover {
+    color: $hover-green;
+  }
 }
