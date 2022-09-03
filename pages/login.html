@@ -14,40 +14,42 @@
   </head>
   <body class="bg-secondary">
     <header class="fixed-top">
-      <a class="logo-box d-flex justify-content-center align-items-center" href="#">
-        <img class="w-75" src="/assets/The-social_logo.png" alt="TheSocial logo" />
-      </a>
-      <nav class="navbar navbar-expand-lg bg-primary shadow w-100">
-        <div class="container-fluid bg-primary">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
-              <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="/index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="/pages/profile.html">Profile</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-          </div>
+        <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
+        <a class="d-flex justify-content-center align-items-center" href="../index.html">
+            <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
+          </a>
         </div>
-      </nav>
-      <a class="profile-btn d-flex justify-content-center align-items-center" href="#">
-        <h2>PROFILE</h2>
-      </a>
+          <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
+            <div class="container-fluid bg-primary box">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                  <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="../index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="login.html">Profile</a>
+                  </li>
+                </ul>
+                <form class="d-flex pb-2 pb-lg-0" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          <a class="profile-btn w-25  d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="login.html">
+           <h2>PROFILE</h2>
+          </a>
     </header>
     <main class="bg-secondary">
-      <aside class="banner-left mx-2 my-2 bg-primary"></aside>
-      <div class="main-content my-2">
+      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
+      <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden">Login to theSocial</h1>
-        <h2 class="fs-1 text-center mb-7 mt-8">Login</h2>
-        <form class="w-35 regular-calibri fs-5 m-auto w-50 was-validated" action="profile.html">
+        <h2 class="fs-1 text-center mb-7 mt-7">Login</h2>
+        <form class="regular-calibri fs-5 m-auto w-75 was-validated" action="profile.html">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[^ @]*@[^ @]*" required />
@@ -63,8 +65,9 @@
           </div>
         </form>
       </div>
-      <aside class="banner-right mx-2 my-2 bg-primary"></aside>
+      </div>
+      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>
-    <footer class="mx-2 my-2 bg-primary"></footer>
+    <footer class="mx-2 my-2 bg-primary text-white">Made with bootstrap and sass</footer>
   </body>
 </html>
