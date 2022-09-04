@@ -28,7 +28,7 @@ textarea {
 }
 
 .feed-img {
-  @include custom-styles.feed-image(50%, 80px);
+  width: 80px;
 }
 
 .bold-calibri {

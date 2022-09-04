@@ -14,14 +14,8 @@ $gill-sans: gill-sans-nova, sans-serif;
 $container-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 // $container-shadow: rgba(50, 50, 93, 0.30) 0px 6px 12px -2px, rgba(0, 0, 0, 0.6) 0px 3px 7px -3px;
 
-
 // Mixins
 @mixin element-border($radius, $style) {
-    border-radius: $radius;
-    border-style: $style;
-}
-
-@mixin feed-image($radius, $size) {
-    border-radius: $radius;
-    width: $size;
+  border-radius: $radius;
+  border-style: $style;
 }
