@@ -54,5 +54,6 @@ Design files will not be included in your grade but help to provide additional c
 
 Please make sure to exclude node_modules by using a .gitignore file.
 
-Trello link for my planning.
+### Trello link for my planning.
+
 https://trello.com/b/qGfrVQZI/js-2
