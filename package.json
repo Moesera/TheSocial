@@ -1,17 +1,13 @@
 {
   "name": "css-frameworks_ca",
   "version": "1.0.0",
-  "description": "",
+  "description": "To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.\r # Brief\r You are tasked with creating 3 pages in HTML using Bootstrap and SASS:\r Homepage\r Profile page\r Login page\r The Homepage should have a feed of posts from the user’s contacts, a search bar, and a form to create a new post.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
-    "watch": "sass --watch src/scss:dist/css && live-server",
-    "preinstall": "npx npm-force-resolutions"
+    "watch": "sass --watch src/scss:dist/css && live-server"
   },
-  "resolutions": {
-    "glob-parent": "^6.0.1"
- },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sigvel/css-frameworks_ca.git"
@@ -27,8 +23,6 @@
     "bootstrap": "^5.2.0"
   },
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "sass": "^1.54.5"
+    "sass": "^1.54.9"
   }
-
 }
