@@ -1,5 +1,5 @@
 {
-  "name": "css-frameworks_ca",
+  "name": "TheSocial",
   "version": "1.0.0",
   "description": "To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.\r # Brief\r You are tasked with creating 3 pages in HTML using Bootstrap and SASS:\r Homepage\r Profile page\r Login page\r The Homepage should have a feed of posts from the user’s contacts, a search bar, and a form to create a new post.",
   "main": "index.js",
@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/Sigvel/css-frameworks_ca#readme",
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1"
   },
   "devDependencies": {
+    "jsdoc": "^3.6.11",
     "sass": "^1.54.9"
   }
 }
