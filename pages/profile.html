@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Check out TheSocial posts">
+    <meta name="description" content="write a post on your profile in TheSocial application" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://kit.fontawesome.com/d527618ed6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css" />
-    <title>TheSocial | Homepage</title>
+    <title>TheSocial | Profile</title>
   </head>
   <body class="bg-secondary">
     <header class="fixed-top">
         <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
-        <a class="d-flex justify-content-center align-items-center" href="index.html">
+        <a class="d-flex justify-content-center align-items-center" href="../index.html">
             <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
           </a>
         </div>
@@ -26,10 +26,10 @@
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                    <a class="nav-link text-white" aria-current="page" href="../index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="/pages/login.html">Profile</a>
+                    <a class="nav-link active" aria-current="page" href="profile.html">Profile</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white" aria-current="page" href="/pages/login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</a>
@@ -42,14 +42,69 @@
               </div>
             </div>
           </nav>
-          <a class="profile-btn w-25  d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="/pages/login.html">
+          <a class="profile-btn w-25  d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="/pages/profile.html">
            <h2>PROFILE</h2>
           </a>
     </header>
     <main class="bg-secondary">
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
       <div class="main-content mx-9 w-50">
-        <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
+        <h1 class="invisible overflow-hidden position-absolute">theSocial profile</h1>
+        <div class="bg-primary p-2 box">
+        <!-- Profile info container -->
+            <div class="container">
+                <div class="col">
+                    <div class="d-flex">
+            <div class="profile-img" >
+<img class="w-100 rounded-circle" src="../assets/images/Rubber ducky HAIR far.jpg" alt="Profile image">
+</div>
+<div class="col ms-3">
+    <h2 class="fs-5">Leo Gamhovich</h2>
+    <div class="col">
+        <p class="bold-calibri mb-0">Date of birth:</p>
+    <p class=" regular-calibri">19/08/1998</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-1 d-flex flex-column">
+    <p class=" bold-calibri mb-0">About:</p>
+    <p class=" regular-calibri me-xl-8"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Cumque pariatur molestias repellat quis quibusdam enim ad, 
+        sint voluptatum architecto, 
+        placeat ipsam hic totam adipisci necessitatibus aliquam illo, veniam nisi! A?</p>
+    </div>   
+        <h3 class="fs-5">Contacts</h3>
+        <div class="d-flex gap-6">
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/Rubber ducky 3.jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Manny Opsie</p>
+        </div>
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/rubber ducky close.jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Greg Mandem</p>
+        </div>
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/Rubber ducky 2.jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Oliver Helstrøm</p>
+        </div>
+    </div>
+        <div class="d-flex gap-6 mt-6">
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/last ned (4).jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Sam Smith</p>
+        </div>
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/profile-image2.jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Jack Junior</p>
+        </div>
+        <div class="friends-img">
+            <img class="w-100 rounded-circle" src="../assets/images/logo-Jns.jpg" alt="contacts image">
+            <p class="bold-calibri mb-0">Wenke bech</p>
+        </div>
+    </div>
+    </div>
+        </div>
         <h2>Create Post</h2>
         <section>
         <div class="bg-primary p-2 box">
@@ -65,11 +120,36 @@
               </label>
             <button type="button" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
         </section>
-        <h2>Feed</h2>
-        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/profile-image2.jpg" alt="Friends profile image" />
+        <h2>Profile Feed</h2>
+        <section class="bg-primary p-2 box d-flex flex-wrap">
+          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/Rubber ducky HAIR far.jpg" alt="Friends profile image" />
           <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Edgar Fjelle</p>
+          <p class="mb-0 bold-calibri">Leo Gamhovich</p>
+          <p class="mb-1 regular-calibri">26/08/22 20:10</p>
+        </div>
+        <div class="mt-2 ms-1 container-md">
+          <h2 class="fs-5 bold-calibri">Who is the man</h2>
+          <p class="w-100 regular-calibri">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
+            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
+          </p>
+        </div>
+        <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
+        <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
+          <i class="fa-solid fa-comment"></i>
+        <p class="m-0 ms-2">42</p>
+      </div>
+      <div class="d-flex align-items-center fs-5">
+        <i class="fa-solid fa-heart"></i>
+        <p class="m-0 ms-2">50</p>
+      </div>
+      </div>
+        </section>
+        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
+          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/Rubber ducky HAIR far.jpg" alt="Friends profile image" />
+          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
+          <p class="mb-0 bold-calibri">Leo Gamhovich</p>
           <p class="mb-1 regular-calibri">26/08/22 20:00</p>
         </div>
         <div class="mt-2 ms-1 container-md">
@@ -92,13 +172,13 @@
         </div>
         </section>
         <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/last ned (4).jpg" alt="Friends profile image" />
+          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/Rubber ducky HAIR far.jpg" alt="Friends profile image" />
           <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Sam Garfield</p>
-          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
+          <p class="mb-0 bold-calibri">Leo Gamhovich</p>
+          <p class="mb-1 regular-calibri">26/08/22 19:00</p>
         </div>
         <div class="mt-2 ms-1 container-md">
-          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
+          <h2 class="fs-5 bold-calibri">Freedom of speech</h2>
           <p class="w-100 regular-calibri">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Qui, consectetur at. Quisquam ex possimus, at cum tempora 
@@ -108,36 +188,11 @@
         <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
           <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
             <i class="fa-solid fa-comment"></i>
-          <p class="m-0 ms-2">10</p>
+          <p class="m-0 ms-2">90</p>
         </div>
         <div class="d-flex align-items-center fs-5">
           <i class="fa-solid fa-heart"></i>
-          <p class="m-0 ms-2">92</p>
-        </div>
-        </div>
-        </section>
-        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/logo-jns.jpg" alt="Friends profile image" />
-          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Haro oppsy</p>
-          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
-        </div>
-        <div class="mt-2 ms-1 container-md">
-          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
-          <p class="w-100 regular-calibri">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
-            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
-          </p>
-        </div>
-        <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
-          <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
-            <i class="fa-solid fa-comment"></i>
-          <p class="m-0 ms-2">10</p>
-        </div>
-        <div class="d-flex align-items-center fs-5">
-          <i class="fa-solid fa-heart"></i>
-          <p class="m-0 ms-2">92</p>
+          <p class="m-0 ms-2">30</p>
         </div>
         </div>
         </section>

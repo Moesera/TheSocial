@@ -1,0 +1,121 @@
+// Colors
+$blue: #0d6efd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #bc5b5e;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #59b872;
+$teal: #20c997;
+$cyan: #0dcaf0;
+$light-red: #c67476;
+$light-green: #72c387;
+
+//Solid white to black colors
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #828282;
+$gray-700: #515051;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// scss-docs-start theme-color-variables
+$primary: $gray-600;
+$secondary: $gray-700;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-700;
+$dark: $gray-900;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "hover-red": $light-red,
+  "hover-green": $light-green,
+);
+// scss-docs-end theme-colors-map
+
+// scss-docs-start theme-color-variables
+$primary: $gray-600;
+$secondary: $gray-700;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;
+$hover-red: $light-red;
+$hover-green: $light-green;
+// scss-docs-end theme-color-variables
+
+//Spacing and margins
+//
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+// scss-docs-end spacer-variables-maps
+
+// Position
+//
+// Define the edge positioning anchors of the position utilities.
+
+// scss-docs-start position-map
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+) !default;
+// scss-docs-end position-map
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+// scss-docs-end grid-breakpoints
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+// scss-docs-end container-max-widths
