@@ -1,6 +1,9 @@
 # Goal
+
 To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.
+
 # Brief
+
 You are tasked with creating 3 pages in HTML using Bootstrap and SASS:
 Homepage
 Profile page
@@ -16,8 +19,9 @@ You will only be working on the visuals for this project at this stage, forms do
 Submission for this project will follow the pattern used in professional development. You are required to seek feedback from your peers as well as the teachers in order to complete this assignment.
 
 ## Process
+
 1. Create a design or wireframe for each page.
-Create a new public repository on GitHub.
+   Create a new public repository on GitHub.
 
 Create a new project folder for this repository.
 
@@ -42,9 +46,13 @@ Share this Pull Request with a teacher for their approval.
 Complete the approved Pull Request, or implement the required changes.
 
 ## Delivery
+
 For peer review, please submit a link to your repository to the Moodle forum. You should review 2 of your peers’ submissions.
 Please submit your public GitHub repository URL along with any supplementary files such as wireframes. Your repo should have an active PR that the teachers will review.
 
 Design files will not be included in your grade but help to provide additional context to the marker.
 
 Please make sure to exclude node_modules by using a .gitignore file.
+
+Trello link for my planning.
+https://trello.com/b/qGfrVQZI/js-2
