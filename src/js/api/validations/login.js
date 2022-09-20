@@ -1,6 +1,6 @@
 // Url imports
 import { BASE_URL, loginUrl } from "./URLparams.mjs";
-import { feedbackMsg } from "../routes/globalVariables.mjs";
+import { feedbackMsg } from "../../globalVariables.mjs";
 
 // form element id selector.
 const loginForm = document.getElementById("loginForm");
