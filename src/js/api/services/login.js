@@ -1,6 +1,6 @@
 // Url imports
-import { BASE_URL, loginUrl } from "./URLparams.mjs";
-import { feedbackMsg } from "../../globalVariables.mjs";
+import { BASE_URL, loginUrl } from "../helpers/URLparams.mjs";
+import { feedbackMsg } from "../helpers/globalVariables.mjs";
 
 // form element id selector.
 const loginForm = document.getElementById("loginForm");
@@ -10,8 +10,8 @@ loginForm.addEventListener("submit", userLogin);
 
 /**
  * This function will send a post request to the API, to login an user to receive a token.
- * @param {string} event Contains the event from the event listener
- * @param {string} form Contains the target from the event listener
+ * @param {object} event Contains the event from the event listener
+ * @param {object} form Contains the target from the event listener
  * @param {string} email Contains the email value from the form
  * @param {string} password Contains the password value from the form
  * @returns response from the api.
@@ -29,14 +29,14 @@ function userLogin(event) {
 
   const form = event.target;
 
-  const email = form.email.value;
-  const password = form.password.value;
+  const userEmail = form.email.value;
+  const userPassword = form.password.value;
 
   fetch(`${BASE_URL}${loginUrl}`, {
     method: "POST",
     body: JSON.stringify({
-      email: email,
-      password: password,
+      email: userEmail,
+      password: userPassword,
     }),
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -56,7 +56,9 @@ function userLogin(event) {
           loginForm.reset();
         }, 50);
       } else {
-        localStorage.setItem("user", JSON.stringify(json));
+        localStorage.setItem("accessToken", JSON.stringify(json.accessToken));
+        localStorage.setItem("username", JSON.stringify(json.name));
+        localStorage.setItem("userAvatar", JSON.stringify(json.avatar));
 
         setTimeout(() => {
           window.location.replace("/pages/profile.html");
