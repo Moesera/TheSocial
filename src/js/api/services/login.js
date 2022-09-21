@@ -58,7 +58,6 @@ function userLogin(event) {
       } else {
         localStorage.setItem("accessToken", JSON.stringify(json.accessToken));
         localStorage.setItem("username", JSON.stringify(json.name));
-        localStorage.setItem("userAvatar", JSON.stringify(json.avatar));
 
         setTimeout(() => {
           window.location.replace("/pages/profile.html");
