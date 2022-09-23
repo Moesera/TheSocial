@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Check out TheSocial posts">
+    <meta name="description" content="Check out TheSocial posts" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -14,38 +14,38 @@
   </head>
   <body class="bg-secondary">
     <header class="fixed-top">
-        <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
+      <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
         <a class="d-flex justify-content-center align-items-center" href="index.html">
-            <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
-          </a>
+          <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
+        </a>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
+        <div class="container-fluid bg-primary box">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/pages/profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" aria-current="page" href="/pages/login.html" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</a>
+              </li>
+            </ul>
+            <form class="d-flex pb-2 pb-lg-0" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
         </div>
-          <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
-            <div class="container-fluid bg-primary box">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="/pages/profile.html">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="/pages/login.html" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</a>
-                  </li>
-                </ul>
-                <form class="d-flex pb-2 pb-lg-0" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-              </div>
-            </div>
-          </nav>
-          <a class="profile-btn w-25  d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="/pages/profile.html">
-           <h2>PROFILE</h2>
-          </a>
+      </nav>
+      <a class="profile-btn w-25 d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="/pages/profile.html">
+        <h2>PROFILE</h2>
+      </a>
     </header>
     <main class="bg-secondary">
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
@@ -53,95 +53,29 @@
         <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
         <h2>Create Post</h2>
         <section>
-        <div class="bg-primary p-2 box">
-          <input class="form-control w-50" type="text" placeholder="Title" aria-label=".form-control-sm example" />
-        </div>
-        <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
-          <label for="exampleFormControlTextarea1" class="form-label"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Whats on your mind ?"></textarea>
-          <div class="d-flex justify-content-between mt-2">
-            <label class="custom-file-btn text-white">
-                IMAGE
-                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" placeholder="IMAGE" />
-              </label>
-            <button type="button" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
+          <!-- Start for create post form -->
+          <form id="createPost">
+            <div class="bg-primary p-2 box">
+              <input class="form-control w-50" name="postTitle" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2" required />
+            </div>
+            <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
+              <label for="createTextarea" class="form-label"></label>
+              <textarea class="form-control" name="createTextarea" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
+              <div class="d-flex justify-content-between mt-2">
+                <label class="custom-file-btn text-white" for="imageInput">
+                  IMAGE URL
+                  <input type="url" name="imageInput" class="form-control-file ms-2" id="imageInput" aria-describedby="fileHelp" />
+                </label>
+                <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </form>
+          <!-- End of create post input form  -->
         </section>
         <h2>Feed</h2>
-        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/profile-image2.jpg" alt="Friends profile image" />
-          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Edgar Fjelle</p>
-          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
-        </div>
-        <div class="mt-2 ms-1 container-md">
-          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
-          <p class="w-100 regular-calibri">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
-            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
-          </p>
-        </div>
-        <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
-          <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
-            <i class="fa-solid fa-comment"></i>
-          <p class="m-0 ms-2">10</p>
-        </div>
-        <div class="d-flex align-items-center fs-5">
-          <i class="fa-solid fa-heart"></i>
-          <p class="m-0 ms-2">92</p>
-        </div>
-        </div>
-        </section>
-        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/last ned (4).jpg" alt="Friends profile image" />
-          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Sam Garfield</p>
-          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
-        </div>
-        <div class="mt-2 ms-1 container-md">
-          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
-          <p class="w-100 regular-calibri">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
-            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
-          </p>
-        </div>
-        <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
-          <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
-            <i class="fa-solid fa-comment"></i>
-          <p class="m-0 ms-2">10</p>
-        </div>
-        <div class="d-flex align-items-center fs-5">
-          <i class="fa-solid fa-heart"></i>
-          <p class="m-0 ms-2">92</p>
-        </div>
-        </div>
-        </section>
-        <section class="bg-primary p-2 box d-flex flex-wrap mt-2">
-          <img class="feed-img mt-4 ms-3 rounded-circle" src="../assets/images/logo-jns.jpg" alt="Friends profile image" />
-          <div class="d-flex flex-column align-self-center ms-3 mt-4 w-50">
-          <p class="mb-0 bold-calibri">Haro oppsy</p>
-          <p class="mb-1 regular-calibri">26/08/22 20:00</p>
-        </div>
-        <div class="mt-2 ms-1 container-md">
-          <h2 class="fs-5 bold-calibri">Alle i en båt</h2>
-          <p class="w-100 regular-calibri">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Qui, consectetur at. Quisquam ex possimus, at cum tempora 
-            ullam est ea natus ipsam. Fugit, laborum dolore quod aspernatur optio delectus nemo?
-          </p>
-        </div>
-        <div class="d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5">
-          <div class="d-flex me-4 me-lg-5 align-items-center fs-5">
-            <i class="fa-solid fa-comment"></i>
-          <p class="m-0 ms-2">10</p>
-        </div>
-        <div class="d-flex align-items-center fs-5">
-          <i class="fa-solid fa-heart"></i>
-          <p class="m-0 ms-2">92</p>
-        </div>
-        </div>
-        </section>
+        <!-- Start of post feed  -->
+        <section class="box d-flex flex-wrap mt-2" id="postContainer"></section>
+        <!-- End of post feed  -->
       </div>
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>
