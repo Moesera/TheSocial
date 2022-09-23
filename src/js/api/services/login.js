@@ -55,15 +55,13 @@ function userLogin(event) {
         setTimeout(() => {
           loginForm.reset();
         }, 50);
-      } else {
-        localStorage.setItem("accessToken", JSON.stringify(json.accessToken));
-        localStorage.setItem("username", JSON.stringify(json.name));
-        localStorage.setItem("userAvatar", JSON.stringify(json.avatar));
-
-        setTimeout(() => {
-          window.location.replace("/pages/profile.html");
-        }, 50);
       }
+      localStorage.setItem("accessToken", JSON.stringify(json.accessToken));
+      localStorage.setItem("username", JSON.stringify(json.name));
+
+      setTimeout(() => {
+        window.location.replace("/pages/profile.html");
+      }, 50);
     })
     .catch((error) => console.log("error", error));
 }
