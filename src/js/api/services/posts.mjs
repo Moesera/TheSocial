@@ -1,5 +1,35 @@
 import { checkUserAuth } from "../routes/authentication.mjs";
 
+// CREATE POST FEATURE
+
+export function createPostFetch(event) {
+  event.preventDefault();
+
+  const form = event.target;
+
+  try {
+    const token = "Bearer " + JSON.parse(localStorage.getItem("accessToken"));
+    fetch(BASE_URL + postUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        title: form.postTitle.value,
+        body: form.createTextarea.value,
+        media: form.imageInput.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// DISPLAY POST FEATURE
+
 /**
  * This function gets all posts to display on homepage.
  * @param {string} url contains the string combination to retrieve posts.
