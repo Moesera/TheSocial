@@ -1,6 +1,15 @@
 import { token } from "./user.mjs";
 
 /**
+ * User logout function.
+ * clears localStorage and triggers checkUserAuth()
+ */
+export function logOut() {
+  localStorage.clear();
+  checkUserAuth();
+}
+
+/**
  * @param {object} token has the value of the userToken. 
  * @returns True or false
  * @example
