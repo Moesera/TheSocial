@@ -1,4 +1,6 @@
+// IMPORTS
 import { checkUserAuth } from "../routes/authentication.mjs";
+import { BASE_URL, postUrl } from "../helpers/URLparams.mjs";
 
 // CREATE POST FEATURE
 
@@ -49,11 +51,13 @@ export async function fetchPosts(url) {
         Authorization: `${token}`,
       },
     };
+
     const response = await fetch(url, postsData);
     console.log(response);
     const json = await response.json();
+    console.log(json);
 
-    const data = json;
+    // const data = json;
 
     /**
      * Creates posts on the post page.
@@ -70,7 +74,7 @@ export async function fetchPosts(url) {
  */
 function createPosts(postArray) {
   // container for posts.
-  const container = document.getElementById("postContainer");
+  const container = document.getElementById("postsContainer");
 
   postArray.forEach((post) => {
     // Replace "T" with ", " and remove everything after "."
@@ -78,6 +82,18 @@ function createPosts(postArray) {
     const newDate = splitCode[0];
     const dateCreated = newDate.replace("T", ", ");
 
+    // Checks if the user has profile image or not. Should maybe be more directed to an regex combination?..
+    let userAvatar;
+
+    if (!post.author.avatar || post.author.avatar === "string") {
+      userAvatar = "/assets/images/default-imgs/avatar-placeholder.png";
+    } else if (post.author.avatar === "https://img.service.com/avatar.jpg") {
+      userAvatar = "/assets/images/default-imgs/avatar-placeholder.png";
+    } else {
+      userAvatar = post.author.avatar;
+    }
+
+    // This checks if the post has image if not it should not show it, There is still posts that show, maybe use regex here ?
     let postMedia;
 
     // checks if the media is a string or is available if not returns empty.
@@ -96,7 +112,7 @@ function createPosts(postArray) {
                                 <div class="card-body row">
                                   <div class="col-1 p-0">
                                   <div>
-                                    <img class="w-100 rounded-circle" src="../assets/images/last ned (4).jpg" alt="${post.author.name}'s profile image">
+                                    <img class="w-100 rounded-circle" src="${userAvatar}" alt="${post.author.name}'s profile image">
                                     </div> 
                                   </div>  
                                   <div class="d-flex flex-column align-self-center w-50 col-6">
