@@ -1,50 +1,39 @@
-// Url imports
-import { BASE_URL, loginUrl } from "../helpers/URLparams.mjs";
-import { feedbackMsg } from "../helpers/globalVariables.mjs";
-
-// form element id selector.
-const loginForm = document.getElementById("loginForm");
-
-// event listener for the submission of the form.
-loginForm.addEventListener("submit", userLogin);
+import { feedbackMsg, BASE_URL, loginUrl } from "../helpers/constants.mjs";
 
 /**
  * This function will send a post request to the API, to login an user to receive a token.
- * @param {object} event Contains the event from the event listener
- * @param {object} form Contains the target from the event listener
- * @param {string} email Contains the email value from the form
- * @param {string} password Contains the password value from the form
+ * @param {object} user form data from eventlistener.
+ * @param {object} body converting form data to string before its inserted to the api call.
  * @returns response from the api.
  * @example
  * ´´´js
- * //  This function is used to transfer the user to the profile page after successful response from the api.
- *  setTimeout(() => {
- *   window.location.replace("/pages/profile.html");
+ * // This function is used to transfer the user to the profile page after successful login.
+ * // Adjust parameter for time at the end of the function.
+ * setTimeout(() => {
+ *  window.location.replace("/pages/profile.html");
  * }, 50);
  * // Transfers to another page after 0.05 second.
+ *
+ * //This function is used to reset the form after faulty input, adjust parameter for time at end of function.
+ * setTimeout(() => {
+ *  loginForm.reset();
+ * }, 50);
+ * // transfers user after 0.05 seconds.
  * ´´´
  */
-function userLogin(event) {
-  event.preventDefault();
-
-  const form = event.target;
-
-  const userEmail = form.email.value;
-  const userPassword = form.password.value;
+export function userLogin(user) {
+  const body = JSON.stringify(user);
 
   fetch(`${BASE_URL}${loginUrl}`, {
     method: "POST",
-    body: JSON.stringify({
-      email: userEmail,
-      password: userPassword,
-    }),
+    body,
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
   })
     .then((response) => response.json())
-    .then((json) => {
-      if (json.message) {
+    .then(({ accessToken, ...user }) => {
+      if (user.message || accessToken === undefined) {
         feedbackMsg.classList.add("alert-danger");
         feedbackMsg.classList.add("alert");
         feedbackMsg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2 bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -56,8 +45,8 @@ function userLogin(event) {
           loginForm.reset();
         }, 50);
       } else {
-        localStorage.setItem("accessToken", JSON.stringify(json.accessToken));
-        localStorage.setItem("username", JSON.stringify(json.name));
+        localStorage.setItem("token", JSON.stringify(accessToken));
+        localStorage.setItem("user", JSON.stringify(user));
 
         setTimeout(() => {
           window.location.replace("/pages/profile.html");

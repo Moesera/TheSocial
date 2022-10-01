@@ -1,21 +1,24 @@
-import { checkUserAuth } from "./api/routes/authentication.mjs";
+import { logout, checkUserAuth } from "./api/auth/userAuth.mjs";
+// import { BASE_URL, postUrl, profileUrl, postsOption } from "./api/helpers/constants.mjs";
+import { registerUser } from "./api/auth/register.mjs";
+import { loginUser } from "./api/auth/login.mjs";
 
-/**
- * imported feature, checks if the user has valid access token or not.
- */
-checkUserAuth();
+if (location.pathname !== "/pages/login.html") {
+  checkUserAuth();
+}
+
+// loginUser also
+if (location.pathname === "/pages/createAcc.html") {
+  registerUser();
+} else if (location.pathname === "/pages/login.html") {
+  loginUser();
+}
+
+// LOGOUT FEATURE
 
 // Gets logout button element by id.
-const logout = document.getElementById("logoutBtn");
-
-// Event listener for logging out.
-logout.addEventListener("click", logOut);
-
-/**
- * User logout function.
- * clears localStorage and triggers checkUserAuth()
- */
-function logOut() {
-  localStorage.clear();
-  checkUserAuth();
+if (location.pathname !== "/pages/login.html") {
+  const logoutBtn = document.getElementById("logoutBtn");
+  // event listener for logout button click.
+  logoutBtn.addEventListener("click", logout);
 }

@@ -1,12 +1,5 @@
 // Url imports
-import { BASE_URL, registerUrl } from "../helpers/URLparams.mjs";
-import { feedbackMsg } from "../helpers/globalVariables.mjs";
-
-// form element id selector.
-const registerForm = document.getElementById("registerForm");
-
-// event listener for the submission of the form.
-registerForm.addEventListener("submit", createAccount);
+import { BASE_URL, registerUrl, feedbackMsg } from "../helpers/constants.mjs";
 
 /**
  * This function will send a post request to the API, creating a user.
@@ -25,27 +18,17 @@ registerForm.addEventListener("submit", createAccount);
  * //Resets form inputs after 1 second.
  * ```
  */
-function createAccount(event) {
-  event.preventDefault();
-
-  const form = event.target;
-
-  const username = form.username.value;
-  const userEmail = form.email.value;
-  const userPassword = form.password.value;
-
+export function registerAccount(profile) {
   setTimeout(() => {
     registerForm.reset();
   }, 1000);
 
+  const body = JSON.stringify(profile);
+
   try {
     fetch(`${BASE_URL}${registerUrl}`, {
       method: "POST",
-      body: JSON.stringify({
-        name: username,
-        email: userEmail,
-        password: userPassword,
-      }),
+      body,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
