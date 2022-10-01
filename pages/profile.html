@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://kit.fontawesome.com/d527618ed6.js" crossorigin="anonymous"></script>
-    <script src="/src/js/api/routes/user.mjs" type="module" defer></script>
     <script src="/src/js/index.js" type="module" defer></script>
     <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css" />
     <title>TheSocial | Profile</title>
@@ -116,11 +115,12 @@
             <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
               <label for="createTextarea" class="form-label"></label>
               <textarea class="form-control" name="createTextarea" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
-              <div class="d-flex justify-content-between mt-2">
-                <label class="custom-file-btn text-white" for="imageInput">
-                  IMAGE URL
-                  <input type="url" name="imageInput" class="form-control-file ms-2" id="imageInput" aria-describedby="fileHelp" />
+              <div class="mt-2">
+                <label class="form-label" for="imageInput">
+                  <input type="url" name="imageInput" class="form-control border-0" size="150" id="imageInput" aria-describedby="fileHelp" placeholder="Media" />
                 </label>
+              </div>
+              <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
               </div>
             </div>
