@@ -1,23 +1,32 @@
-import { logOut } from "./api/routes/authentication.mjs";
-import { BASE_URL, postUrl, profileUrl, postsOption } from "./api/helpers/URLparams.mjs";
-import { userPosts } from "./api/services/profilePosts.mjs";
-import { fetchPosts, createPostFetch } from "./api/services/posts.mjs";
+import { logout, checkUserAuth } from "./api/auth/userAuth.mjs";
+import { BASE_URL, postUrl, profileUrl, postsOption } from "./api/helpers/constants.mjs";
+import { userPosts } from "./api/posts/profilePosts.mjs";
+import { fetchPosts } from "./api/posts/posts.mjs";
+import { registerUser } from "./api/auth/register.mjs";
+import { loginUser } from "./api/auth/login.mjs";
+import { user } from "./api/storage/user.mjs";
 
-const checkLocation = () => {
-  if (window.location.pathname === "/pages/profile.html") {
-    // Profile Posts
-    userPosts(BASE_URL + profileUrl + JSON.parse(localStorage.getItem("username")));
-  } else {
-    //Homepage posts.
-    fetchPosts(BASE_URL + postUrl + postsOption);
-  }
-};
+if (location.pathname !== "/pages/login.html") {
+  checkUserAuth();
+}
 
-checkLocation();
+// loginUser also
+if (location.pathname === "/pages/createAcc.html") {
+  registerUser();
+} else if (location.pathname === "/pages/login.html") {
+  loginUser();
+}
 
-//Create post form event listener and html element by id.
-const createPostForm = document.getElementById("createPost");
-createPostForm.addEventListener("submit", createPostFetch);
+if (location.pathname === "/pages/profile.html") {
+  // Profile Posts
+  userPosts(BASE_URL + profileUrl + user.name);
+} else if (location.pathname === "/index.html") {
+  //Homepage posts.
+  fetchPosts(BASE_URL + postUrl + postsOption);
+}
+
+//Create post.
+// createPostForm.addEventListener("submit", createPostFetch);
 
 // DELETE POST FEATURE !
 
@@ -31,7 +40,7 @@ createPostForm.addEventListener("submit", createPostFetch);
 //         Authorization: `${token}`,
 //       },
 //     };
-//     const response = await fetch(BASE_URL + postUrl + "/" + 224, postsData);
+//     const response = await fetch(BASE_URL + postUrl + "/" + 332, postsData);
 //     console.log(response);
 //     const json = await response.json();
 //     console.log(json);
@@ -45,7 +54,8 @@ createPostForm.addEventListener("submit", createPostFetch);
 // LOGOUT FEATURE
 
 // Gets logout button element by id.
-const logout = document.getElementById("logoutBtn");
-
-// Event listener for logging out.
-logout.addEventListener("click", logOut);
+if (location.pathname !== "/pages/login.html") {
+  const logoutBtn = document.getElementById("logoutBtn");
+  // event listener for logout button click.
+  logoutBtn.addEventListener("click", logout);
+}
