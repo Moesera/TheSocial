@@ -25,32 +25,6 @@ if (location.pathname === "/pages/profile.html") {
   fetchPosts(BASE_URL + postUrl + postsOption);
 }
 
-//Create post.
-// createPostForm.addEventListener("submit", createPostFetch);
-
-// DELETE POST FEATURE !
-
-// export async function deletePost() {
-//   try {
-//     const token = "Bearer " + JSON.parse(localStorage.getItem("accessToken"));
-//     const postsData = {
-//       method: "DELETE",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `${token}`,
-//       },
-//     };
-//     const response = await fetch(BASE_URL + postUrl + "/" + 332, postsData);
-//     console.log(response);
-//     const json = await response.json();
-//     console.log(json);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// deletePost();
-
 // LOGOUT FEATURE
 
 // Gets logout button element by id.
