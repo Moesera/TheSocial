@@ -1,4 +1,4 @@
-import { accessToken } from "../storage/user.mjs";
+import { load } from "../storage/user.mjs";
 
 /**
  * User logout function.
@@ -26,7 +26,7 @@ export const logout = () => {
    ´´´
    */
 export const checkUserAuth = () => {
-  if (accessToken === null) {
+  if (load("token") === null) {
     window.location.replace("/pages/login.html");
   } else {
     return;
