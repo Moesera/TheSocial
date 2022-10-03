@@ -22,7 +22,15 @@
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
         <div class="container-fluid bg-primary box">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
@@ -55,11 +63,20 @@
         <form class="regular-calibri fs-5 m-auto mb-5 w-75 was-validated" id="registerForm" action="../pages/login.html">
           <div class="mb-3">
             <label for="name" class="form-label">Username</label>
-            <input type="text" name="name" class="form-control" id="registerUsername" minlength="8" required />
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="registerUsername"
+              minlength="8"
+              pattern="^[\w]+$"
+              title="Must only contain letters, numbers & underscore (_) Example: user_name321"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" pattern="^[\w\-.]+@(stud.)?noroff.no$" required />
+            <input type="email" name="email" class="form-control" pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Must be (stud.)noroff.no domains to register" required />
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
