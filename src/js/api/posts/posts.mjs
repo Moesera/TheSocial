@@ -50,6 +50,7 @@ function createPosts(postArray) {
 
     // Assembling post content
     postsBodyContent.append(
+      create.deleteButton(posts.id),
       create.userAvatar(posts.author.name, userAvatar),
       create.postInfo(posts.author.name, dateCreated),
       create.postContent(posts.title, posts.body),
@@ -58,7 +59,7 @@ function createPosts(postArray) {
 
     // Wrapper for all content
     const contentWrapper = document.createElement("div");
-    contentWrapper.className = "card bg-primary border-0";
+    contentWrapper.className = "card bg-primary border-0 w-100";
 
     // Wrapper for post content, header image goes outside of the body content.
     contentWrapper.append(create.postHeader(posts.media), postsBodyContent);

@@ -63,7 +63,7 @@ export const userAvatar = (author, userAvatar) => {
   postAvatarContainer.className = "col-1 p-0";
 
   const avatar = document.createElement("img");
-  avatar.className = "w-100 rounded-circle";
+  avatar.className = "rounded-circle w-100";
   avatar.src = userAvatar;
   avatar.alt = `${author}'s avatar`;
 
@@ -126,7 +126,7 @@ export const postReactions = (comments, likes) => {
   const likeWrapper = document.createElement("div");
   likeWrapper.className = "d-flex align-items-center fs-5";
 
-  const likeIcon = document.createElement("div");
+  const likeIcon = document.createElement("i");
   likeIcon.className = "fa-solid fa-heart";
 
   const likeCounter = document.createElement("p");
@@ -142,4 +142,24 @@ export const postReactions = (comments, likes) => {
   const reactionElement = reactionWrapper;
 
   return reactionElement;
+};
+
+/**
+ * This creates the delete button for the post
+ * @param {number} id contains the id value of the post.
+ * @returns a constructed HTML object of an cross icon.
+ */
+export const deleteButton = (id) => {
+  const btnContainer = document.createElement("div");
+  btnContainer.className = "d-flex justify-content-end";
+  btnContainer.id = id;
+
+  const deleteIcon = document.createElement("i");
+  deleteIcon.className = "fa-solid fa-xmark fs-4";
+
+  btnContainer.appendChild(deleteIcon);
+
+  const deleteButton = btnContainer;
+
+  return deleteButton;
 };
