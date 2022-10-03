@@ -82,3 +82,13 @@ textarea {
     color: $hover-green;
   }
 }
+
+.fa-xmark {
+  text-decoration: none;
+  color: $secondary;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+}
