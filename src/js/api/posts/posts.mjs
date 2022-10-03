@@ -1,7 +1,7 @@
 // Imports
+import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
-import * as create from "../helpers/postsElement.mjs";
-import * as storage from "../storage/user.mjs";
+import * as create from "../helpers/postsHTML.mjs";
 import * as response from "./responseFilter/filterResponse.mjs";
 
 /**
@@ -12,18 +12,15 @@ export async function fetchPosts(url) {
   checkUserAuth();
 
   try {
-    const token = "Bearer " + storage.accessToken;
     const postsData = {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-      },
+      headers: headers(),
     };
 
     const response = await fetch(url, postsData);
     const json = await response.json();
     const data = json;
+    console.log(data);
 
     createPosts(data);
   } catch (error) {
