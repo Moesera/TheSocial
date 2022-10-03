@@ -6,7 +6,6 @@ import { registerUser } from "./api/auth/register.mjs";
 import { loginUser } from "./api/auth/login.mjs";
 import { user } from "./api/storage/user.mjs";
 import { createPost, createPostForm } from "./api/posts/createPost.mjs";
-import { deletePost } from "./api/posts/deletePost.mjs";
 
 // checks if user has token, if not is sent to login page
 if (location.pathname !== "/pages/login.html") {
@@ -40,5 +39,3 @@ if (location.pathname !== "/pages/login.html") {
   // Event listener for create form post.
   createPostForm.addEventListener("submit", createPost);
 }
-
-// deletePost();

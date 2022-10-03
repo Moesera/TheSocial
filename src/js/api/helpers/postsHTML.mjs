@@ -1,3 +1,5 @@
+import { deletePost } from "../posts/deletePost.mjs";
+
 /**
  * This functions builds the media element for the posts
  * @param {string} postMedia Contains the post media from API.
@@ -152,10 +154,12 @@ export const postReactions = (comments, likes) => {
 export const deleteButton = (id) => {
   const btnContainer = document.createElement("div");
   btnContainer.className = "d-flex justify-content-end";
-  btnContainer.id = id;
 
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-4";
+  deleteIcon.id = id;
+
+  deleteIcon.addEventListener("click", deletePost);
 
   btnContainer.appendChild(deleteIcon);
 

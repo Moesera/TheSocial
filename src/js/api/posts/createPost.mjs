@@ -19,9 +19,13 @@ export async function createPost(event) {
     headers: headers(),
   });
 
-  setTimeout(() => {
-    createPostForm.reset();
-  }, 100);
+  console.log(response);
+
+  if (response.ok === false) {
+    return;
+  } else {
+    window.location.reload();
+  }
 
   return await response.json();
 }
