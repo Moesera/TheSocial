@@ -1,7 +1,7 @@
 // Imports
 import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
-import * as create from "../helpers/postsHTML.mjs";
+import * as create from "./html/post.mjs";
 import * as response from "./responseFilter/filterResponse.mjs";
 
 /**
@@ -54,7 +54,8 @@ function createPosts(postArray) {
       create.userAvatar(posts.author.name, userAvatar),
       create.postInfo(posts.author.name, dateCreated),
       create.postContent(posts.title, posts.body),
-      create.postReactions(posts._count.comments, posts._count.reactions)
+      create.postReactions(posts._count.comments, posts._count.reactions),
+      create.editButton(posts.id)
     );
 
     // Wrapper for all content
@@ -67,7 +68,6 @@ function createPosts(postArray) {
     // Post container because otherwise my layout gets destroyed. NOTE: might find another way around this.
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
-    post.id = `${posts.id}`;
 
     // Appends post elements to post container.
     post.append(contentWrapper);

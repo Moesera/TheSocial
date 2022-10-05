@@ -1,7 +1,7 @@
 import { headers } from "../auth/fetchAuth.mjs";
 import { profileOption } from "../helpers/constants.mjs";
 import * as response from "./responseFilter/filterResponse.mjs";
-import * as create from "../helpers/postsHTML.mjs";
+import * as create from "./html/post.mjs";
 
 export async function userPosts(url) {
   try {
