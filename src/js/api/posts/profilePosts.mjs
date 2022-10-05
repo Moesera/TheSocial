@@ -1,6 +1,6 @@
 import { headers } from "../auth/fetchAuth.mjs";
 import { profileOption } from "../helpers/constants.mjs";
-import * as response from "./responseFilter/filterResponse.mjs";
+import * as response from "./handlers/filterResponse.mjs";
 import * as create from "./html/post.mjs";
 
 export async function userPosts(url) {
@@ -32,7 +32,7 @@ function createProfilePosts(responseData) {
 
   postArray.forEach((posts) => {
     // Replace "T" with ", " and remove everything after "."
-    const splittedDate = posts.created.split(".");
+    const splittedDate = posts.updated.split(".");
     const newDate = splittedDate[0];
     const dateCreated = newDate.replace("T", ", ");
 
@@ -43,7 +43,13 @@ function createProfilePosts(responseData) {
     const postsBodyContent = create.postWrapper();
 
     // Assembling post content
-    postsBodyContent.append(create.userAvatar(posts.owner, userAvatar), create.postInfo(posts.owner, dateCreated), create.postContent(posts.title, posts.body));
+    postsBodyContent.append(
+      create.deleteButton(posts.id),
+      create.userAvatar(posts.owner, userAvatar),
+      create.postInfo(posts.owner, dateCreated),
+      create.postContent(posts.title, posts.body),
+      create.editButton(posts.id)
+    );
 
     // wrapper for all content
     const contentWrapper = document.createElement("div");

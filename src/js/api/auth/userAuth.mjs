@@ -10,13 +10,13 @@ export const logout = () => {
 };
 
 /**
-   * @param {object} token has the value of the userToken. 
+   * checks user token using the fetch token function. 
    * @returns True or false
    * @example
    * ´´´js
    * // Checks if the user has valid auth token.
    * export function checkUserAuth() {
-   * if (token === null) {
+   * if (load("token") === null) {
    *   window.location.replace("/pages/login.html");
    * } else {
    *   return;

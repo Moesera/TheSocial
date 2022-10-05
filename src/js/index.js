@@ -1,11 +1,11 @@
 import { logout, checkUserAuth } from "./api/auth/userAuth.mjs";
 import { BASE_URL, postUrl, profileUrl, postsOption } from "./api/helpers/constants.mjs";
 import { userPosts } from "./api/posts/profilePosts.mjs";
-import { fetchPosts } from "./api/posts/posts.mjs";
+import { fetchPosts } from "./api/posts/postsFeed.mjs";
 import { registerUser } from "./api/auth/register.mjs";
 import { loginUser } from "./api/auth/login.mjs";
 import { user } from "./api/storage/user.mjs";
-import { createPost, createPostForm } from "./api/posts/createPost.mjs";
+import { createPostFormData, createPostForm } from "./api/posts/handlers/create.mjs";
 
 // checks if user has token, if not is sent to login page
 if (location.pathname !== "/pages/login.html") {
@@ -28,8 +28,6 @@ if (location.pathname === "/pages/profile.html") {
   fetchPosts(BASE_URL + postUrl + postsOption);
 }
 
-// LOGOUT FEATURE
-
 // Gets logout button element by id. This button does not exist on login page, made to exclude error
 if (location.pathname !== "/pages/login.html") {
   const logoutBtn = document.getElementById("logoutBtn");
@@ -37,5 +35,5 @@ if (location.pathname !== "/pages/login.html") {
   logoutBtn.addEventListener("click", logout);
 
   // Event listener for create form post.
-  createPostForm.addEventListener("submit", createPost);
+  createPostForm.addEventListener("submit", createPostFormData);
 }

@@ -1,5 +1,7 @@
 import { deletePost } from "../deletePost.mjs";
-import { updatePostForm } from "../updatePost.mjs";
+import { updatePostForm } from "../handlers/update.mjs";
+import * as response from "../handlers/filterResponse.mjs";
+import { user } from "../../storage/user.mjs";
 
 /**
  * This functions builds the media element for the posts
@@ -16,17 +18,6 @@ export const postHeader = (postMedia) => {
   const postHead = postHeadImg;
 
   return postHead;
-};
-
-/**
- * Creates a div/container for the post body content.
- * @returns a div element.
- */
-export const postWrapper = () => {
-  const postBodyContainer = document.createElement("div");
-  postBodyContainer.className = "card-body row pb-0";
-
-  return postBodyContainer;
 };
 
 /**
@@ -169,6 +160,11 @@ export const deleteButton = (id) => {
   return deleteButton;
 };
 
+/**
+ * This function creates the edit post text.
+ * @param {number} id Contains the id of the post.
+ * @returns a edit post html text.
+ */
 export const editButton = (id) => {
   const editContainer = document.createElement("div");
   editContainer.className = "d-flex justify-content-start ps-0 mt-3";
@@ -185,4 +181,55 @@ export const editButton = (id) => {
   const editBtn = editContainer;
 
   return editBtn;
+};
+
+/**
+ * This functions is assembling the post HTML.
+ * @param {object} post Contains the values from the API.
+ * @returns assembled post HTML.
+ */
+export const postHtml = (post) => {
+  // Replace "T" with ", " and remove everything after "."
+  const splittedDate = post.created.split(".");
+  const newDate = splittedDate[0];
+  const dateCreated = newDate.replace("T", ", ");
+
+  // Filters bad avatar images and returns placeholder image if there is none.
+  let avatar = response.checkAvatar(post.author.avatar);
+
+  // Checks if the post belongs to the user and then adds delete and edit button.
+  let postEdit;
+  let postDelete;
+
+  if (post.author.name === user.name) {
+    postEdit = editButton(post.id);
+    postDelete = deleteButton(post.id);
+  } else {
+    postEdit = "";
+    postDelete = "";
+  }
+
+  // Wrapper for my body content
+  const postsBodyContent = document.createElement("div");
+  postsBodyContent.className = "card-body row pb-0";
+
+  // Assembling post content
+  postsBodyContent.append(
+    postDelete,
+    userAvatar(post.author.name, avatar),
+    postInfo(post.author.name, dateCreated),
+    postContent(post.title, post.body),
+    postReactions(post._count.comments, post._count.reactions),
+    postEdit
+  );
+
+  // Wrapper for all content
+  const contentWrapper = document.createElement("div");
+  contentWrapper.className = "card bg-primary border-0 w-100";
+
+  // Wrapper for post content, header image goes outside of the body content.
+  contentWrapper.append(postHeader(post.media), postsBodyContent);
+
+  const posts = contentWrapper;
+  return posts;
 };

@@ -1,25 +1,24 @@
 import { headers } from "../auth/fetchAuth.mjs";
 import { BASE_URL, postUrl } from "../helpers/constants.mjs";
 
-// CREATE POST FEATURE
-export const createPostForm = document.getElementById("createPost");
+/**
+ * This function will send the values from the from to the API.
+ * @param {object} event Contains the form submit event.
+ * @returns The values including an id.
+ */
+export async function createPost(postData) {
+  // checks if the formData has media, delete's it if it's empty.
+  if (!postData.media || postData.media === "") {
+    delete postData.media;
+  }
 
-export async function createPost(event) {
-  event.preventDefault();
-
-  const form = event.target;
+  const body = JSON.stringify(postData);
 
   const response = await fetch(BASE_URL + postUrl, {
     method: "POST",
-    body: JSON.stringify({
-      title: form.postTitle.value,
-      body: form.createTextarea.value,
-      media: form.imageInput.value,
-    }),
+    body,
     headers: headers(),
   });
-
-  console.log(response);
 
   if (response.ok === false) {
     return;
