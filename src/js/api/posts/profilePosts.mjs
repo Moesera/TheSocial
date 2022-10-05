@@ -40,7 +40,7 @@ function createProfilePosts(responseData) {
     let userAvatar = response.checkAvatar(avatar);
 
     // wrapper for my body content
-    const postsBodyContent = create.postWrapper();
+    const postsBodyContent = create.postBodyContainer();
 
     // Assembling post content
     postsBodyContent.append(

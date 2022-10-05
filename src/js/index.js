@@ -4,7 +4,6 @@ import { userPosts } from "./api/posts/profilePosts.mjs";
 import { fetchPosts } from "./api/posts/postsFeed.mjs";
 import { registerUser } from "./api/auth/register.mjs";
 import { loginUser } from "./api/auth/login.mjs";
-import { user } from "./api/storage/user.mjs";
 import { createPostFormData, createPostForm } from "./api/posts/handlers/create.mjs";
 
 // checks if user has token, if not is sent to login page
@@ -22,7 +21,7 @@ if (location.pathname === "/pages/createAcc.html") {
 // checks if you are on profile page or homepage and fetches posts accordingly
 if (location.pathname === "/pages/profile.html") {
   // Profile Posts
-  userPosts(`${BASE_URL}${profileUrl}/${user.name}`);
+  userPosts(`${BASE_URL}${profileUrl}`);
 } else if (location.pathname === "/index.html") {
   //Homepage posts.
   fetchPosts(BASE_URL + postUrl + postsOption);

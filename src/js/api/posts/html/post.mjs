@@ -20,6 +20,13 @@ export const postHeader = (postMedia) => {
   return postHead;
 };
 
+export const postBodyContainer = () => {
+  const postsBodyContent = document.createElement("div");
+  postsBodyContent.className = "card-body row pb-0";
+
+  return postsBodyContent;
+};
+
 /**
  * This function create's post information HTML element.
  * @param {string} author Contains the author of the post
@@ -210,8 +217,7 @@ export const postHtml = (post) => {
   }
 
   // Wrapper for my body content
-  const postsBodyContent = document.createElement("div");
-  postsBodyContent.className = "card-body row pb-0";
+  const postsBodyContent = postBodyContainer();
 
   // Assembling post content
   postsBodyContent.append(

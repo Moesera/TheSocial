@@ -1,5 +1,12 @@
 import { updatePost, cancelUpdate } from "../handlers/update.mjs";
 
+/**
+ * This function creates a html form object.
+ * @param {string} postMedia Contains the current image value of the chosen post.
+ * @param {string} postTitle Contains the current title value of chosen post.
+ * @param {string} postBody Contains the current body value of the chosen post
+ * @returns Assembled form html with the current values in the form.
+ */
 export const createUpdateForm = (postMedia, postTitle, postBody) => {
   // Creating form wrapper
   const updateForm = document.createElement("form");
@@ -86,7 +93,9 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   // adding everything to form.
   updateForm.append(titleWrap, inputsWrapper);
 
+  // final html
   const finalForm = updateForm;
 
+  // returning final form.
   return finalForm;
 };
