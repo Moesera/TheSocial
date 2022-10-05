@@ -59,21 +59,20 @@
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
       <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
-        <h2>Create Post</h2>
-        <section>
+        <h2 id="formHeader">Create Post</h2>
+        <section id="postForm">
           <!-- Start for create post form -->
           <form id="createPost">
             <div class="bg-primary p-2 box">
               <input class="form-control w-50" name="postTitle" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2" required />
             </div>
             <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
-              <label for="createTextarea" class="form-label"></label>
-              <textarea class="form-control" name="createTextarea" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
-              <div class="mt-2">
-                <label class="form-label" for="imageInput">
-                  <input type="url" name="imageInput" class="form-control border-0" size="160" id="imageInput" aria-describedby="fileHelp" placeholder="Media" />
-                </label>
-              </div>
+              <label for="createTextarea" class="form-label mt-2 w-100">
+                <textarea class="form-control" name="createTextarea" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
+              </label>
+              <label class="form-label" for="imageInput">
+                <input type="url" name="imageInput" class="form-control border-0" size="160" id="imageInput" placeholder="Media" />
+              </label>
               <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
               </div>
