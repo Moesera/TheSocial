@@ -9,7 +9,13 @@ export async function deletePost(event) {
     headers: headers(),
   });
 
-  window.location.reload();
+  console.log(response);
 
-  return response;
+  if (response.ok === false) {
+    return;
+  } else {
+    window.location.reload();
+  }
+
+  return await response.json();
 }
