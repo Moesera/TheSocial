@@ -1,4 +1,4 @@
-import { updatePost, cancelUpdate } from "../updatePost.mjs";
+import { updatePost, cancelUpdate } from "../handlers/update.mjs";
 
 export const createUpdateForm = (postMedia, postTitle, postBody) => {
   // Creating form wrapper
@@ -19,6 +19,7 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   titleInput.minlength = "2";
   titleInput.required = true;
   titleInput.value = postTitle;
+  titleInput.placeholder = "Title";
 
   titleWrap.appendChild(titleInput);
 
@@ -37,6 +38,7 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   textarea.id = "body";
   textarea.rows = 3;
   textarea.value = postBody;
+  textarea.placeholder = "Post content";
 
   // assembling the textArea input
   txtareaLabel.appendChild(textarea);
@@ -52,6 +54,7 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   urlInput.className = "form-control border-0";
   urlInput.size = 160;
   urlInput.value = postMedia;
+  urlInput.placeholder = "Media";
 
   // Assembling url input.
   urlLabel.appendChild(urlInput);
