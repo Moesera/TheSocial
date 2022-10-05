@@ -92,3 +92,13 @@ textarea {
     color: white;
   }
 }
+
+.edit-btn {
+  color: $secondary;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+}
