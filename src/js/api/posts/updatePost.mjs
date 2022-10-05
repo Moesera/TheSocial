@@ -25,7 +25,11 @@ export const updatePostForm = (event) => {
 };
 
 export const cancelUpdate = () => {
-  window.location.reload();
+  if (location.pathname === "/index.html") {
+    window.location.replace("/index.html");
+  } else if (location.pathname === "/pages/profile.html") {
+    window.location.replace("/pages/profile.html");
+  }
 };
 
 export const updatePost = (event) => {
