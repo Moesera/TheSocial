@@ -21,6 +21,7 @@ export async function fetchPosts(url) {
 
     createPosts(json);
   } catch (error) {
+    // TODO user feedback and loader;
     console.log(error);
   }
 }
@@ -34,6 +35,15 @@ function createPosts(postArray) {
   const container = document.getElementById("postsContainer");
 
   postArray.forEach((posts) => {
+    // TODO Create search functionality here.;
+
+    // create a function that filters through the posts as a search functionality
+    // create a onkeyup event on the search bar
+    // the functionality will go trough the posts and look for posts
+    // with that value in title or body.
+    //
+    // will this be best in posts or in the fetch, i think in the forEach posts
+
     // Post container because otherwise my layout gets destroyed. NOTE: might find another way around this.
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";

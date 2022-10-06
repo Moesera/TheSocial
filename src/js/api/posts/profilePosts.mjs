@@ -20,6 +20,7 @@ export async function userPosts(url) {
       createProfilePosts(data);
     }
   } catch (error) {
+    // TODO user feedback and loader;
     console.log(error);
   }
 }
