@@ -1,4 +1,4 @@
-import { createUpdateForm } from "../html/updatePost.mjs";
+import { createUpdateForm } from "../components/updateForm.mjs";
 import { updatePostFetch } from "../updatePost.mjs";
 
 /**

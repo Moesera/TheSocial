@@ -1,7 +1,7 @@
 // Imports
 import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
-import * as create from "./html/post.mjs";
+import * as create from "./components/post.mjs";
 
 /**
  * This function fetches all posts from api to display on homepage.
@@ -18,10 +18,8 @@ export async function fetchPosts(url) {
 
     const response = await fetch(url, postsData);
     const json = await response.json();
-    const data = json;
-    console.log(data);
 
-    createPosts(data);
+    createPosts(json);
   } catch (error) {
     console.log(error);
   }

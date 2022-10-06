@@ -49,7 +49,7 @@ export function userLogin(user) {
         localStorage.setItem("user", JSON.stringify(user));
 
         setTimeout(() => {
-          window.location.replace("/pages/profile.html");
+          window.location.replace("/index.html");
         }, 50);
       }
     })
