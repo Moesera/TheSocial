@@ -1,5 +1,7 @@
 import { load } from "../storage/user.mjs";
 
+export const logoutBtn = document.getElementById("logoutBtn");
+
 /**
  * User logout function.
  * clears localStorage and triggers checkUserAuth()

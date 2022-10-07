@@ -3,6 +3,9 @@ import { profileOption } from "../helpers/constants.mjs";
 import * as response from "./handlers/filterResponse.mjs";
 import * as create from "./components/post.mjs";
 
+// Profile post array
+export let profilePosts = [];
+
 export async function userPosts(url) {
   try {
     const postsData = {
@@ -12,7 +15,6 @@ export async function userPosts(url) {
     const response = await fetch(url + profileOption, postsData);
     const json = await response.json();
     const data = json;
-    console.log(data);
 
     if (data._count.posts === 0) {
       return;
@@ -31,7 +33,7 @@ function createProfilePosts(responseData) {
   const postArray = responseData.posts;
   const avatar = responseData.avatar;
 
-  postArray.forEach((posts) => {
+  profilePosts = postArray.map((posts) => {
     // Replace "T" with ", " and remove everything after "."
     const splittedDate = posts.updated.split(".");
     const newDate = splittedDate[0];
@@ -69,5 +71,6 @@ function createProfilePosts(responseData) {
 
     // Appends the posts to the post section in the document.
     container.appendChild(post);
+    return { name: posts.owner, body: posts.body, title: posts.title, element: post };
   });
 }

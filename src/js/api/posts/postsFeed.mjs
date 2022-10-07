@@ -3,6 +3,12 @@ import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 
+// Container for posts.
+const container = document.getElementById("postsContainer");
+
+// the array from the api.
+export let posts = [];
+
 /**
  * This function fetches all posts from api to display on homepage.
  * @param {string} url contains the string combination to retrieve posts.
@@ -19,6 +25,11 @@ export async function fetchPosts(url) {
     const response = await fetch(url, postsData);
     const json = await response.json();
 
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].author.name === "youtube") {
+        continue;
+      }
+    }
     createPosts(json);
   } catch (error) {
     // TODO user feedback and loader;
@@ -30,21 +41,10 @@ export async function fetchPosts(url) {
  * This functions displays the response from the API.
  * @param {array} postArray contains the response from the API.
  */
-function createPosts(postArray) {
-  // Container for posts.
-  const container = document.getElementById("postsContainer");
-
-  postArray.forEach((posts) => {
-    // TODO Create search functionality here.;
-
-    // create a function that filters through the posts as a search functionality
-    // create a onkeyup event on the search bar
-    // the functionality will go trough the posts and look for posts
-    // with that value in title or body.
-    //
-    // will this be best in posts or in the fetch, i think in the forEach posts
-
-    // Post container because otherwise my layout gets destroyed. NOTE: might find another way around this.
+const createPosts = (postArray) => {
+  console.log(postArray);
+  posts = postArray.map((posts) => {
+    // Post container because otherwise my layout gets destroyed.
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
 
@@ -53,5 +53,6 @@ function createPosts(postArray) {
 
     // Appends the posts to the post section in the document.
     container.appendChild(post);
+    return { name: posts.author.name, body: posts.body, title: posts.title, element: post };
   });
-}
+};
