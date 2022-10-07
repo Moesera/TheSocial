@@ -1,15 +1,13 @@
+import { headers } from "../auth/fetchAuth.mjs";
 import { profileOption } from "../helpers/constants.mjs";
-import { accessToken } from "../storage/user.mjs";
+import * as response from "./handlers/filterResponse.mjs";
+import * as create from "./components/post.mjs";
 
 export async function userPosts(url) {
   try {
-    const token = "Bearer " + accessToken;
     const postsData = {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-      },
+      headers: headers(),
     };
     const response = await fetch(url + profileOption, postsData);
     const json = await response.json();
@@ -22,6 +20,7 @@ export async function userPosts(url) {
       createProfilePosts(data);
     }
   } catch (error) {
+    // TODO user feedback and loader;
     console.log(error);
   }
 }
@@ -34,7 +33,7 @@ function createProfilePosts(responseData) {
 
   postArray.forEach((posts) => {
     // Replace "T" with ", " and remove everything after "."
-    const splittedDate = posts.created.split(".");
+    const splittedDate = posts.updated.split(".");
     const newDate = splittedDate[0];
     const dateCreated = newDate.replace("T", ", ");
 
@@ -42,10 +41,16 @@ function createProfilePosts(responseData) {
     let userAvatar = response.checkAvatar(avatar);
 
     // wrapper for my body content
-    const postsBodyContent = create.postWrapper();
+    const postsBodyContent = create.postBodyContainer();
 
     // Assembling post content
-    postsBodyContent.append(create.userAvatar(posts.owner, userAvatar), create.postInfo(posts.owner, dateCreated), create.postContent(posts.title, posts.body));
+    postsBodyContent.append(
+      create.deleteButton(posts.id),
+      create.userAvatar(posts.owner, userAvatar),
+      create.postInfo(posts.owner, dateCreated),
+      create.postContent(posts.title, posts.body),
+      create.editButton(posts.id)
+    );
 
     // wrapper for all content
     const contentWrapper = document.createElement("div");

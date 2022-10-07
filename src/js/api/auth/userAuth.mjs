@@ -1,4 +1,4 @@
-import { accessToken } from "../storage/user.mjs";
+import { load } from "../storage/user.mjs";
 
 /**
  * User logout function.
@@ -10,13 +10,13 @@ export const logout = () => {
 };
 
 /**
-   * @param {object} token has the value of the userToken. 
+   * checks user token using the fetch token function. 
    * @returns True or false
    * @example
    * ´´´js
    * // Checks if the user has valid auth token.
    * export function checkUserAuth() {
-   * if (token === null) {
+   * if (load("token") === null) {
    *   window.location.replace("/pages/login.html");
    * } else {
    *   return;
@@ -26,8 +26,8 @@ export const logout = () => {
    ´´´
    */
 export const checkUserAuth = () => {
-  if (accessToken === null) {
-    window.location.replace("/pages/login.html");
+  if (load("token") === null) {
+    window.location.replace("/src/pages/login/index.html");
   } else {
     return;
   }

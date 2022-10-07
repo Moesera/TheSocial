@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Create your TheSocial profile" />
+    <meta name="description" content="Login to your TheSocial profile" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qbk4wfv.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="https://kit.fontawesome.com/d527618ed6.js" crossorigin="anonymous"></script>
     <script src="/src/js/index.js" type="module" defer></script>
-    <title>TheSocial | Create Account</title>
+    <title>TheSocial | Login</title>
   </head>
   <body class="bg-secondary">
     <header class="fixed-top">
@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px">
               <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="./login.html">Home</a>
+                <a class="nav-link text-white" aria-current="page" href="login.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" aria-current="page" href="login.html">Profile</a>
@@ -58,27 +58,32 @@
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
       <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden">Login to theSocial</h1>
-        <h2 class="fs-1 text-center mb-7">Create Account</h2>
-        <!-- User register form -->
-        <form class="regular-calibri fs-5 m-auto mb-5 w-75 was-validated" id="registerForm" action="../pages/login.html">
+        <h2 class="fs-1 text-center mb-7 mt-7">Login</h2>
+        <!-- Form for user login -->
+        <form class="regular-calibri fs-5 mb-5 m-auto w-75 was-validated" id="loginForm">
           <div class="mb-3">
-            <label for="name" class="form-label">Username</label>
-            <input type="text" name="name" class="form-control" id="registerUsername" minlength="8" required />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" pattern="^[\w\-.]+@(stud.)?noroff.no$" required />
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="loginEmail"
+              aria-describedby="emailHelp"
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              required
+            />
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" minlength="8" required />
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="loginPassword" minlength="8" required />
           </div>
-          <div class="d-flex justify-content-end">
-            <button href="login.html" class="btn btn-danger text-white">Create</button>
+          <div class="d-flex justify-content-between">
+            <a href="/src/pages/register/index.html" class="btn btn-danger text-white">Create</a>
+            <button type="submit" class="btn btn-success text-white" id="loginBtn">Login</button>
           </div>
         </form>
-        <!-- End of user register form -->
+        <!-- End of user login form -->
         <!-- Feedback on creating an account -->
         <div class="w-50 m-auto p-0 fs-5 d-flex align-items-center justify-content-center" id="feedback"></div>
       </div>
