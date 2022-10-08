@@ -107,7 +107,7 @@ export const postContent = (title, body) => {
  */
 export const postReactions = (comments, likes) => {
   const reactionWrapper = document.createElement("div");
-  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5";
+  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
   // creating comments HTML.
   const commentWrapper = document.createElement("div");
@@ -174,7 +174,7 @@ export const deleteButton = (id) => {
  */
 export const editButton = (id) => {
   const editContainer = document.createElement("div");
-  editContainer.className = "d-flex justify-content-start ps-0 mt-3";
+  editContainer.className = "d-flex justify-content-start ps-0";
 
   const edit = document.createElement("p");
   edit.className = "mb-0 edit-btn";
@@ -188,6 +188,21 @@ export const editButton = (id) => {
   const editBtn = editContainer;
 
   return editBtn;
+};
+
+export const viewButton = (id) => {
+  const linkWrapper = document.createElement("div");
+  linkWrapper.className = "d-flex justify-content-start ps-0";
+
+  const viewLink = document.createElement("a");
+  viewLink.href = `/src/pages/post/index.html?id=${id}`;
+  viewLink.className = "edit-btn mb-0 text-decoration-none";
+  viewLink.textContent = "View Post";
+
+  linkWrapper.appendChild(viewLink);
+
+  const link = linkWrapper;
+  return link;
 };
 
 /**
@@ -205,14 +220,16 @@ export const postHtml = (post) => {
   let avatar = response.checkAvatar(post.author.avatar);
 
   // Checks if the post belongs to the user and then adds delete and edit button.
-  let postEdit;
   let postDelete;
 
+  const bottomLinkWrapper = document.createElement("div");
+  bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
+
   if (post.author.name === user.name) {
-    postEdit = editButton(post.id);
+    bottomLinkWrapper.append(viewButton(post.id), editButton(post.id));
     postDelete = deleteButton(post.id);
   } else {
-    postEdit = "";
+    bottomLinkWrapper.appendChild(viewButton(post.id));
     postDelete = "";
   }
 
@@ -226,7 +243,7 @@ export const postHtml = (post) => {
     postInfo(post.author.name, dateCreated),
     postContent(post.title, post.body),
     postReactions(post._count.comments, post._count.reactions),
-    postEdit
+    bottomLinkWrapper
   );
 
   // Wrapper for all content
