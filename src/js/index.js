@@ -15,9 +15,6 @@ if (location.pathname !== "/src/pages/login/index.html" && location.pathname !==
 
   // event listener for logout button click.
   logoutBtn.addEventListener("click", logout);
-
-  // Event listener for create form post.
-  createPostForm.addEventListener("submit", createPostFormData);
 }
 
 // checks if you are on register page or login page,and adds event listener.
@@ -27,10 +24,13 @@ if (location.pathname === "/src/pages/register/index.html") {
   loginUser();
 }
 
-// checks if you are on profile page or homepage and fetches posts accordingly
+// checks witch page you are on and fetches posts accordingly
 if (location.pathname === "/src/pages/profile/index.html") {
   // Profile Posts
   userPosts(`${BASE_URL}${profileUrl}/${user.name}`);
+
+  // Event listener for create form post.
+  createPostForm.addEventListener("submit", createPostFormData);
 
   // Profile search functionality.
   search.addEventListener("input", (e) => {
@@ -42,10 +42,18 @@ if (location.pathname === "/src/pages/profile/index.html") {
   // Homepage posts.
   fetchPosts(BASE_URL + postUrl + postsOption);
 
+  // Event listener for create form post.
+  createPostForm.addEventListener("submit", createPostFormData);
+
   // Homepage search functionality.
   search.addEventListener("input", (e) => {
     let inputValue = e.currentTarget.value.toLowerCase();
 
     searchPosts(inputValue);
   });
+} else if (location.pathname === "/src/pages/post/index.html") {
+  const url = new URL(location.href);
+  const postId = url.searchParams.get("id");
+
+  fetchPosts(`${BASE_URL}${postUrl}${postId}${postsOption}`);
 }
