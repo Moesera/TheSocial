@@ -3,7 +3,7 @@ import { BASE_URL, postUrl } from "../helpers/constants.mjs";
 
 /**
  * This function will send the values from the from to the API.
- * @param {object} event Contains the form submit event.
+ * @param {event} event Contains the form submit event.
  * @returns The values including an id.
  */
 export async function createPost(postData) {

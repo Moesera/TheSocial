@@ -3,11 +3,8 @@ import { BASE_URL, registerUrl, feedbackMsg } from "../helpers/constants.mjs";
 
 /**
  * This function will send a post request to the API, creating a user.
- * @param {string} event Contains the event from the event listener
- * @param {string} form Contains the target from the event listener
- * @param {string} username contains the username value from the form
- * @param {string} email contains the email value from the form
- * @param {string} password contains the password value from the form
+ * @param {string} profile Contains the form values from the form register event listener.
+ * @param {string} body Contains the stringified values from the form.
  * @returns response from the api.
  * @example
  * ```js

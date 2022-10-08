@@ -35,9 +35,9 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   inputsWrapper.className = "bg-primary px-2 pb-4 mb-3 mt-2 box";
 
   // Creating the update textarea input.
-  const txtareaLabel = document.createElement("label");
-  txtareaLabel.className = "form-label mt-2 w-100";
-  txtareaLabel.for = "body";
+  const textareaLabel = document.createElement("label");
+  textareaLabel.className = "form-label mt-2 w-100";
+  textareaLabel.for = "body";
 
   const textarea = document.createElement("textarea");
   textarea.className = "form-control";
@@ -48,7 +48,7 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   textarea.placeholder = "Post content";
 
   // assembling the textArea input
-  txtareaLabel.appendChild(textarea);
+  textareaLabel.appendChild(textarea);
 
   // Creating url input
   const urlLabel = document.createElement("label");
@@ -88,7 +88,7 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   buttons.append(cancelBtn, updateBtn);
 
   // Assembling inputs into InputsContainer, except title because of the page design.
-  inputsWrapper.append(txtareaLabel, urlLabel, buttons);
+  inputsWrapper.append(textareaLabel, urlLabel, buttons);
 
   // adding everything to form.
   updateForm.append(titleWrap, inputsWrapper);

@@ -1,6 +1,11 @@
 import { headers } from "../auth/fetchAuth.mjs";
 import { BASE_URL, postUrl } from "../helpers/constants.mjs";
 
+/**
+ * This functions sends a PUT request to the api.
+ * @param {formData} updateData Contains the values from the form to be updated.
+ * @returns Changed post elements.
+ */
 export async function updatePostFetch(updateData) {
   // checks if the formData has media, delete's it if it's empty.
   if (!updateData.media || updateData.media === "") {

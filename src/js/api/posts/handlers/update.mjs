@@ -5,7 +5,7 @@ import { updatePostFetch } from "../updatePost.mjs";
  * Changes header text, retrieves values from the post,
  * and inserts a new form with the values of the post.
  * @param {object} event Contains the event of the eventListener.
- * @returns an Updated form with values from the post.
+ * @returns An updated form with values from the post.
  */
 export const updatePostForm = (event) => {
   const formSection = document.getElementById("postForm");
@@ -21,7 +21,7 @@ export const updatePostForm = (event) => {
   // takes the id and place it in the url.
   const postId = event.target.id;
 
-  // Adds post id to url without refreshing page.
+  // Adds post id to url without refreshing the page.
   window.history.replaceState(null, null, `?id=${postId}`);
 
   // replaces create form to update form.
@@ -47,6 +47,8 @@ export const cancelUpdate = () => {
  * Gets the values from the post and id from the url
  * and makes a put request to ```updatePostFetch()``` after formData is setup correctly.
  * @param {object} event Contains the submit form event
+ * @returns Form data constructed from the values of the form.
+ * and then sent further to the ```updatePostFetch()```.
  */
 export const updatePost = (event) => {
   event.preventDefault();
