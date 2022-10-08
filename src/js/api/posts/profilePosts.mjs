@@ -45,13 +45,19 @@ function createProfilePosts(responseData) {
     // wrapper for my body content
     const postsBodyContent = create.postBodyContainer();
 
+    // Bottom link wrapper
+    const bottomLinkWrapper = document.createElement("div");
+    bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
+    // Assembling the two items in the wrapper.
+    bottomLinkWrapper.append(create.viewButton(posts.id), create.editButton(posts.id));
+
     // Assembling post content
     postsBodyContent.append(
       create.deleteButton(posts.id),
       create.userAvatar(posts.owner, userAvatar),
       create.postInfo(posts.owner, dateCreated),
       create.postContent(posts.title, posts.body),
-      create.editButton(posts.id)
+      bottomLinkWrapper
     );
 
     // wrapper for all content
