@@ -1,6 +1,6 @@
 ### Test my website ?
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://app.netlify.com/sites/the-social-media/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://the-social-media.netlify.app)
 
 ## Getting started
 
