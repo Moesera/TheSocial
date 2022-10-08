@@ -1,58 +1,48 @@
-# Goal
+### Test my website ?
 
-To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://the-social-media.netlify.app)
 
-# Brief
+## Getting started
 
-You are tasked with creating 3 pages in HTML using Bootstrap and SASS:
-Homepage
-Profile page
-Login page
-The Homepage should have a feed of posts from the user’s contacts, a search bar, and a form to create a new post.
+### Installing
 
-The profile page should have a profile image, details about the user, a list of the user’s contacts, their posts and a form to post to their wall.
+Option for contribution:
 
-The login page should have a form to login to the application. Make sure to include HTML form validation and use /profile as the action attribute.
+- Click fork.
+- On Github, navigate to your fork of the repo.
+- Above the list of files, click Code.
+- Open with Github Desktop
 
-You will only be working on the visuals for this project at this stage, forms do not need to submit data, for example.
+Or chose either:
 
-Submission for this project will follow the pattern used in professional development. You are required to seek feedback from your peers as well as the teachers in order to complete this assignment.
+- HTTPS, SSH or Github CLI and copy the link
 
-## Process
+Then:
 
-1. Create a design or wireframe for each page.
-   Create a new public repository on GitHub.
+- Open Git Bash
+- Change the current working directory to the location you want it
+- Type `git clone https://github.com/YOUR-USERNAME/TheScoial-Sigvel` and press enter.
+  Your local clone will then be created.
 
-Create a new project folder for this repository.
+### Running
 
-Create a new git branch for this project.
+```
+As long as you have uploaded the provided files and deployed it to a website provider,
+the project should be up and running, fetching content from the wordpress CMS.
+```
 
-Create a package.json file.
+## Contributing
 
-Install Bootstrap, SASS and Live Server.
+To contribute to the project please follow these steps:
 
-Configure NPM scripts in package.json.
+- Fork the repository.
+- Submit a pull request to the project when you are done on the contribution.
 
-Implement your design using Bootstrap and SASS overrides.
+If you want to know more about forking, pull requests and contributing to a project follow this link [Contribution to projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
 
-Create a Pull Request to merge your changes to the main branch.
+## Contact
 
-Share this Pull Request and request peer review.
-
-Discuss and implement the feedback gathered from peer review.
-
-Share this Pull Request with a teacher for their approval.
-
-Complete the approved Pull Request, or implement the required changes.
-
-## Delivery
-
-For peer review, please submit a link to your repository to the Moodle forum. You should review 2 of your peers’ submissions.
-Please submit your public GitHub repository URL along with any supplementary files such as wireframes. Your repo should have an active PR that the teachers will review.
-
-Design files will not be included in your grade but help to provide additional context to the marker.
-
-Please make sure to exclude node_modules by using a .gitignore file.
+[My LinkedIn page](https://www.linkedin.com/in/tony-sigvel/)
 
 ### Trello link for my planning.
 

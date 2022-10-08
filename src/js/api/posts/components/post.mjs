@@ -20,6 +20,10 @@ export const postHeader = (postMedia) => {
   return postHead;
 };
 
+/**
+ * Creates the post body container.
+ * @returns a div object.
+ */
 export const postBodyContainer = () => {
   const postsBodyContent = document.createElement("div");
   postsBodyContent.className = "card-body row pb-0";
@@ -33,9 +37,14 @@ export const postBodyContainer = () => {
  * @param {string} dateCreated Contains the date of the post
  * @returns a constructed HTML element of the post information.
  */
-export const postInfo = (author, dateCreated) => {
+export const postInfo = (author, date) => {
+  // Replace "T" with ", " and remove everything after "."
+  const splittedDate = date.split(".");
+  const newDate = splittedDate[0];
+  const dateUpdated = newDate.replace("T", ", ");
+
   const postInfoWrapper = document.createElement("div");
-  postInfoWrapper.className = "d-flex flex-column align-self-center w-50 col-6";
+  postInfoWrapper.className = "d-flex flex-column align-self-center w-75 col-auto";
 
   // Creating author name text
   const authorName = document.createElement("p");
@@ -45,7 +54,7 @@ export const postInfo = (author, dateCreated) => {
   // Creating post date text
   const postDate = document.createElement("p");
   postDate.className = "mb-1 regular-calibri";
-  postDate.textContent = dateCreated;
+  postDate.textContent = dateUpdated;
 
   postInfoWrapper.append(authorName, postDate);
   let postInfo = postInfoWrapper;
@@ -107,7 +116,7 @@ export const postContent = (title, body) => {
  */
 export const postReactions = (comments, likes) => {
   const reactionWrapper = document.createElement("div");
-  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-3 me-lg-5";
+  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
   // creating comments HTML.
   const commentWrapper = document.createElement("div");
@@ -148,7 +157,7 @@ export const postReactions = (comments, likes) => {
 /**
  * This creates the delete button for the post
  * @param {number} id contains the id value of the post.
- * @returns a constructed HTML object of an cross icon.
+ * @returns a constructed HTML object of a cross icon.
  */
 export const deleteButton = (id) => {
   const btnContainer = document.createElement("div");
@@ -170,11 +179,11 @@ export const deleteButton = (id) => {
 /**
  * This function creates the edit post text.
  * @param {number} id Contains the id of the post.
- * @returns a edit post html text.
+ * @returns a HTML object.
  */
 export const editButton = (id) => {
   const editContainer = document.createElement("div");
-  editContainer.className = "d-flex justify-content-start ps-0 mt-3";
+  editContainer.className = "d-flex justify-content-start ps-0";
 
   const edit = document.createElement("p");
   edit.className = "mb-0 edit-btn";
@@ -191,28 +200,45 @@ export const editButton = (id) => {
 };
 
 /**
+ * This function create the view post HTML object.
+ * @param {number} id Contains the id of the selected post
+ * @returns a HTML object.
+ */
+export const viewButton = (id) => {
+  const linkWrapper = document.createElement("div");
+  linkWrapper.className = "d-flex justify-content-start ps-0";
+
+  const viewLink = document.createElement("a");
+  viewLink.href = `/src/pages/post/index.html?id=${id}`;
+  viewLink.className = "edit-btn mb-0 text-decoration-none";
+  viewLink.textContent = "View Post";
+
+  linkWrapper.appendChild(viewLink);
+
+  const link = linkWrapper;
+  return link;
+};
+
+/**
  * This functions is assembling the post HTML.
  * @param {object} post Contains the values from the API.
  * @returns assembled post HTML.
  */
 export const postHtml = (post) => {
-  // Replace "T" with ", " and remove everything after "."
-  const splittedDate = post.created.split(".");
-  const newDate = splittedDate[0];
-  const dateCreated = newDate.replace("T", ", ");
-
   // Filters bad avatar images and returns placeholder image if there is none.
   let avatar = response.checkAvatar(post.author.avatar);
 
   // Checks if the post belongs to the user and then adds delete and edit button.
-  let postEdit;
   let postDelete;
 
+  const bottomLinkWrapper = document.createElement("div");
+  bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
+
   if (post.author.name === user.name) {
-    postEdit = editButton(post.id);
+    bottomLinkWrapper.append(viewButton(post.id), editButton(post.id));
     postDelete = deleteButton(post.id);
   } else {
-    postEdit = "";
+    bottomLinkWrapper.appendChild(viewButton(post.id));
     postDelete = "";
   }
 
@@ -223,10 +249,10 @@ export const postHtml = (post) => {
   postsBodyContent.append(
     postDelete,
     userAvatar(post.author.name, avatar),
-    postInfo(post.author.name, dateCreated),
+    postInfo(post.author.name, post.updated),
     postContent(post.title, post.body),
     postReactions(post._count.comments, post._count.reactions),
-    postEdit
+    bottomLinkWrapper
   );
 
   // Wrapper for all content

@@ -2,8 +2,8 @@ import { feedbackMsg, BASE_URL, loginUrl } from "../helpers/constants.mjs";
 
 /**
  * This function will send a post request to the API, to login an user to receive a token.
- * @param {object} user form data from eventlistener.
- * @param {object} body converting form data to string before its inserted to the api call.
+ * @param {object} user  Contains form data from the event listener.
+ * @param {object} body  Converting form data to string before its inserted to the api call.
  * @returns response from the api.
  * @example
  * ´´´js
