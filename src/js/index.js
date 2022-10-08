@@ -24,6 +24,8 @@ if (location.pathname === "/src/pages/register/index.html") {
   loginUser();
 }
 
+// TODO MAKE A CHECK PAGE FUNCTION TO GET RID OF ALL THE IF STATEMENTS -----
+
 // checks witch page you are on and fetches posts accordingly
 if (location.pathname === "/src/pages/profile/index.html") {
   // Profile Posts
@@ -56,4 +58,22 @@ if (location.pathname === "/src/pages/profile/index.html") {
   const postId = url.searchParams.get("id");
 
   fetchPosts(`${BASE_URL}${postUrl}${postId}${postsOption}`);
+
+  // Event listeners for back button
+  const pageBack = document.getElementById("backArrow");
+
+  pageBack.addEventListener("mouseover", () => {
+    pageBack.classList.toggle("text-black");
+    pageBack.style.cursor = "pointer";
+  });
+
+  pageBack.addEventListener("click", () => {
+    history.back();
+  });
+
+  pageBack.addEventListener("mouseout", () => {
+    pageBack.classList.toggle("text-black");
+  });
 }
+
+// <------------------------------
