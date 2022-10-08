@@ -19,7 +19,7 @@ export async function updatePostFetch(updateData) {
 
   const body = JSON.stringify(updateData);
 
-  const response = await fetch(`${BASE_URL}${postUrl}/${updateData.id}`, {
+  const response = await fetch(`${BASE_URL}${postUrl}${updateData.id}`, {
     method: "PUT",
     body,
     headers: headers(),

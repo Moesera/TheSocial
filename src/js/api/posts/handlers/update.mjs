@@ -14,12 +14,13 @@ export const updatePostForm = (event) => {
   document.getElementById("formHeader").innerText = "Update Post";
 
   // current post media values.
-  const postTitle = event.path[2].childNodes[3].children[0].innerText;
-  const postBody = event.path[2].childNodes[3].children[1].innerText;
-  const media = event.path[3].childNodes[0].children[0].currentSrc;
+  const postTitle = event.path[3].childNodes[3].children[0].innerText;
+  const postBody = event.path[3].childNodes[3].children[1].innerText;
+  const media = event.path[4].childNodes[0].children[0].currentSrc;
 
   // takes the id and place it in the url.
   const postId = event.target.id;
+  console.log(postId);
 
   // Adds post id to url without refreshing the page.
   window.history.replaceState(null, null, `?id=${postId}`);
