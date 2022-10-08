@@ -25,16 +25,16 @@ export async function fetchPosts(url) {
     const response = await fetch(url, postsData);
     const json = await response.json();
 
-    const data = json.filter((element) => {
-      if (element.author.name !== "youtube") {
-        return true;
-      }
-    });
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/index.html") {
+      const data = json.filter((element) => {
+        if (element.author.name !== "youtube") {
+          return true;
+        }
+      });
       createPosts(data);
     } else {
-      createPost(data);
+      createPost(json);
     }
   } catch (error) {
     // TODO user feedback and loader;
