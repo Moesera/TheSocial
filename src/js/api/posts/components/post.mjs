@@ -35,7 +35,7 @@ export const postBodyContainer = () => {
  */
 export const postInfo = (author, dateCreated) => {
   const postInfoWrapper = document.createElement("div");
-  postInfoWrapper.className = "d-flex flex-column align-self-center w-50 col-6";
+  postInfoWrapper.className = "d-flex flex-column align-self-center w-75 col-auto";
 
   // Creating author name text
   const authorName = document.createElement("p");
