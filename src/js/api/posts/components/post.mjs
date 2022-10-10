@@ -48,7 +48,7 @@ export const postInfo = (author, date) => {
 
   // Creating author name text
   const authorName = document.createElement("p");
-  authorName.className = "mb-0 bold-calibri";
+  authorName.className = "mb-0 bold-calibri fs-5";
   authorName.textContent = author;
 
   // Creating post date text
@@ -94,11 +94,11 @@ export const postContent = (title, body) => {
   postContentWrapper.className = "mt-4 container-md ps-0";
 
   const postTitle = document.createElement("h2");
-  postTitle.className = "fs-5 bold-calibri";
+  postTitle.className = "fs-5 bold-calibri fs-4";
   postTitle.textContent = title;
 
   const postBody = document.createElement("p");
-  postBody.className = "w-100 regular-calibri";
+  postBody.className = "w-100 regular-calibri fs-5";
   postBody.textContent = body;
 
   postContentWrapper.append(postTitle, postBody);
