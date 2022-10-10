@@ -28,7 +28,7 @@ Then:
 
 ```
 As long as you have uploaded the provided files and deployed it to a website provider,
-the project should be up and running, fetching content from the wordpress CMS.
+the project should be up and running, fetching content from the CMS.
 ```
 
 ## Contributing
