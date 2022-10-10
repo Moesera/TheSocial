@@ -115,20 +115,18 @@ export const postContent = (title, body) => {
  * @returns a constructed HTML object of reactions.
  */
 export const postReactions = (comment, likes) => {
-  let reaction;
-  let comments;
-  if (likes.count) {
-    comments = comment.count;
-    reaction = 0;
-  } else {
-    reaction = 0;
+  let reaction = likes;
+  let reactionCounter = 0;
+  for (let y = 0; y < reaction.length; y++) {
+    reactionCounter += reaction[y].count;
   }
 
-  if (comment.count) {
-    reaction = likes.count;
-  } else {
-    comments = 0;
+  let comments = comment;
+  let commentCounter = 0;
+  for (let i = 0; i < comments.length; i++) {
+    commentCounter += reaction[i].count;
   }
+
   const reactionWrapper = document.createElement("div");
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
@@ -141,7 +139,7 @@ export const postReactions = (comment, likes) => {
 
   const commentCount = document.createElement("p");
   commentCount.className = "m-0 ms-2";
-  commentCount.textContent = comments;
+  commentCount.textContent = commentCounter;
 
   // assembling the comment HTML.
   commentWrapper.append(commentIcon, commentCount);
@@ -155,7 +153,7 @@ export const postReactions = (comment, likes) => {
 
   const likeCounter = document.createElement("p");
   likeCounter.className = "m-0 ms-2";
-  likeCounter.textContent = reaction;
+  likeCounter.textContent = reactionCounter;
 
   // assembling the like HTML.
   likeWrapper.append(likeIcon, likeCounter);
