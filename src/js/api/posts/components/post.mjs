@@ -114,7 +114,21 @@ export const postContent = (title, body) => {
  * @param {string} likes Contains the likes of the post.
  * @returns a constructed HTML object of reactions.
  */
-export const postReactions = (comments, likes) => {
+export const postReactions = (comment, likes) => {
+  let reaction;
+  let comments;
+  if (likes.count) {
+    comments = comment.count;
+    reaction = 0;
+  } else {
+    reaction = 0;
+  }
+
+  if (comment.count) {
+    reaction = likes.count;
+  } else {
+    comments = 0;
+  }
   const reactionWrapper = document.createElement("div");
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
@@ -141,7 +155,7 @@ export const postReactions = (comments, likes) => {
 
   const likeCounter = document.createElement("p");
   likeCounter.className = "m-0 ms-2";
-  likeCounter.textContent = likes;
+  likeCounter.textContent = reaction;
 
   // assembling the like HTML.
   likeWrapper.append(likeIcon, likeCounter);
@@ -251,7 +265,7 @@ export const postHtml = (post) => {
     userAvatar(post.author.name, avatar),
     postInfo(post.author.name, post.updated),
     postContent(post.title, post.body),
-    postReactions(post._count.comments, post._count.reactions),
+    postReactions(post.comments, post.reactions),
     bottomLinkWrapper
   );
 
