@@ -4,10 +4,14 @@ import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 
 // variable targeting the section id for all posts on homepage.
-const container = document.getElementById("postsContainer");
+export const container = document.getElementById("postsContainer");
 
+// GLOBAL VARIABLES
 // An array from the posts map method, used for search function.
 export let posts = [];
+
+// Contains the array for the sort function
+export let arrayPosts = [];
 
 /**
  * This function fetches all the posts from the API.
@@ -28,10 +32,11 @@ export async function fetchPosts(url) {
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/index.html") {
       const data = json.filter((element) => {
-        if (element.author.name !== "youtube") {
+        if (element.author.name !== "bunana123") {
           return true;
         }
       });
+      arrayPosts = data;
       createPosts(data);
     } else {
       createPost(json);
@@ -47,7 +52,7 @@ export async function fetchPosts(url) {
  * @param {array} postArray contains the response from the API.
  * @returns a HTML object of each array value from the API.
  */
-const createPosts = (postArray) => {
+export const createPosts = (postArray) => {
   posts = postArray.map((posts) => {
     // Post container because otherwise my layout gets destroyed.
     const post = document.createElement("div");
