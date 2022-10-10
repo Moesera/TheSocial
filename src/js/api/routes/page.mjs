@@ -3,7 +3,8 @@ import { user } from "../storage/user.mjs";
 import { searchPosts, searchProfilePosts, search } from "../posts/components/functions/search.mjs";
 import { BASE_URL, postUrl, profileUrl, postsOption } from "../helpers/constants.mjs";
 import { userPosts } from "../posts/profilePosts.mjs";
-import { fetchPosts } from "../posts/postsFeed.mjs";
+import { fetchPosts, createPosts, container } from "../posts/postsFeed.mjs";
+import * as sort from "../posts/components/functions/sort.mjs";
 
 /**
  * This function checks witch page it is on
@@ -18,26 +19,52 @@ export const checkPage = () => {
     // Event listener for create form post.
     createPostForm.addEventListener("submit", createPostFormData);
 
-    // Profile search functionality.
+    // Profile search functionality event listener.
     search.addEventListener("input", (e) => {
       let inputValue = e.currentTarget.value.toLowerCase();
 
       searchProfilePosts(inputValue);
     });
+
     // RUNS ON HOMEPAGE.
   } else if (location.pathname === "/index.html") {
-    // Homepage posts.
     fetchPosts(BASE_URL + postUrl + postsOption);
 
     // Event listener for create form post.
     createPostForm.addEventListener("submit", createPostFormData);
 
-    // Homepage search functionality.
+    // Homepage search functionality event listener.
     search.addEventListener("input", (e) => {
       let inputValue = e.currentTarget.value.toLowerCase();
 
       searchPosts(inputValue);
     });
+
+    // Sort functionality event listener
+    sort.filterContainer.addEventListener("change", (event) => {
+      const thisValue = event.target.value;
+      sort.filterStandard.disabled = true;
+      sort.filterStandard.hidden = true;
+
+      switch (thisValue) {
+        case "newFirst": {
+          container.innerHTML = "";
+          createPosts(sort.newSort());
+          break;
+        }
+        case "title-az": {
+          container.innerHTML = "";
+          createPosts(sort.titleAzSort());
+          break;
+        }
+        case "title-za": {
+          container.innerHTML = "";
+          createPosts(sort.titleZaSort());
+          break;
+        }
+      }
+    });
+
     // RUNS ON SPECIFIC POST PAGE
   } else if (location.pathname === "/src/pages/post/index.html") {
     // retrieves the id from the url
