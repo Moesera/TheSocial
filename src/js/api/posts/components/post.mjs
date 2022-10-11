@@ -122,8 +122,6 @@ export const postReactions = (comment, likes) => {
     }
   }
 
-  let commentCounter = comment.length;
-
   const reactionWrapper = document.createElement("div");
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
@@ -136,7 +134,7 @@ export const postReactions = (comment, likes) => {
 
   const commentCount = document.createElement("p");
   commentCount.className = "m-0 ms-2";
-  commentCount.textContent = commentCounter;
+  commentCount.textContent = comment.length;
 
   // assembling the comment HTML.
   commentWrapper.append(commentIcon, commentCount);
