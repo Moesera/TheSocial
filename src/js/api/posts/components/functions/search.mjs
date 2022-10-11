@@ -14,7 +14,7 @@ export const search = document.getElementById("searchInput");
  */
 export const searchPosts = (searchValue) => {
   posts.forEach((post) => {
-    const isVisible = post.name.toLowerCase().startsWith(searchValue) || post.title.toLowerCase().startsWith(searchValue) || post.body.toLowerCase().startsWith(searchValue);
+    const isVisible = post.name.toLowerCase().startsWith(searchValue) || post.title.toLowerCase().startsWith(searchValue) || post.body.toLowerCase().includes(searchValue);
     post.element.classList.toggle("d-none", !isVisible);
   });
 };
@@ -29,7 +29,7 @@ export const searchPosts = (searchValue) => {
  */
 export const searchProfilePosts = (searchValue) => {
   profilePosts.forEach((post) => {
-    const isVisible = post.name.toLowerCase().startsWith(searchValue) || post.title.toLowerCase().startsWith(searchValue) || post.body.toLowerCase().startsWith(searchValue);
+    const isVisible = post.name.toLowerCase().startsWith(searchValue) || post.title.toLowerCase().startsWith(searchValue) || post.body.toLowerCase().includes(searchValue);
     post.element.classList.toggle("d-none", !isVisible);
   });
 };

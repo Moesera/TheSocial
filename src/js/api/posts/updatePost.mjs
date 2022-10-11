@@ -28,7 +28,7 @@ export async function updatePostFetch(updateData) {
   if (response.ok === false) {
     return;
   } else {
-    window.location.replace("/index.html");
+    window.location.reload();
   }
 
   return await response.json();
