@@ -115,17 +115,14 @@ export const postContent = (title, body) => {
  * @returns a constructed HTML object of reactions.
  */
 export const postReactions = (comment, likes) => {
-  let reaction = likes;
   let reactionCounter = 0;
-  for (let y = 0; y < reaction.length; y++) {
-    reactionCounter += reaction[y].count;
+  if (likes.length !== 0) {
+    for (let y = 0; y < likes.length; y++) {
+      reactionCounter += likes[y].count;
+    }
   }
 
-  let comments = comment;
-  let commentCounter = 0;
-  for (let i = 0; i < comments.length; i++) {
-    commentCounter += reaction[i].count;
-  }
+  let commentCounter = comment.length;
 
   const reactionWrapper = document.createElement("div");
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
