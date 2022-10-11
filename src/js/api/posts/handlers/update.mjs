@@ -20,7 +20,6 @@ export const updatePostForm = (event) => {
 
   // takes the id and place it in the url.
   const postId = event.target.id;
-  console.log(postId);
 
   // Adds post id to url without refreshing the page.
   window.history.replaceState(null, null, `?id=${postId}`);
