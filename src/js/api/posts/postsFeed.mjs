@@ -31,13 +31,8 @@ export async function fetchPosts(url) {
 
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/index.html") {
-      const data = json.filter((element) => {
-        if (element.author.name !== "bunana123") {
-          return true;
-        }
-      });
-      arrayPosts = data;
-      createPosts(data);
+      arrayPosts = json;
+      createPosts(json);
     } else {
       createPost(json);
     }
