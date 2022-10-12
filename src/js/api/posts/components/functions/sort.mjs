@@ -2,7 +2,6 @@ import { arrayPosts } from "../../postsFeed.mjs";
 
 // Filter select container
 export const filterContainer = document.getElementById("filterSelect");
-export const filterStandard = document.getElementById("standardFilter");
 
 /**
  * Sorts the array to newest post first, this is also the standard.

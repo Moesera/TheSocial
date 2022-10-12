@@ -43,8 +43,6 @@ export const checkPage = () => {
     // Sort functionality event listener
     sort.filterContainer.addEventListener("change", (event) => {
       const thisValue = event.target.value;
-      sort.filterStandard.disabled = true;
-      sort.filterStandard.hidden = true;
 
       switch (thisValue) {
         case "newFirst": {
