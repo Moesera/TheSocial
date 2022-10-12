@@ -57,6 +57,7 @@
     </header>
     <main class="bg-secondary">
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
+      <!-- Start of main content  -->
       <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden position-absolute">theSocial profile</h1>
         <div class="bg-primary p-2 box">
@@ -138,8 +139,15 @@
         <!-- End of create post form -->
         <!-- Start of profile feed  -->
         <h2>Profile Feed</h2>
-        <section class="box d-flex flex-wrap mt-2" id="profileFeed"></section>
+        <section class="box d-flex flex-wrap mt-2 justify-content-center" id="profileFeed">
+          <div id="loader">
+            <div class="spinner-border text-success mt-4" role="status">
+              <span class="visually-hidden"></span>
+            </div>
+          </div>
+        </section>
       </div>
+      <!-- End of main content  -->
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>
     <footer class="mx-9 my-2 bg-primary text-white">

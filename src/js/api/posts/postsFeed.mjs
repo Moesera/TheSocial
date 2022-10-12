@@ -39,6 +39,8 @@ export async function fetchPosts(url) {
   } catch (error) {
     // TODO user feedback and loader;
     console.log(error);
+  } finally {
+    document.getElementById("loader").innerHTML = "";
   }
 }
 
