@@ -26,10 +26,24 @@ Then:
 
 ### Running
 
+To run project you have to install node_modules, you can do this by using `npm i -y`, the -y stand for yes and accepts all standard conditions, if you want to accept this manually you can run `npm i`.
 ```
-As long as you have uploaded the provided files and deployed it to a website provider,
-the project should be up and running, fetching content from the CMS.
+npm i -y or npm i
 ```
+If you run into any issues with an error when installing npm, you can try and delete `package-lock.json` and try again.
+
+***The project is using sass and bootsrap, The configurations in package.json commands is as follows.***
+
+```
+npm run build
+```
+`Runs the build process for the project.`
+```
+npm run watch
+```
+`Runs the watch feature for the project if you are changing sass classes.`
+
+After you have done the following commands in order your project should be up and running.
 
 ## Contributing
 
