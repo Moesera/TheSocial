@@ -2,6 +2,7 @@
 import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
+import { errorMessage } from "../../components/error.mjs";
 
 // variable targeting the section id for all posts on homepage.
 export const container = document.getElementById("postsContainer");
@@ -37,8 +38,8 @@ export async function fetchPosts(url) {
       createPost(json);
     }
   } catch (error) {
-    // TODO user feedback and loader;
-    console.log(error);
+    const message = "Could not fetch posts, if error presist, please contact customer support";
+    container.append(errorMessage(error, message));
   } finally {
     document.getElementById("loader").innerHTML = "";
   }

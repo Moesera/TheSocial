@@ -2,6 +2,10 @@ import { headers } from "../auth/fetchAuth.mjs";
 import { profileOption } from "../helpers/constants.mjs";
 import * as response from "./handlers/filterResponse.mjs";
 import * as create from "./components/post.mjs";
+import { errorMessage } from "../../components/error.mjs";
+
+// Profile post section container
+const container = document.getElementById("profileFeed");
 
 // Profile post array
 export let profilePosts = [];
@@ -27,7 +31,8 @@ export async function userPosts(url) {
       createProfilePosts(data);
     }
   } catch (error) {
-    // TODO user feedback and loader;
+    const message = "Could not fetch posts, if error presist, please contact customer support";
+    container.append(errorMessage(error, message));
     console.log(error);
   } finally {
     document.getElementById("loader").innerHTML = "";
@@ -40,8 +45,6 @@ export async function userPosts(url) {
  * @returns HTML object of the posts.
  */
 function createProfilePosts(responseData) {
-  const container = document.getElementById("profileFeed");
-
   const postArray = responseData.posts;
   const avatar = responseData.avatar;
 
