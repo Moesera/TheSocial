@@ -18,6 +18,8 @@ export async function deletePost(event) {
 
   if (response.ok === false) {
     return;
+  } else if (location.pathname === "/src/pages/post/index.html") {
+    location.replace("/index.html");
   } else {
     window.location.reload();
   }
