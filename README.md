@@ -21,7 +21,7 @@ Then:
 
 - Open Git Bash
 - Change the current working directory to the location you want it
-- Type `git clone https://github.com/YOUR-USERNAME/TheScoial-Sigvel` and press enter.
+- Type `git clone https://github.com/YOUR-USERNAME/TheSocial-Sigvel` and press enter.
   Your local clone will then be created.
 
 ### Running
