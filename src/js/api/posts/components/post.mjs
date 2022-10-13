@@ -56,6 +56,7 @@ export const postInfo = (author, date) => {
   postDate.className = "mb-1 regular-calibri";
   postDate.textContent = dateUpdated;
 
+  // Assembling the html element and returning
   postInfoWrapper.append(authorName, postDate);
   let postInfo = postInfoWrapper;
 
@@ -72,11 +73,13 @@ export const userAvatar = (author, userAvatar) => {
   const postAvatarContainer = document.createElement("div");
   postAvatarContainer.className = "col-1 p-0";
 
+  // Creating the avatar html element
   const avatar = document.createElement("img");
   avatar.className = "rounded-circle w-100";
   avatar.src = userAvatar;
   avatar.alt = `${author}'s avatar`;
 
+  // appending it to a container then returning
   postAvatarContainer.appendChild(avatar);
 
   const postAvatar = postAvatarContainer;
@@ -93,14 +96,17 @@ export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("div");
   postContentWrapper.className = "mt-4 container-md ps-0";
 
+  // Creating the post title element
   const postTitle = document.createElement("h2");
   postTitle.className = "fs-5 bold-calibri fs-4";
   postTitle.textContent = title;
 
+  // Creating the post body element
   const postBody = document.createElement("p");
   postBody.className = "w-100 regular-calibri fs-5";
   postBody.textContent = body;
 
+  // Assembling the html object and returning
   postContentWrapper.append(postTitle, postBody);
 
   const postContent = postContentWrapper;
@@ -115,6 +121,7 @@ export const postContent = (title, body) => {
  * @returns a constructed HTML object of reactions.
  */
 export const postReactions = (comment, likes) => {
+  // sets the likes counter to 0 if there is none or change if there is
   let reactionCounter = 0;
   if (likes.length !== 0) {
     for (let y = 0; y < likes.length; y++) {
@@ -170,12 +177,15 @@ export const deleteButton = (id) => {
   const btnContainer = document.createElement("div");
   btnContainer.className = "d-flex justify-content-end";
 
+  // creating the delete icon
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-4";
   deleteIcon.id = id;
 
+  // event listener for when deleting post
   deleteIcon.addEventListener("click", deletePost);
 
+  // adds the icon to a container and returning
   btnContainer.appendChild(deleteIcon);
 
   const deleteButton = btnContainer;
@@ -220,6 +230,10 @@ export const viewButton = (id) => {
   viewLink.className = "edit-btn mb-0 text-decoration-none";
   viewLink.textContent = "View Post";
 
+  if (location.pathname === "/src/pages/post/index.html") {
+    viewLink.textContent = "";
+  }
+
   linkWrapper.appendChild(viewLink);
 
   const link = linkWrapper;
@@ -238,7 +252,7 @@ export const postHtml = (post) => {
   // Checks if the post belongs to the user and then adds delete and edit button.
   let postDelete;
 
-  const bottomLinkWrapper = document.createElement("div");
+  let bottomLinkWrapper = document.createElement("div");
   bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
 
   if (post.author.name === user.name) {
