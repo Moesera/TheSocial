@@ -3,21 +3,19 @@ import { registerUser } from "./api/auth/register.mjs";
 import { loginUser } from "./api/auth/login.mjs";
 import { checkPage } from "./api/routes/page.mjs";
 
-// also does not append listener for create post and logout button.
 if (location.pathname !== "/src/pages/login/index.html" && location.pathname !== "/src/pages/register/index.html") {
-  // checks if user has token, if not is sent to login page.
+  /** checks if user has token, if not is sent to login page. */
   checkUserAuth();
 
-  // event listener for logout button click.
   logoutBtn.addEventListener("click", logout);
 }
 
-// checks if you are on register page or login page, and adds event listener accordingly.
+/** checks if you are on register page or login page, and adds event listener accordingly. */
 if (location.pathname === "/src/pages/register/index.html") {
   registerUser();
 } else if (location.pathname === "/src/pages/login/index.html") {
   loginUser();
 }
 
-// Checks current page, and runs functions accordingly.
+/** Checks current page, and runs functions accordingly. */
 checkPage();

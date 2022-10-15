@@ -1,4 +1,4 @@
-// Url imports
+/** Url imports */
 import { BASE_URL, registerUrl, feedbackMsg } from "../helpers/constants.mjs";
 
 /**
