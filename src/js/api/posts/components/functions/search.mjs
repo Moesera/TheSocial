@@ -1,7 +1,6 @@
 import { posts } from "../../postsFeed.mjs";
 import { profilePosts } from "../../profilePosts.mjs";
 
-// retrieves id of the search input.
 export const search = document.getElementById("searchInput");
 
 /**

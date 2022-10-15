@@ -1,6 +1,5 @@
 import { arrayPosts } from "../../postsFeed.mjs";
 
-// Filter select container
 export const filterContainer = document.getElementById("filterSelect");
 
 /**
@@ -21,7 +20,6 @@ export const newSort = () => {
  * @returns a sorted array with ascending alphabetical order by title
  */
 export const titleAzSort = () => {
-  // const sortedPosts = apiArray.map((post) => post);
   const byAzTitle = arrayPosts.sort((a, b) => {
     if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
     return 1;
