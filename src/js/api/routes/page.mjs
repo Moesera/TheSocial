@@ -11,36 +11,34 @@ import * as sort from "../posts/components/functions/sort.mjs";
  * and then runs fetches and adds event listeners accordingly.
  */
 export const checkPage = () => {
-  // RUNS ON PROFILE
+  /** RUNS ON PROFILE */
   if (location.pathname === "/src/pages/profile/index.html") {
-    // Fetches Profile Posts
+    /** Fetches Profile Posts */
     userPosts(`${BASE_URL}${profileUrl}/${user.name}`);
 
-    // Event listener for create form post.
     createPostForm.addEventListener("submit", createPostFormData);
 
-    // Profile search functionality event listener.
+    /**  Profile search functionality event listener. */
     search.addEventListener("input", (e) => {
       let inputValue = e.currentTarget.value.toLowerCase();
 
       searchProfilePosts(inputValue);
     });
 
-    // RUNS ON HOMEPAGE.
+    /** RUNS ON HOMEPAGE. */
   } else if (location.pathname === "/index.html") {
     fetchPosts(BASE_URL + postUrl + postsOption);
 
-    // Event listener for create form post.
     createPostForm.addEventListener("submit", createPostFormData);
 
-    // Homepage search functionality event listener.
+    /** Homepage search functionality event listener. */
     search.addEventListener("input", (e) => {
       let inputValue = e.currentTarget.value.toLowerCase();
 
       searchPosts(inputValue);
     });
 
-    // Sort functionality event listener
+    /** Sort functionality event listener */
     sort.filterContainer.addEventListener("change", (event) => {
       const thisValue = event.target.value;
 
@@ -63,16 +61,15 @@ export const checkPage = () => {
       }
     });
 
-    // RUNS ON SPECIFIC POST PAGE
+    /** RUNS ON SPECIFIC POST PAGE */
   } else if (location.pathname === "/src/pages/post/index.html") {
-    // retrieves the id from the url
+    /** retrieves the id from the url */
     const url = new URL(location.href);
     const postId = url.searchParams.get("id");
 
-    // fetches the specific post using the ID
     fetchPosts(`${BASE_URL}${postUrl}${postId}${postsOption}`);
 
-    // Event listeners for go to previous page button.
+    /** Event listeners for go to previous page button. */
     const pageBack = document.getElementById("backArrow");
 
     pageBack.addEventListener("mouseover", () => {
