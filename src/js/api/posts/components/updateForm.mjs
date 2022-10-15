@@ -1,21 +1,19 @@
 import { updatePost, cancelUpdate } from "../handlers/update.mjs";
 
 /**
- * This function creates a html form object.
+ * This function creates a html form element.
  * @param {string} postMedia Contains the current image value of the chosen post.
  * @param {string} postTitle Contains the current title value of chosen post.
  * @param {string} postBody Contains the current body value of the chosen post
- * @returns Assembled form html with the current values in the form.
+ * @returns Assembled form html node with the current values in the form.
  */
 export const createUpdateForm = (postMedia, postTitle, postBody) => {
-  // Creating form wrapper
+
   const updateForm = document.createElement("form");
   updateForm.id = "postUpdate";
 
-  // event listener for form.
   updateForm.addEventListener("submit", updatePost);
 
-  // creating title input
   const titleWrap = document.createElement("div");
   titleWrap.className = "bg-primary p-2 box";
 
@@ -30,11 +28,10 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
 
   titleWrap.appendChild(titleInput);
 
-  // Creating wrapper for the other inputs.
+  /** Creating wrapper for the other inputs. */
   const inputsWrapper = document.createElement("div");
   inputsWrapper.className = "bg-primary px-2 pb-4 mb-3 mt-2 box";
 
-  // Creating the update textarea input.
   const textareaLabel = document.createElement("label");
   textareaLabel.className = "form-label mt-2 w-100";
   textareaLabel.for = "body";
@@ -47,10 +44,8 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   textarea.value = postBody;
   textarea.placeholder = "Post content";
 
-  // assembling the textArea input
   textareaLabel.appendChild(textarea);
 
-  // Creating url input
   const urlLabel = document.createElement("label");
   urlLabel.className = "form-label";
   urlLabel.for = "media";
@@ -63,39 +58,31 @@ export const createUpdateForm = (postMedia, postTitle, postBody) => {
   urlInput.value = postMedia;
   urlInput.placeholder = "Media";
 
-  // Assembling url input.
   urlLabel.appendChild(urlInput);
 
-  // creating submit button and cancel button wrapper.
+  /** creating submit button and cancel button wrapper. */
   const buttons = document.createElement("div");
   buttons.className = "d-flex justify-content-between";
 
-  // update Button
   const updateBtn = document.createElement("button");
   updateBtn.className = "btn btn-success text-white";
   updateBtn.textContent = "Update";
   updateBtn.type = "submit";
 
-  // cancel button
   const cancelBtn = document.createElement("a");
   cancelBtn.className = "btn btn-danger text-white";
   cancelBtn.textContent = "Cancel";
 
-  // event listener for cancel button
   cancelBtn.addEventListener("click", cancelUpdate);
 
-  // Assembling buttons
   buttons.append(cancelBtn, updateBtn);
 
-  // Assembling inputs into InputsContainer, except title because of the page design.
+  /** Assembling inputs into InputsContainer, except title because of page design. */ 
   inputsWrapper.append(textareaLabel, urlLabel, buttons);
 
-  // adding everything to form.
   updateForm.append(titleWrap, inputsWrapper);
 
-  // final html
   const finalForm = updateForm;
 
-  // returning final form.
   return finalForm;
 };

@@ -4,14 +4,12 @@ import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 import { errorMessage } from "../../components/error.mjs";
 
-// variable targeting the section id for all posts on homepage.
 export const container = document.getElementById("postsContainer");
 
-// GLOBAL VARIABLES
-// An array from the posts map method, used for search function.
+/** An array from the posts map method, used for search function. */
 export let posts = [];
 
-// Contains the array for the sort function
+/** Contains the array for the sort function */
 export let arrayPosts = [];
 
 /**
@@ -46,23 +44,22 @@ export async function fetchPosts(url) {
 }
 
 /**
- * This functions displays the response from the API to the page.
+ * This functions displays the response from the API on the page.
  * @param {array} postArray contains the response from the API.
  * @returns a HTML object of each array value from the API.
  */
 export const createPosts = (postArray) => {
   posts = postArray.map((posts) => {
-    // Post container because otherwise my layout gets destroyed.
+    /** Post container for each post */
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
 
-    // Appends post elements to post container.
     post.append(create.postHtml(posts));
 
-    // Appends the posts to the post section in the document.
+    /** appends the post to the posts section */
     container.appendChild(post);
 
-    // Returns variables for the search function.
+    /** Returns variables for the search function. */
     return { name: posts.author.name, body: posts.body, title: posts.title, element: post };
   });
 };
@@ -74,14 +71,13 @@ export const createPosts = (postArray) => {
  * @returns a HTML object of the API values.
  */
 const createPost = (selectedPost) => {
-  // Container for single postPage
+  /** Container for single postPage */
   const singlePost = document.getElementById("postContainer");
 
-  // Post container because otherwise my layout gets destroyed.
   const post = document.createElement("div");
   post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
 
   post.append(create.postHtml(selectedPost));
-  // Appends the posts to the post section in the document.
+
   singlePost.appendChild(post);
 };

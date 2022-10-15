@@ -6,7 +6,7 @@ import { user } from "../../storage/user.mjs";
 /**
  * This functions builds the media element for the posts
  * @param {string} postMedia Contains the post media from API.
- * @returns a constructed HTML element of the post media.
+ * @returns a constructed HTML node of the post media.
  */
 export const postHeader = (postMedia) => {
   const postHeadImg = document.createElement("div");
@@ -22,7 +22,7 @@ export const postHeader = (postMedia) => {
 
 /**
  * Creates the post body container.
- * @returns a div object.
+ * @returns a div element.
  */
 export const postBodyContainer = () => {
   const postsBodyContent = document.createElement("div");
@@ -32,13 +32,13 @@ export const postBodyContainer = () => {
 };
 
 /**
- * This function create's post information HTML element.
+ * This function create's post information HTML elements.
  * @param {string} author Contains the author of the post
  * @param {string} dateCreated Contains the date of the post
- * @returns a constructed HTML element of the post information.
+ * @returns a constructed HTML node of the post information.
  */
 export const postInfo = (author, date) => {
-  // Replace "T" with ", " and remove everything after "."
+  /** divide's time and date, to a new format */
   const splittedDate = date.split(".");
   const newDate = splittedDate[0];
   const dateUpdated = newDate.replace("T", ", ");
@@ -46,17 +46,14 @@ export const postInfo = (author, date) => {
   const postInfoWrapper = document.createElement("div");
   postInfoWrapper.className = "d-flex flex-column align-self-center w-75 col-auto";
 
-  // Creating author name text
   const authorName = document.createElement("p");
   authorName.className = "mb-0 bold-calibri fs-5";
   authorName.textContent = author;
 
-  // Creating post date text
   const postDate = document.createElement("p");
   postDate.className = "mb-1 regular-calibri";
   postDate.textContent = dateUpdated;
 
-  // Assembling the html element and returning
   postInfoWrapper.append(authorName, postDate);
   let postInfo = postInfoWrapper;
 
@@ -64,7 +61,7 @@ export const postInfo = (author, date) => {
 };
 
 /**
- * This function creates the user avatar HTML.
+ * This function creates the user avatar HTML elements.
  * @param {string} author Contains the author of the post.
  * @param {string} userAvatar Contains the avatar of the user.
  * @returns a constructed HTML element of the user avatar.
@@ -73,13 +70,11 @@ export const userAvatar = (author, userAvatar) => {
   const postAvatarContainer = document.createElement("div");
   postAvatarContainer.className = "col-1 p-0";
 
-  // Creating the avatar html element
   const avatar = document.createElement("img");
   avatar.className = "rounded-circle w-100";
   avatar.src = userAvatar;
   avatar.alt = `${author}'s avatar`;
 
-  // appending it to a container then returning
   postAvatarContainer.appendChild(avatar);
 
   const postAvatar = postAvatarContainer;
@@ -87,26 +82,23 @@ export const userAvatar = (author, userAvatar) => {
 };
 
 /**
- * This function creates the body content HTML of the post.
+ * This function creates the body content HTML elements of the post.
  * @param {string} title Contains the title of the post.
  * @param {string} body Contains the body of the post.
- * @returns a constructed HTML element of the post body content.
+ * @returns a constructed HTML node of the post body content.
  */
 export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("div");
   postContentWrapper.className = "mt-4 container-md ps-0";
 
-  // Creating the post title element
   const postTitle = document.createElement("h2");
   postTitle.className = "fs-5 bold-calibri fs-4";
   postTitle.textContent = title;
 
-  // Creating the post body element
   const postBody = document.createElement("p");
   postBody.className = "w-100 regular-calibri fs-5";
   postBody.textContent = body;
 
-  // Assembling the html object and returning
   postContentWrapper.append(postTitle, postBody);
 
   const postContent = postContentWrapper;
@@ -118,10 +110,10 @@ export const postContent = (title, body) => {
  * This functions create's the reaction section of the post HTML.
  * @param {string} comments contains the comments of the post.
  * @param {string} likes Contains the likes of the post.
- * @returns a constructed HTML object of reactions.
+ * @returns a constructed HTML node of reactions.
  */
 export const postReactions = (comment, likes) => {
-  // sets the likes counter to 0 if there is none or change if there is
+  /** Like counter is set to one, if length does not show otherwise */
   let reactionCounter = 0;
   if (likes.length !== 0) {
     for (let y = 0; y < likes.length; y++) {
@@ -129,10 +121,10 @@ export const postReactions = (comment, likes) => {
     }
   }
 
+/** Creating comment html element */
   const reactionWrapper = document.createElement("div");
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0";
 
-  // creating comments HTML.
   const commentWrapper = document.createElement("div");
   commentWrapper.className = "d-flex me-4 me-lg-5 align-items-center fs-5";
 
@@ -143,10 +135,9 @@ export const postReactions = (comment, likes) => {
   commentCount.className = "m-0 ms-2";
   commentCount.textContent = comment.length;
 
-  // assembling the comment HTML.
   commentWrapper.append(commentIcon, commentCount);
 
-  // creating likes HTML.
+  /** Creating the like html element */
   const likeWrapper = document.createElement("div");
   likeWrapper.className = "d-flex align-items-center fs-5";
 
@@ -157,10 +148,8 @@ export const postReactions = (comment, likes) => {
   likeCounter.className = "m-0 ms-2";
   likeCounter.textContent = reactionCounter;
 
-  // assembling the like HTML.
   likeWrapper.append(likeIcon, likeCounter);
 
-  // assembling the whole element and returning.
   reactionWrapper.append(commentWrapper, likeWrapper);
 
   const reactionElement = reactionWrapper;
@@ -169,23 +158,20 @@ export const postReactions = (comment, likes) => {
 };
 
 /**
- * This creates the delete button for the post
+ * This creates the delete button element for the post
  * @param {number} id contains the id value of the post.
- * @returns a constructed HTML object of a cross icon.
+ * @returns a constructed HTML element of a cross icon.
  */
 export const deleteButton = (id) => {
   const btnContainer = document.createElement("div");
   btnContainer.className = "d-flex justify-content-end";
 
-  // creating the delete icon
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-4";
   deleteIcon.id = id;
 
-  // event listener for when deleting post
   deleteIcon.addEventListener("click", deletePost);
 
-  // adds the icon to a container and returning
   btnContainer.appendChild(deleteIcon);
 
   const deleteButton = btnContainer;
@@ -196,7 +182,7 @@ export const deleteButton = (id) => {
 /**
  * This function creates the edit post text.
  * @param {number} id Contains the id of the post.
- * @returns a HTML object.
+ * @returns a constructed HTML node of the edit button.
  */
 export const editButton = (id) => {
   const editContainer = document.createElement("div");
@@ -219,7 +205,7 @@ export const editButton = (id) => {
 /**
  * This function create the view post HTML object.
  * @param {number} id Contains the id of the selected post
- * @returns a HTML object.
+ * @returns a constructed HTML node of the view post button.
  */
 export const viewButton = (id) => {
   const linkWrapper = document.createElement("div");
@@ -241,17 +227,18 @@ export const viewButton = (id) => {
 };
 
 /**
- * This functions is assembling the post HTML.
+ * This functions is assembling the post HTML nodes into one node.
  * @param {object} post Contains the values from the API.
- * @returns assembled post HTML.
+ * @returns assembled post HTML node.
  */
 export const postHtml = (post) => {
-  // Filters bad avatar images and returns placeholder image if there is none.
+  /** Filters bad avatar images and returns placeholder image if there is none. */ 
   let avatar = response.checkAvatar(post.author.avatar);
 
-  // Checks if the post belongs to the user and then adds delete and edit button.
+  /** Checks if the post belongs to the user and then adds delete and edit button. */
   let postDelete;
 
+  /** creates a wrapper for the bottom links and checks if post belongs to user and append it to the html node.*/
   let bottomLinkWrapper = document.createElement("div");
   bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
 
@@ -263,10 +250,8 @@ export const postHtml = (post) => {
     postDelete = "";
   }
 
-  // Wrapper for my body content
   const postsBodyContent = postBodyContainer();
 
-  // Assembling post content
   postsBodyContent.append(
     postDelete,
     userAvatar(post.author.name, avatar),
@@ -276,11 +261,10 @@ export const postHtml = (post) => {
     bottomLinkWrapper
   );
 
-  // Wrapper for all content
+  /** Wrapper for all content */
   const contentWrapper = document.createElement("div");
   contentWrapper.className = "card bg-primary border-0 w-100";
 
-  // Wrapper for post content, header image goes outside of the body content.
   contentWrapper.append(postHeader(post.media), postsBodyContent);
 
   const posts = contentWrapper;

@@ -7,12 +7,12 @@ import { BASE_URL, postUrl } from "../helpers/constants.mjs";
  * @returns Changed post elements.
  */
 export async function updatePostFetch(updateData) {
-  // checks if the formData has media, delete's it if it's empty.
+  /** checks if the formData has media, delete's it if it's empty. */
   if (!updateData.media || updateData.media === "") {
     delete updateData.media;
   }
 
-  // checks if the form data includes an id.
+  /** checks if the form data includes an id. */
   if (!updateData.id) {
     throw new Error("Update requires a postID");
   }

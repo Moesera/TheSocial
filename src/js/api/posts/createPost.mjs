@@ -3,11 +3,11 @@ import { BASE_URL, postUrl } from "../helpers/constants.mjs";
 
 /**
  * This function will send the values from the from to the API.
- * @param {event} event Contains the form submit event.
+ * @param {array} postData Contains the form input values.
  * @returns The values including an id.
  */
 export async function createPost(postData) {
-  // checks if the formData has media, delete's it if it's empty.
+  /** checks if the formData has media, delete's it if it's empty. */
   if (!postData.media || postData.media === "") {
     delete postData.media;
   }
