@@ -15,7 +15,7 @@
   <body class="bg-secondary">
     <header class="fixed-top">
       <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
-        <a class="d-flex justify-content-center align-items-center" href="index.html">
+        <a class="d-flex justify-content-center align-items-center" href="/index.html">
           <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
         </a>
       </div>
@@ -46,9 +46,9 @@
                 </a>
               </li>
             </ul>
-            <form class="d-flex pb-2 pb-lg-0" role="search" id="searchForm">
-              <input class="form-control me-2" type="search" id="searchInput" placeholder="search" aria-label="Search" />
-              <button class="btn btn-success text-white shadow-none disabled"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <form class="d-flex pb-2 pb-lg-0" role="search">
+              <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-success text-white shadow-none disabled" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
         </div>
@@ -60,43 +60,19 @@
     <main class="bg-secondary">
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
       <div class="main-content mx-9 w-50">
-        <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
-        <h2 id="formHeader">Create Post</h2>
-        <section id="postForm">
-          <!-- Start for create post form -->
-          <form id="createPost">
-            <div class="bg-primary p-2 box">
-              <input class="form-control w-50" name="title" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2" required />
-            </div>
-            <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
-              <label for="body" class="form-label mt-2 w-100">
-                <textarea class="form-control" name="body" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
-              </label>
-              <label class="form-label" for="media">
-                <input type="url" name="media" class="form-control border-0" size="160" id="imageInput" placeholder="Media" />
-              </label>
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
-              </div>
-            </div>
-          </form>
-          <!-- End of create post input form  -->
-        </section>
-        <h2>Feed</h2>
-        <select id="filterSelect" class="form-select form-select-sm" aria-label="Default select example" placeholder="Filter">
-          <option value="newFirst">new - old</option>
-          <option value="title-az">title a-z</option>
-          <option value="title-za">title z-a</option>
-        </select>
-        <!-- Start of post feed  -->
-        <section class="box d-flex flex-wrap mt-2 justify-content-center" id="postsContainer">
-          <div id="loader">
-          <div class="spinner-border text-success mt-4" role="status">
-            <span class="visually-hidden"></span>
-          </div>
+        <h1 class="invisible overflow-hidden position-absolute" id="page-h1"></h1>
+        <div id="backArrow_box">
+          <i class="fa-solid fa-arrow-left fs-3" id="backArrow"></i>
         </div>
-        <!-- </section> -->
-        <!-- End of post feed  -->
+        <h2 id="formHeader"></h2>
+        <section id="postForm"></section>
+        <section class="box d-flex flex-wrap mt-2 justify-content-center" id="postContainer">
+          <div id="loader">
+            <div class="spinner-border text-success mt-4" role="status">
+              <span class="visually-hidden"></span>
+            </div>
+          </div>
+        </section>
       </div>
       <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>

@@ -15,8 +15,13 @@ h3 {
 
 input[type="text"],
 input[type="search"],
+input[type="url"],
 textarea {
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+textarea {
+  resize: none;
 }
 
 .box {
@@ -39,10 +44,6 @@ textarea {
 .regular-calibri {
   font-family: custom-styles.$calibri;
   font-weight: custom-styles.$regular;
-}
-
-input[type="file"] {
-  display: none;
 }
 
 .custom-file-btn {
@@ -79,5 +80,25 @@ input[type="file"] {
   cursor: pointer;
   &:hover {
     color: $hover-green;
+  }
+}
+
+.fa-xmark {
+  text-decoration: none;
+  color: $secondary;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.edit-btn {
+  color: $secondary;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
   }
 }

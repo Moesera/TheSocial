@@ -1,50 +1,66 @@
-# Goal
-To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.
-# Brief
-You are tasked with creating 3 pages in HTML using Bootstrap and SASS:
-Homepage
-Profile page
-Login page
-The Homepage should have a feed of posts from the user’s contacts, a search bar, and a form to create a new post.
+### Test my website ?
 
-The profile page should have a profile image, details about the user, a list of the user’s contacts, their posts and a form to post to their wall.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://the-social-media.netlify.app/index.html)
 
-The login page should have a form to login to the application. Make sure to include HTML form validation and use /profile as the action attribute.
+## Getting started
 
-You will only be working on the visuals for this project at this stage, forms do not need to submit data, for example.
+### Installing
 
-Submission for this project will follow the pattern used in professional development. You are required to seek feedback from your peers as well as the teachers in order to complete this assignment.
+Option for contribution:
 
-## Process
-1. Create a design or wireframe for each page.
-Create a new public repository on GitHub.
+- Click fork.
+- On Github, navigate to your fork of the repo.
+- Above the list of files, click Code.
+- Open with Github Desktop
 
-Create a new project folder for this repository.
+Or chose either:
 
-Create a new git branch for this project.
+- HTTPS, SSH or Github CLI and copy the link
 
-Create a package.json file.
+Then:
 
-Install Bootstrap, SASS and Live Server.
+- Open Git Bash
+- Change the current working directory to the location you want it
+- Type `git clone https://github.com/YOUR-USERNAME/TheSocial-Sigvel` and press enter.
+  Your local clone will then be created.
 
-Configure NPM scripts in package.json.
+### Running
 
-Implement your design using Bootstrap and SASS overrides.
+To run project you have to install node_modules, you can do this by using `npm i -y`, the -y stand for yes and accepts all standard conditions, if you want to accept this manually you can run `npm i`.
+```
+npm i -y or npm i
+```
+If you run into any issues with an error when installing npm, you can try and delete `package-lock.json` and try again.
 
-Create a Pull Request to merge your changes to the main branch.
+***The project is using sass and bootsrap, The configurations in package.json commands is as follows.***
 
-Share this Pull Request and request peer review.
+```
+npm run build
+```
+`Runs the build process for the project.`
+```
+npm run watch
+```
+`Runs the watch feature for the project if you are changing sass classes.`
 
-Discuss and implement the feedback gathered from peer review.
+After you have done the following commands in order your project should be up and running.
 
-Share this Pull Request with a teacher for their approval.
+## Additional Information
+```To login you would have to register an account on the site and use @noroff.no or stud.noroff.no to create the account.```
 
-Complete the approved Pull Request, or implement the required changes.
+## Contributing
 
-## Delivery
-For peer review, please submit a link to your repository to the Moodle forum. You should review 2 of your peers’ submissions.
-Please submit your public GitHub repository URL along with any supplementary files such as wireframes. Your repo should have an active PR that the teachers will review.
+To contribute to the project please follow these steps:
 
-Design files will not be included in your grade but help to provide additional context to the marker.
+- Fork the repository.
+- Submit a pull request to the project when you are done on the contribution.
 
-Please make sure to exclude node_modules by using a .gitignore file.
+If you want to know more about forking, pull requests and contributing to a project follow this link [Contribution to projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+
+## Contact
+
+[My LinkedIn page](https://www.linkedin.com/in/tony-sigvel/)
+
+### Trello link for my planning.
+
+https://trello.com/b/qGfrVQZI/js-2
