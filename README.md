@@ -45,6 +45,9 @@ npm run watch
 
 After you have done the following commands in order your project should be up and running.
 
+## Additional Information
+```To login you would have to register an account on the site and use @noroff.no or stud.noroff.no to create the account.```
+
 ## Contributing
 
 To contribute to the project please follow these steps:
