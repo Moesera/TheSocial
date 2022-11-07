@@ -1,6 +1,7 @@
 # The social
+created for javascript 2 assignment.
 
-#### Want to test my website ?
+#### Want to test my website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://the-social-media.netlify.app/index.html)
 
 ## Getting started
