@@ -34,7 +34,7 @@ npm i -y or npm i
 ```
 If you run into any issues with an error when installing npm, you can try and delete `package-lock.json` and try again.
 
-***The project is using sass and bootsrap, The configurations in package.json commands is as follows.***
+***The project is using sass and bootstrap, The configurations in package.json commands is as follows.***
 
 ```
 npm run build
