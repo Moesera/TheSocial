@@ -24,7 +24,13 @@ export async function userPosts(url) {
     const data = json;
 
     if (data._count.posts === 0) {
-      return;
+      const div = document.createElement("div");
+      const paragraph = document.createElement("p");
+      paragraph.textContent = "You haven't created any posts yet.";
+
+      div.append(paragraph);
+
+      return container.append(div);
     } else {
       createProfilePosts(data);
     }
