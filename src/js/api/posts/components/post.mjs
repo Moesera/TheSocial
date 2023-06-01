@@ -12,7 +12,14 @@ export const postHeader = (postMedia) => {
   const postHeadImg = document.createElement("div");
   const headImg = document.createElement("img");
   headImg.className = "card-img-top";
-  headImg.src = postMedia;
+  headImg.loading = "lazy";
+
+  if(postMedia) {
+    headImg.src = postMedia;
+  } else {
+    headImg.src = "https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
+  }
+  console.log(postMedia);
   postHeadImg.appendChild(headImg);
 
   const postHead = postHeadImg;
@@ -68,10 +75,10 @@ export const postInfo = (author, date) => {
  */
 export const userAvatar = (author, userAvatar) => {
   const postAvatarContainer = document.createElement("div");
-  postAvatarContainer.className = "col-1 p-0";
+  postAvatarContainer.className = "col-1 p-0 avatar-size";
 
   const avatar = document.createElement("img");
-  avatar.className = "rounded-circle w-100";
+  avatar.className = "rounded-circle w-100 h-100 object-fit-cover";
   avatar.src = userAvatar;
   avatar.alt = `${author}'s avatar`;
 
