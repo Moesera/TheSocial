@@ -10,6 +10,7 @@ import { user } from "../../storage/user.mjs";
  */
 export const postHeader = (postMedia) => {
   const postHeadImg = document.createElement("div");
+
   const headImg = document.createElement("img");
   headImg.className = "card-img-top";
   headImg.loading = "lazy";
@@ -17,9 +18,9 @@ export const postHeader = (postMedia) => {
   if(postMedia) {
     headImg.src = postMedia;
   } else {
-    headImg.src = "https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
+    headImg.src = "";
   }
-  console.log(postMedia);
+  
   postHeadImg.appendChild(headImg);
 
   const postHead = postHeadImg;
