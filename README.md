@@ -49,7 +49,10 @@ npm run watch
 After you have done the following commands in order your project should be up and running.
 
 ## Additional Information
+
 <a name="testing"></a>
+### Testing
+
 ```Create the account with a @noroff.no or @stud.noroff.no email address.```
 
 ## Contributing
