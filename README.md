@@ -1,7 +1,8 @@
 # The social
-created for javascript 2 assignment.
+Created for javascript 2 assignment.
 
-#### Want to test my website
+#### Want to test the website?, follow these [instructions](#testing)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83c2abc1-6a64-4bb6-b1c6-859f2076b7f2/deploy-status)](https://the-social-media.netlify.app/index.html)
 
 ## Getting started
@@ -48,6 +49,7 @@ npm run watch
 After you have done the following commands in order your project should be up and running.
 
 ## Additional Information
+<a name="testing"></a>
 ```To login you would have to register an account on the site and use @noroff.no or stud.noroff.no to create the account.```
 
 ## Contributing
