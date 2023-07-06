@@ -50,7 +50,7 @@ After you have done the following commands in order your project should be up an
 
 ## Additional Information
 <a name="testing"></a>
-```To login you would have to register an account on the site and use @noroff.no or stud.noroff.no to create the account.```
+```Create an account with an @noroff.no or stud.noroff.no email address to test the website.```
 
 ## Contributing
 
