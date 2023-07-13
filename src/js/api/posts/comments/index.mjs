@@ -8,13 +8,14 @@ comments.forEach((comment) => {
   wrapper.className = "bg-primary w-100 p-2 g-col-6 rounded-1"
 
   const author = document.createElement("p");
-  author.innerText = comment.owner;
+  author.className = "mb-0 fst-italic fw-semibold"
+  author.innerText = `- ${comment.owner}`;
 
   const body = document.createElement("p");
-  body.className = "";
+  body.className = "bg-secondary p-1 mb-1 rounded-1";
   body.innerText = comment.body;
 
-  wrapper.append(author, body);
+  wrapper.append(body, author);
 
   container.append(wrapper);
 })
