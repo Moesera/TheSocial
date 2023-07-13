@@ -1,0 +1,23 @@
+export const postComments = (comments) => {
+  console.log(comments);
+  
+const container = document.createElement("section");
+
+comments.forEach((comment) => {
+  const wrapper = document.createElement("div");
+  wrapper.className = "bg-primary w-100 p-2 g-col-6 rounded-1"
+
+  const author = document.createElement("p");
+  author.innerText = comment.owner;
+
+  const body = document.createElement("p");
+  body.className = "";
+  body.innerText = comment.body;
+
+  wrapper.append(author, body);
+
+  container.append(wrapper);
+})
+
+return container;
+}
