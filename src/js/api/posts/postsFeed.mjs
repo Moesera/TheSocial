@@ -3,6 +3,7 @@ import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 import { errorMessage } from "../../components/error.mjs";
+import { postComments } from "./comments/index.mjs";
 
 export const container = document.getElementById("postsContainer");
 
@@ -71,6 +72,7 @@ export const createPosts = (postArray) => {
  * @returns a HTML object of the API values.
  */
 const createPost = (selectedPost) => {
+  console.log(selectedPost)
   /** Container for single postPage */
   const singlePost = document.getElementById("postContainer");
 
@@ -79,5 +81,10 @@ const createPost = (selectedPost) => {
 
   post.append(create.postHtml(selectedPost));
 
-  singlePost.appendChild(post);
+  const comments = postComments(selectedPost.comments);
+  comments.className = "w-100 pt-2 d-flex flex-column gap-2 row-gap-3";
+
+  console.log(comments)
+
+  singlePost.append(post, comments);
 };
