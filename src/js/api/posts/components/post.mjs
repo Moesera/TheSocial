@@ -52,14 +52,14 @@ export const postInfo = (author, date) => {
   const dateUpdated = newDate.replace("T", ", ");
 
   const postInfoWrapper = document.createElement("div");
-  postInfoWrapper.className = "d-flex flex-column align-self-center w-75 col-auto";
+  postInfoWrapper.className = "d-flex flex-column align-self-center p-0 w-100 col-auto";
 
   const authorName = document.createElement("p");
-  authorName.className = "mb-0 bold-calibri fs-5";
+  authorName.className = "mb-0 bold-calibri p-1 fs-5 py-1 rounded-1";
   authorName.textContent = author;
 
   const postDate = document.createElement("p");
-  postDate.className = "mb-1 regular-calibri";
+  postDate.className = "mb-1 regular-calibri bg-secondary rounded-1 p-1 fst-italic";
   postDate.textContent = dateUpdated;
 
   postInfoWrapper.append(authorName, postDate);
@@ -97,14 +97,14 @@ export const userAvatar = (author, userAvatar) => {
  */
 export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("div");
-  postContentWrapper.className = "mt-4 container-md ps-0";
+  postContentWrapper.className = "mt-4 container-md px-0";
 
   const postTitle = document.createElement("h2");
   postTitle.className = "fs-5 bold-calibri fs-4";
   postTitle.textContent = title;
 
   const postBody = document.createElement("p");
-  postBody.className = "w-100 regular-calibri fs-5";
+  postBody.className = "w-100 regular-calibri fs-5 bg-secondary p-1 rounded-1";
   postBody.textContent = body;
 
   postContentWrapper.append(postTitle, postBody);
