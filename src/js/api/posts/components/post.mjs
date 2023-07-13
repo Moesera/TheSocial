@@ -104,8 +104,11 @@ export const postContent = (title, body) => {
   postTitle.textContent = title;
 
   const postBody = document.createElement("p");
-  postBody.className = "w-100 regular-calibri fs-5 bg-secondary p-1 rounded-1";
-  postBody.textContent = body;
+  
+  if(body) {
+    postBody.className = "w-100 regular-calibri fs-5 bg-secondary p-1 rounded-1";
+    postBody.textContent = body;
+  }
 
   postContentWrapper.append(postTitle, postBody);
 
