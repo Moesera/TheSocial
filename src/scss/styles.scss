@@ -20,36 +20,5 @@
 // functions scss import from node_modules
 @import "../../node_modules/bootstrap/scss/functions";
 
-// custom spacers
-$custom-spacers: (
-  "6": $spacer * 0.7,
-  "7": $spacer * 2.5,
-  "8": $spacer * 9,
-  "9": $spacer * 0.8,
-);
-
-$spacers: map-merge($custom-spacers, $spacers);
-
-// Custom positions merge
-$custom-positions: (
-  25: 25%,
-  35: 35%,
-  40: 40%,
-  45: 45%,
-);
-
-$position-values: map-merge($custom-positions, $position-values);
-
-// Custom colors
-// $custom-colors: (
-//   "altDark": #515051,
-//   "altGrey": #828282,
-//   "altRed": #bc5b5e,
-//   "altGreen": #59b872,
-//   "red-btn-hover": #c67476,
-// );
-
-// $theme-colors: map-merge($custom-colors, $theme-colors);
-
 // Bootstrap scss file import from node_modules
 @import "../../node_modules/bootstrap/scss/bootstrap";
