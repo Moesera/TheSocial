@@ -68,8 +68,8 @@ textarea {
 }
 
 .avatar-size {
-  width: 4rem !important;
-  height: 4rem;
+  width: 3rem !important;
+  height: 3rem;
 }
 
 .fa-heart {
@@ -98,12 +98,18 @@ textarea {
   }
 }
 
-.edit-btn {
-  color: $secondary;
-  font-weight: bold;
+.editableContext {
+  span {
+    color: yellow;
+    visibility: hidden;
+  }
+}
 
-  &:hover {
-    cursor: pointer;
-    color: white;
+.editableContext:hover{
+  span {
+    visibility: visible;
+    &:hover {
+      color: white;
+    }
   }
 }
