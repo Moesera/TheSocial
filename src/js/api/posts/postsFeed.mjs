@@ -31,12 +31,22 @@ export async function fetchPosts(url) {
 
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/index.html") {
-      arrayPosts = json;
-      createPosts(json);
+      let filterStrings = ["", "test"];
+
+      const filteredJson = json.filter((post) => {
+        const bodyMatches = post.body && filterStrings.some((filterString) => !post.body.includes(filterString));
+        const titleMatches = post.title && filterStrings.some((filterString) => !post.title.includes(filterString));
+  
+        return bodyMatches && titleMatches;
+      });
+
+      arrayPosts = filteredJson;
+      createPosts(filteredJson);
     } else {
       createPost(json);
     }
   } catch (error) {
+    console.log(error);
     const message = "Could not fetch posts, if error presist, please contact customer support";
     container.append(errorMessage(error, message));
   } finally {
@@ -50,6 +60,7 @@ export async function fetchPosts(url) {
  * @returns a HTML object of each array value from the API.
  */
 export const createPosts = (postArray) => {
+  
   posts = postArray.map((posts) => {
     /** Post container for each post */
     const post = document.createElement("div");
@@ -73,18 +84,15 @@ export const createPosts = (postArray) => {
  */
 const createPost = (selectedPost) => {
   console.log(selectedPost)
-  /** Container for single postPage */
+
   const singlePost = document.getElementById("postContainer");
 
-  const post = document.createElement("div");
+  const post = document.createElement("section");
   post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
 
-  post.append(create.postHtml(selectedPost));
-
   const comments = postComments(selectedPost.comments);
-  comments.className = "w-100 pt-2 d-flex flex-column gap-2 row-gap-3";
+  comments.className = "w-100 pt-2 d-flex flex-column gap-2 row-gap-3 mt-5";
 
-  console.log(comments)
-
+  post.append(create.postHtml(selectedPost));
   singlePost.append(post, comments);
 };
