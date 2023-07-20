@@ -95,7 +95,7 @@ export const userAvatar = (author, userAvatar) => {
  * @param {string} body Contains the body of the post.
  * @returns a constructed HTML node of the post body content.
  */
-export const postContent = (title, body, id) => {
+export const postContent = (title, body, id, author) => {
   const postContentWrapper = document.createElement("section");
   postContentWrapper.className = "mt-4 container-md px-0";
 
@@ -112,8 +112,10 @@ export const postContent = (title, body, id) => {
     postBody.id = "editBody";
   }
 
-  // postTitle.append(editable(postTitle, "span", "input", "input", id));
-  // postBody.append(editable(postBody, "span", "button", "textarea", id));
+  if (author === user.name) {
+  postTitle.append(editable(postTitle, "span", "input", "input", id));
+  postBody.append(editable(postBody, "span", "button", "textarea", id));
+  }
 
   postContentWrapper.append(postTitle, postBody);
 
@@ -215,30 +217,6 @@ export const deleteButton = (id) => {
   return deleteButton;
 };
 
-/**
- * This function create the view post HTML object.
- * @param {number} id Contains the id of the selected post
- * @returns a constructed HTML node of the view post button.
- */
-// export const viewButton = (id) => {
-//   const linkWrapper = document.createElement("div");
-//   linkWrapper.className = "d-flex justify-content-start ps-0";
-
-//   const viewLink = document.createElement("a");
-//   viewLink.href = `/src/pages/post/index.html?id=${id}`;
-//   viewLink.className = "edit-btn mb-0 text-decoration-none";
-//   viewLink.textContent = "View Post";
-
-//   if (location.pathname === "/src/pages/post/index.html") {
-//     viewLink.textContent = "";
-//   }
-
-//   linkWrapper.appendChild(viewLink);
-
-//   const link = linkWrapper;
-//   return link;
-// };
-
 export const createContainer = () => {
   const container = document.createElement("div");
 
@@ -286,7 +264,7 @@ export const postHtml = (post) => {
   postsBodyContent.append(
     postDelete, 
     postInfoWrapper, 
-    postContent(post.title, post.body, post.id),
+    postContent(post.title, post.body, post.id, post.author.name),
     reactionWrapper, 
     bottomLinkWrapper
     );
