@@ -64,8 +64,6 @@ $hover-red: $light-red;
 $hover-green: $light-green;
 // scss-docs-end theme-color-variables
 
-//Spacing and margins
-//
 // scss-docs-start spacer-variables-maps
 $spacer: 1rem;
 $spacers: (
@@ -78,10 +76,6 @@ $spacers: (
 );
 // scss-docs-end spacer-variables-maps
 
-// Position
-//
-// Define the edge positioning anchors of the position utilities.
-
 // scss-docs-start position-map
 $position-values: (
   0: 0,
@@ -89,11 +83,6 @@ $position-values: (
   100: 100%,
 ) !default;
 // scss-docs-end position-map
-
-// Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
 
 // scss-docs-start grid-breakpoints
 $grid-breakpoints: (
@@ -106,10 +95,6 @@ $grid-breakpoints: (
 );
 // scss-docs-end grid-breakpoints
 
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
-
 // scss-docs-start container-max-widths
 $container-max-widths: (
   sm: 540px,
@@ -118,4 +103,25 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px,
 );
+
 // scss-docs-end container-max-widths
+
+// custom spacers
+$custom-spacers: (
+  "6": $spacer * 0.7,
+  "7": $spacer * 2.5,
+  "8": $spacer * 9,
+  "9": $spacer * 0.8,
+);
+
+$spacers: map-merge($custom-spacers, $spacers);
+
+// Custom positions merge
+$custom-positions: (
+  25: 25%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+);
+
+$position-values: map-merge($custom-positions, $position-values);
