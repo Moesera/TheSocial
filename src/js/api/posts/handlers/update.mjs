@@ -14,9 +14,12 @@ export const updatePostForm = (event) => {
   document.getElementById("formHeader").innerText = "Update Post";
 
   // current post media values.
-  const postTitle = event.path[3].childNodes[3].children[0].innerText;
-  const postBody = event.path[3].childNodes[3].children[1].innerText;
-  const media = event.path[4].childNodes[0].children[0].currentSrc;
+  const postTitle = document.getElementById("editTitle").textContent;
+  console.log(postTitle);
+  const postBody = document.getElementById("editBody").textContent;
+  console.log(postBody);
+  const media = event.target.closest(".card").querySelector(".card-img-top").currentSrc;
+  console.log(media);
 
   // takes the id and place it in the url.
   const postId = event.target.id;
