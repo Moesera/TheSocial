@@ -1,12 +1,10 @@
-export const postComments = (comments) => {
-  console.log(comments);
+export const comments = (comments) => {
 
   const container = document.createElement("section");
 
   comments.forEach((comment) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "bg-primary w-100 p-2 g-col-6 rounded-1";
-
+    wrapper.className = "bg-primary p-2 g-col-6 rounded-1 w-50 post-comments";
     const author = document.createElement("p");
     author.className = "mb-0 fst-italic fw-semibold";
     author.innerText = `- ${comment.owner}`;
@@ -22,3 +20,20 @@ export const postComments = (comments) => {
 
   return container;
 };
+
+export const form = () => {
+  const form = document.createElement("form");
+  form.className = "bg-primary p-2 rounded-1 container mt-2"
+
+  const textarea = document.createElement("textarea");
+  textarea.placeholder = "comment.."
+  textarea.className = "w-100";
+
+  const submitButton = document.createElement("button");
+  submitButton.textContent = "comment";
+  submitButton.type = "submit cta";
+
+  form.append(textarea, submitButton);
+
+  return form;
+}
