@@ -41,3 +41,13 @@ a h2 {
 a:hover {
   text-decoration: none !important;
 }
+
+.post-comments:nth-child(odd) {
+  background: green;
+  align-self: flex-start;
+}
+
+.post-comments:nth-child(even) {
+  background: blue;
+  align-self: flex-end;
+}
