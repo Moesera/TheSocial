@@ -3,7 +3,7 @@ import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 import { errorMessage } from "../../components/error.mjs";
-import { postComments } from "./comments/index.mjs";
+import * as comment from "./comments/index.mjs";
 
 export const container = document.getElementById("postsContainer");
 
@@ -90,9 +90,11 @@ const createPost = (selectedPost) => {
   const post = document.createElement("section");
   post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
 
-  const comments = postComments(selectedPost.comments);
-  comments.className = "w-100 pt-2 d-flex flex-column gap-2 row-gap-3 mt-5";
+  const postComments = comment.comments(selectedPost.comments);
+  postComments.className = "container pt-0 px-0 d-flex flex-column gap-3 row-gap-3 mt-5";
+
+  const commentForm = comment.form();
 
   post.append(create.postHtml(selectedPost));
-  singlePost.append(post, comments);
+  singlePost.append(post, commentForm, postComments);
 };
