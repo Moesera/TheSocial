@@ -4,9 +4,9 @@ export const comments = (comments) => {
 
   comments.forEach((comment) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "bg-primary p-2 g-col-6 rounded-1 w-50 post-comments";
+    wrapper.className = "bg-primary p-2 g-col-6 rounded-1 w-75 post-comments";
     const author = document.createElement("p");
-    author.className = "mb-0 fst-italic fw-semibold";
+    author.className = "mb-0 font-monospace";
     author.innerText = `- ${comment.owner}`;
 
     const body = document.createElement("p");
@@ -27,11 +27,12 @@ export const form = () => {
 
   const textarea = document.createElement("textarea");
   textarea.placeholder = "comment.."
-  textarea.className = "w-100";
+  textarea.className = "w-100 font-inherit";
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "comment";
-  submitButton.type = "submit cta";
+  submitButton.type = "submit";
+  submitButton.className = "btn btn-success text-light fw-semibold";
 
   form.append(textarea, submitButton);
 
