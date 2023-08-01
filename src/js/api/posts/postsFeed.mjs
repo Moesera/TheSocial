@@ -88,10 +88,10 @@ const createPost = (selectedPost) => {
   const singlePost = document.getElementById("postContainer");
 
   const post = document.createElement("section");
-  post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
+  post.className = "editableContext container bg-primary p-2 box d-flex flex-wrap mt-2 xl-container-sm";
 
   const postComments = comment.comments(selectedPost.comments);
-  postComments.className = "container pt-0 px-0 d-flex flex-column gap-3 row-gap-3 mt-5";
+  postComments.className = "container mw-50 pt-0 px-0 d-flex flex-column gap-3 row-gap-3 mt-5";
 
   const commentForm = comment.form();
 
