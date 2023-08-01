@@ -99,17 +99,31 @@ textarea {
 }
 
 .editableContext {
-  span {
-    color: yellow;
+  button {
+    color: $secondary;
+    visibility: hidden;
+  }
+
+  .fa-xmark {
     visibility: hidden;
   }
 }
 
 .editableContext:hover{
-  span {
+  button {
     visibility: visible;
     &:hover {
       color: white;
     }
+  }
+
+  .fa-xmark {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 60rem !important;
   }
 }
