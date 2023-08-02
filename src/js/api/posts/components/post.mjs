@@ -100,52 +100,21 @@ export const postContent = (title, body, id, author) => {
   postContentWrapper.className = "mt-4 container-md px-0";
 
   const postTitle = document.createElement("h2");
-  postTitle.className = "fs-6 bold-calibri fs-4 card-text d-flex justify-content-between editableContext";
+  postTitle.className = "fs-6 bold-calibri fs-4 card-text mb-2";
   postTitle.textContent = title;
   postTitle.id = "editTitle";
 
   const postBody = document.createElement("p");
-
   if (body) {
-    postBody.className = "w-100 regular-calibri fs-6 bg-secondary p-1 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
+    postBody.className = "w-100 regular-calibri fs-6 bg-secondary p-1 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
     postBody.textContent = `${body}`;
     postBody.id = "editBody";
-  }
-
-  if (author === user.name) {
-  postTitle.append(editable(postTitle, "span", "input", "input", id));
-  postBody.append(editable(postBody, "span", "button", "textarea", id));
   }
 
   postContentWrapper.append(postTitle, postBody);
 
   return postContentWrapper;
 };
-
-export const editable = (parent, element, replaceWith, replaceType, id) => {
-  const editButton = document.createElement(element);
-
-  editButton.textContent = "edit";
-  editButton.className = "fs-6 regular-calibri";
-  editButton.role = "button";
-
-  editButton.addEventListener("click", () => {
-    const newInput = document.createElement(replaceWith);
-    if(replaceType) {
-      newInput.type = replaceType;
-    }
-    newInput.value = parent.textContent;
-
-    // editButton.textContent = "submit";
-    parent.replaceWith(newInput);
-  });
-
-  // edit.id = id;
-
-  // edit.addEventListener("click", updatePostForm);
-
-  return editButton;
-}
 
 /**
  * This functions create's the reaction section of the post HTML.
@@ -201,8 +170,8 @@ export const postReactions = (likes) => {
  * @returns a constructed HTML element of a cross icon.
  */
 export const deleteButton = (id) => {
-  const btnContainer = document.createElement("div");
-  btnContainer.className = "d-flex justify-content-end";
+  const deleteContainer = document.createElement("div");
+  deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
 
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-5";
@@ -210,11 +179,41 @@ export const deleteButton = (id) => {
 
   deleteIcon.addEventListener("click", deletePost);
 
-  btnContainer.appendChild(deleteIcon);
+  deleteContainer.append(editButton(id), deleteIcon);
 
-  const deleteButton = btnContainer;
+  return deleteContainer;
+};
 
-  return deleteButton;
+export const editButton = (id) => {
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "edit";
+    editButton.className = "fs-6 regular-calibri bg-transparent border-0";
+    editButton.role = "button";
+    editButton.id = id;
+
+    editButton.addEventListener("click", (e) => {
+
+      updatePostForm(e);
+
+      // if (editButton.textContent === "update") {
+      //   updatePostForm(e);
+      // }
+      // newInput.className = "w-75";
+
+      // const form = document.createElement("form");
+      // form.className = "d-flex mb-2 justify-content-between";
+
+      // newInput.value = parent.textContent;
+      // console.log(parent.textContent);
+
+      // editButton.textContent = "update";
+      // editButton.className = "bg-transparent py-1 visible border-0";
+
+      // parent.replaceWith(newInput);
+  });
+
+  return editButton;
 };
 
 export const createContainer = () => {
@@ -256,22 +255,13 @@ export const postHtml = (post) => {
   const postInfoWrapper = createContainer();
   postInfoWrapper.className = "d-flex p-0 align-items-center";
 
-  postInfoWrapper.append(
-    userAvatar(post.author.name, avatar), 
-    postInfo(post.author.name, post.updated)
-    );
+  postInfoWrapper.append(userAvatar(post.author.name, avatar), postInfo(post.author.name, post.updated));
 
-  postsBodyContent.append(
-    postDelete, 
-    postInfoWrapper, 
-    postContent(post.title, post.body, post.id, post.author.name),
-    reactionWrapper, 
-    bottomLinkWrapper
-    );
+  postsBodyContent.append(postDelete, postInfoWrapper, postContent(post.title, post.body, post.id, post.author.name), reactionWrapper, bottomLinkWrapper);
 
   /** Wrapper for all content */
   const contentWrapper = createContainer();
-  contentWrapper.className = "card bg-primary border-0 w-100";
+  contentWrapper.className = "card bg-primary border-0 w-100 lg-w-50";
 
   contentWrapper.append(postHeaderImage(post.media), postsBodyContent);
 
