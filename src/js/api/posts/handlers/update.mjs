@@ -1,4 +1,3 @@
-import { createUpdateForm } from "../components/updateForm.mjs";
 import { updatePostFetch } from "../updatePost.mjs";
 
 /**
@@ -8,30 +7,70 @@ import { updatePostFetch } from "../updatePost.mjs";
  * @returns An updated form with values from the post.
  */
 export const updatePostForm = (event) => {
-  const formSection = document.getElementById("postForm");
-
-  // updating header h2.
-  document.getElementById("formHeader").innerText = "Update Post";
 
   // current post media values.
-  const postTitle = document.getElementById("editTitle").textContent;
+  const postTitle = document.getElementById("editTitle");
+  const postTitleContent = document.getElementById("editTitle").textContent;
   console.log(postTitle);
-  const postBody = document.getElementById("editBody").textContent;
-  console.log(postBody);
-  const media = event.target.closest(".card").querySelector(".card-img-top").currentSrc;
-  console.log(media);
 
+  const postInput = createInput(postTitleContent, "text");
+  postInput.className = "card-text w-50 border-0 mb-1";
+  postTitle.replaceWith(postInput);
+
+  const postBody = document.getElementById("editBody");
+  const postBodyContent = document.getElementById("editBody").textContent;
+
+  const postTextarea = createTextArea(postBodyContent);
+  postTextarea.className = "w-100";
+  postBody.replaceWith(postTextarea);
+  
+  const media = event.target.closest(".card").querySelector(".card-img-top");
+  console.log(media);
+  const mediaContent = event.target.closest(".card").querySelector(".card-img-top").currentSrc;
+  const [postMedia, input] = createMediaInput(mediaContent);
+  input.className = "w-100 mt-1 border-0"
+  media.replaceWith(postMedia, input);
   // takes the id and place it in the url.
   const postId = event.target.id;
+
 
   // Adds post id to url without refreshing the page.
   window.history.replaceState(null, null, `?id=${postId}`);
 
-  // replaces create form to update form.
-  formSection.replaceChildren(createUpdateForm(media, postTitle, postBody));
-
   window.scrollTo(0, 0);
 };
+
+const createInput = (content, type) => {
+
+  const input = document.createElement("input");
+  input.value = content;
+  input.type = type;
+
+  return input;
+}
+
+const createTextArea = (content) => {
+  const textarea = document.createElement("textarea");
+
+  textarea.textContent = content;
+  textarea.className = "";
+
+  return textarea;
+}
+
+const createMediaInput = (content) => {
+
+  const img = document.createElement("img");
+  img.src = content;
+  img.className = "card-img-top";
+
+  const imgInput = createInput(content, "url");
+  imgInput.textContent = content;
+  imgInput.className = "";
+
+  return [img, imgInput];
+
+}
 
 /**
  * This is the post update cancel button function, it will update the site
