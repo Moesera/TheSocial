@@ -29,7 +29,7 @@ export const form = () => {
   const textarea = document.createElement("textarea");
   textarea.placeholder = "comment.."
   textarea.name = "body";
-  textarea.className = "w-100 font-inherit";
+  textarea.className = "w-100 font-inherit ps-1";
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "comment";
