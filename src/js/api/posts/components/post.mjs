@@ -105,10 +105,11 @@ export const postContent = (title, body, id, author) => {
   postTitle.id = "editTitle";
 
   const postBody = document.createElement("p");
+  postBody.id = "editBody";
+
   if (body) {
     postBody.className = "w-100 regular-calibri fs-6 bg-secondary p-1 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
     postBody.textContent = `${body}`;
-    postBody.id = "editBody";
   }
 
   postContentWrapper.append(postTitle, postBody);
@@ -185,32 +186,52 @@ export const deleteButton = (id) => {
 };
 
 export const editButton = (id) => {
+  const editButton = document.createElement("button");
+  editButton.textContent = "edit";
+  editButton.className = "fs-6 regular-calibri bg-transparent border-0";
+  editButton.role = "button";
+  editButton.id = id;
 
-    const editButton = document.createElement("button");
-    editButton.textContent = "edit";
-    editButton.className = "fs-6 regular-calibri bg-transparent border-0";
-    editButton.role = "button";
-    editButton.id = id;
+  editButton.addEventListener("click", (e) => {
+    // current post media values.
+    const postTitle = document.getElementById("editTitle");
+    const postBody = document.getElementById("editBody");
+    const media = e.target.closest(".card").querySelector(".card-img-top");
 
-    editButton.addEventListener("click", (e) => {
 
-      updatePostForm(e);
+    if (editButton.textContent === "update") {
+      const mediaInput = document.getElementById("editMedia");
 
-      // if (editButton.textContent === "update") {
-      //   updatePostForm(e);
-      // }
-      // newInput.className = "w-75";
+      console.log(mediaInput.value)
 
-      // const form = document.createElement("form");
-      // form.className = "d-flex mb-2 justify-content-between";
+      updatePostForm(e, postTitle.value, postBody.value, mediaInput.value);
+    }
 
-      // newInput.value = parent.textContent;
-      // console.log(parent.textContent);
 
-      // editButton.textContent = "update";
-      // editButton.className = "bg-transparent py-1 visible border-0";
+    const postTitleContent = document.getElementById("editTitle").textContent;
+    const postInput = createInput(postTitleContent, "text");
+    postInput.className = "card-text w-50 border-0 mb-1";
+    postInput.id = "editTitle"
 
-      // parent.replaceWith(newInput);
+    postTitle.replaceWith(postInput);
+
+    const postBodyContent = document.getElementById("editBody").textContent;
+    const postTextarea = createTextArea(postBodyContent);
+    postTextarea.className = "w-100";
+    postTextarea.id = "editBody"
+
+    postBody.replaceWith(postTextarea);
+
+    if(editButton.textContent === "edit") {
+      const mediaContent = media.currentSrc;
+      const [postMedia, input] = createMediaInput(mediaContent);
+      input.className = "w-100 mt-1 border-0";
+      input.id = "editMedia";
+  
+      media.replaceWith(postMedia, input);
+    }
+
+    editButton.textContent = "update";
   });
 
   return editButton;
@@ -268,3 +289,37 @@ export const postHtml = (post) => {
   const posts = contentWrapper;
   return posts;
 };
+
+// Generic html creations 
+
+const createInput = (content, type) => {
+
+  const input = document.createElement("input");
+  input.value = content;
+  input.type = type;
+
+  return input;
+}
+
+const createTextArea = (content) => {
+  const textarea = document.createElement("textarea");
+
+  textarea.textContent = content;
+  textarea.className = "";
+
+  return textarea;
+}
+
+const createMediaInput = (content) => {
+
+  const img = document.createElement("img");
+  img.src = content;
+  img.className = "card-img-top";
+
+  const imgInput = createInput(content, "url");
+  imgInput.textContent = content;
+  imgInput.className = "";
+
+  return [img, imgInput];
+
+}
