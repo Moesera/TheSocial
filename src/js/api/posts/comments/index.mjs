@@ -1,3 +1,5 @@
+import { formDataFromEntries, postComment } from "./handler/index.mjs";
+
 export const comments = (comments) => {
 
   const container = document.createElement("section");
@@ -14,7 +16,6 @@ export const comments = (comments) => {
     body.innerText = comment.body;
 
     wrapper.append(body, author);
-
     container.append(wrapper);
   });
 
@@ -27,12 +28,20 @@ export const form = () => {
 
   const textarea = document.createElement("textarea");
   textarea.placeholder = "comment.."
+  textarea.name = "body";
   textarea.className = "w-100 font-inherit";
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "comment";
   submitButton.type = "submit";
   submitButton.className = "btn btn-success text-light fw-semibold";
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formValues = formDataFromEntries(e);
+    postComment(formValues);
+  })
 
   form.append(textarea, submitButton);
 
