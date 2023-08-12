@@ -319,5 +319,19 @@ const createMediaInput = (content) => {
   imgInput.className = "";
 
   return [img, imgInput];
+}
 
+export const deleteNode = (id) => {
+  const deleteContainer = document.createElement("div");
+  deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
+
+  const deleteIcon = document.createElement("i");
+  deleteIcon.className = "fa-solid fa-xmark fs-5";
+  deleteIcon.id = id;
+
+  deleteIcon.addEventListener("click", deletePost);
+
+  deleteContainer.append(deleteIcon)
+
+  return deleteContainer;
 }
