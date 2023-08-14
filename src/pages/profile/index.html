@@ -14,11 +14,6 @@
   </head>
   <body class="bg-secondary">
     <header class="fixed-top">
-      <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
-        <a class="d-flex justify-content-center align-items-center" href="/index.html">
-          <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
-        </a>
-      </div>
       <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
         <div class="container-fluid bg-primary box">
           <button
@@ -51,12 +46,8 @@
           </div>
         </div>
       </nav>
-      <a class="profile-btn w-25 d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="../profile/index.html">
-        <h2>PROFILE</h2>
-      </a>
     </header>
-    <main class="bg-secondary">
-      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
+    <main class="bg-secondary container">
       <!-- Start of main content  -->
       <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden position-absolute">theSocial profile</h1>
@@ -69,10 +60,10 @@
                   <img class="w-100 rounded-circle" src="/assets/images/Rubber ducky HAIR far.jpg" alt="Profile image" />
                 </div>
                 <div class="col ms-3">
-                  <h2 class="fs-5">Leo Gamhovich</h2>
+                  <h2 id="userName" class="fs-5">Leo Gamhovich</h2>
                   <div class="col">
                     <p class="bold-calibri mb-0">Date of birth:</p>
-                    <p class="regular-calibri">19/08/1998</p>
+                    <p id="userBirth" class="regular-calibri">19/08/1998</p>
                   </div>
                 </div>
               </div>
@@ -85,7 +76,7 @@
               </p>
             </div>
             <h3 class="fs-5">Contacts</h3>
-            <div class="d-flex gap-6">
+            <div id="userFriends" class="d-flex gap-6">
               <div class="friends-img">
                 <img class="w-100 rounded-circle" src="/assets/images/Rubber ducky 3.jpg" alt="contacts image" />
                 <p class="bold-calibri mb-0">Manny Opsie</p>
@@ -147,7 +138,6 @@
         </section>
       </div>
       <!-- End of main content  -->
-      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>
     <footer class="mx-9 my-2 bg-primary text-white">
       <div class="d-flex justify-content-center bold-calibri">
