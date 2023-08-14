@@ -1,6 +1,4 @@
 import { headers } from "../auth/fetchAuth.mjs";
-import { profileOption } from "../helpers/constants.mjs";
-import * as response from "./handlers/filterResponse.mjs";
 import * as create from "./components/post.mjs";
 import { errorMessage } from "../../components/error.mjs";
 
@@ -19,11 +17,11 @@ export async function userPosts(url) {
       method: "GET",
       headers: headers(),
     };
-    const response = await fetch(url + profileOption, postsData);
+    const response = await fetch(url + "?_author=true&_reactions=true&_comments=true", postsData);
     const json = await response.json();
     const data = json;
 
-    if (data._count.posts === 0) {
+    if (data.length === 0) {
       const div = document.createElement("div");
       const paragraph = document.createElement("p");
       paragraph.textContent = "You haven't created any posts yet.";
@@ -37,7 +35,6 @@ export async function userPosts(url) {
   } catch (error) {
     const message = "Could not fetch posts, if error presist, please contact customer support";
     container.append(errorMessage(error, message));
-    console.log(error);
   } finally {
     document.getElementById("loader").innerHTML = "";
   }
@@ -49,42 +46,20 @@ export async function userPosts(url) {
  * @returns HTML object of the posts.
  */
 function createProfilePosts(responseData) {
-  const postArray = responseData.posts;
-  const avatar = responseData.avatar;
 
-  profilePosts = postArray.map((posts) => {
-    /** filters bad avatar images and returns placeholder image if there is none. */
-    let userAvatar = response.checkAvatar(avatar);
+  profilePosts = responseData.map((posts) => {
 
-    const postsBodyContent = create.postBodyContainer();
-
-    const bottomLinkWrapper = document.createElement("div");
-    bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
-
-    bottomLinkWrapper.append(create.viewButton(posts.id), create.editButton(posts.id));
-
-    /** Assembling post content */
-    postsBodyContent.append(
-      create.deleteButton(posts.id),
-      create.userAvatar(posts.owner, userAvatar),
-      create.postInfo(posts.owner, posts.updated),
-      create.postContent(posts.title, posts.body),
-      bottomLinkWrapper
-    );
-
-    /** wrapper for all content */
-    const contentWrapper = document.createElement("div");
-    contentWrapper.className = "card bg-primary border-0";
-
-    contentWrapper.append(create.postHeader(posts.media), postsBodyContent);
-
+    console.log(posts);
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
     post.id = `${posts.id}`;
 
-    post.append(contentWrapper);
+    post.append(create.postHtml(posts));
 
+    /** appends the post to the posts section */
     container.appendChild(post);
-    return { name: posts.owner, body: posts.body, title: posts.title, element: post };
+
+    /** Returns variables for the search function. */
+    return { name: posts.author.name, body: posts.body, title: posts.title, element: post };
   });
 }
