@@ -1,7 +1,6 @@
 import { user } from "../storage/user.mjs";
 import { BASE_URL, profileUrl } from "../helpers/constants.mjs";
 import { headers } from "../auth/fetchAuth.mjs";
-import { createContainer } from "../posts/components/post.mjs";
 
 const userName = document.getElementById("userName");
 const userBirth = document.getElementById("userBirth");
