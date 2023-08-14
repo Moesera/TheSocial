@@ -6,20 +6,20 @@ import { BASE_URL, postUrl } from "../helpers/constants.mjs";
  * @param {formData} updateData Contains the values from the form to be updated.
  * @returns Changed post elements.
  */
-export async function updatePostFetch(updateData) {
+export async function updatePostFetch(id, updateData) {
   /** checks if the formData has media, delete's it if it's empty. */
   if (!updateData.media || updateData.media === "") {
     delete updateData.media;
   }
 
   /** checks if the form data includes an id. */
-  if (!updateData.id) {
+  if (!id) {
     throw new Error("Update requires a postID");
   }
 
   const body = JSON.stringify(updateData);
 
-  const response = await fetch(`${BASE_URL}${postUrl}${updateData.id}`, {
+  const response = await fetch(`${BASE_URL}${postUrl}${id}`, {
     method: "PUT",
     body,
     headers: headers(),

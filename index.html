@@ -13,12 +13,8 @@
     <title>TheSocial | Homepage</title>
   </head>
   <body class="bg-secondary">
+
     <header class="fixed-top">
-      <div class="logo-box w-25 mb-3 mt-3 mx-9 d-flex justify-content-center align-items-center">
-        <a class="d-flex justify-content-center align-items-center" href="index.html">
-          <img class="logo-img" src="/assets/The-social_logo.png" alt="TheSocial logo" />
-        </a>
-      </div>
       <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
         <div class="container-fluid bg-primary box">
           <button
@@ -46,24 +42,21 @@
                 </a>
               </li>
             </ul>
-            <form class="d-flex pb-2 pb-lg-0" role="search" id="searchForm">
-              <input class="form-control me-2" type="search" id="searchInput" placeholder="search" aria-label="Search" />
-              <button class="btn btn-success text-white shadow-none disabled"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
+              <label class=" ps-5"></label>
+              <input class="form-control me-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
             </form>
           </div>
         </div>
       </nav>
-      <a class="profile-btn w-25 d-flex justify-content-center align-items-center mb-3 mt-3 ms-3 me-9" href="/src/pages/profile/index.html">
-        <h2>PROFILE</h2>
-      </a>
     </header>
+
     <main class="bg-secondary">
-      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
       <div class="main-content mx-9 w-50">
         <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
         <section id="postForm">
           <!-- Start for create post form -->
-          <form id="createPost">
+          <form id="createPost" class="container p-0">
             <div class="bg-primary p-2 box">
               <input class="form-control w-50" name="title" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2" required />
             </div>
@@ -80,9 +73,10 @@
             </div>
           </form>
           <!-- End of create post input form  -->
+          <div class="w-100 container m-auto p-0 fs-5 d-flex align-items-center justify-content-center gap-1" id="feedback"></div>
         </section>
-        <h2>Feed</h2>
-        <select id="filterSelect" class="form-select form-select-sm" aria-label="Default select example" placeholder="Filter">
+        <h2 class="container p-0">Feed</h2>
+        <select id="filterSelect" class="form-select form-select-sm container" aria-label="Default select example" placeholder="Filter">
           <option value="newFirst">new - old</option>
           <option value="title-az">title a-z</option>
           <option value="title-za">title z-a</option>
@@ -97,12 +91,13 @@
         <!-- </section> -->
         <!-- End of post feed  -->
       </div>
-      <aside class="banner-left mx-9 w-25 bg-primary"></aside>
     </main>
+
     <footer class="mx-9 my-2 bg-primary text-white">
       <div class="d-flex justify-content-center bold-calibri">
         <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p>
       </div>
     </footer>
+    
   </body>
 </html>

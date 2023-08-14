@@ -3,6 +3,7 @@ import { user } from "../storage/user.mjs";
 import { searchPosts, searchProfilePosts, search } from "../posts/components/functions/search.mjs";
 import { BASE_URL, postUrl, profileUrl, postsOption } from "../helpers/constants.mjs";
 import { userPosts } from "../posts/profilePosts.mjs";
+import { getUser } from "../profile/index.mjs";
 import { fetchPosts, createPosts, container } from "../posts/postsFeed.mjs";
 import * as sort from "../posts/components/functions/sort.mjs";
 
@@ -13,8 +14,12 @@ import * as sort from "../posts/components/functions/sort.mjs";
 export const checkPage = () => {
   /** RUNS ON PROFILE */
   if (location.pathname === "/src/pages/profile/index.html") {
+
+    /** Fetches user information */
+    getUser();
+
     /** Fetches Profile Posts */
-    userPosts(`${BASE_URL}${profileUrl}/${user.name}`);
+    userPosts(`${BASE_URL}${profileUrl}/${user.name}/posts`);
 
     createPostForm.addEventListener("submit", createPostFormData);
 
