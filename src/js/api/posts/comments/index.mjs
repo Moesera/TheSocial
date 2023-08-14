@@ -1,5 +1,4 @@
 import { formDataFromEntries, postComment } from "./handler/comment.mjs";
-import { user } from "../../storage/user.mjs";
 
 export const comments = (comments) => {
   const container = document.createElement("section");
