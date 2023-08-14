@@ -20,8 +20,6 @@ try {
 
   const data = await res.json();
 
-  console.log(data);
-
   createProfile(data);
 
 } catch (err) {
