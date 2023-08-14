@@ -23,15 +23,18 @@ export async function createPost(postData) {
 
     const data = await response.json();
 
-    if (data.status !== 200) {
-      console.log(data);
-
+    if (!response.ok && data.status !== 200) {
+      console.log("status code not 200");
       throw new Error(data.errors[0].message);
-    } else {
+    }
+
+    if(response.ok && data.status === 200) {
       window.location.reload();
+      feedbackMsg.innerHTML = "";
     }
 
     return await data;
+
   } catch(err) {
     console.log(err);
     feedbackMsg.classList.add("alert-danger");

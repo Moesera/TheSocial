@@ -1,5 +1,4 @@
 import { formDataFromEntries, postComment } from "./handler/comment.mjs";
-import { deleteNode } from "../components/post.mjs";
 import { user } from "../../storage/user.mjs";
 
 export const comments = (comments) => {
@@ -23,13 +22,6 @@ export const comments = (comments) => {
     body.innerText = comment.body;
 
     wrapper.append(body, authorWrapper);
-
-    if (comment.owner === user.name) {
-      const deleteButton = deleteNode(comment.id);
-      deleteButton.className = "d-flex justify-content-end";
-
-      authorWrapper.append(deleteButton);
-    }
 
     container.append(wrapper);
   });

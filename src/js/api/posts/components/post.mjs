@@ -95,7 +95,7 @@ export const userAvatar = (author, userAvatar) => {
  * @param {string} body Contains the body of the post.
  * @returns a constructed HTML node of the post body content.
  */
-export const postContent = (title, body, id, author) => {
+export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("section");
   postContentWrapper.className = "mt-4 container-md px-0";
 
@@ -126,7 +126,7 @@ export const postContent = (title, body, id, author) => {
 export const postComments = (comment, id) => {
   const commentWrapper = document.createElement("a");
   commentWrapper.href = `/src/pages/post/index.html?id=${id}`;
-  commentWrapper.className = "d-flex me-4 me-lg-5 align-items-center fs-6 text-decoration-none";
+  commentWrapper.className = "d-flex me-3 me-lg-4 align-items-center fs-6 text-decoration-none";
 
   const commentIcon = document.createElement("i");
   commentIcon.className = "fa-solid fa-comment";
@@ -151,7 +151,7 @@ export const postReactions = (likes) => {
 
   /** Creating the like html element */
   const likeWrapper = document.createElement("div");
-  likeWrapper.className = "d-flex align-items-center fs-6 ";
+  likeWrapper.className = "d-flex align-items-center fs-6";
 
   const likeIcon = document.createElement("i");
   likeIcon.className = "fa-solid fa-heart";
@@ -171,8 +171,14 @@ export const postReactions = (likes) => {
  * @returns a constructed HTML element of a cross icon.
  */
 export const deleteButton = (id) => {
+
   const deleteContainer = document.createElement("div");
-  deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
+  deleteContainer.className = "d-flex justify-content-end p-0 align-items-center mb-2";
+
+  if (location.pathname === "/src/pages/post/index.html") {
+    deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
+  }
+
 
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-5";
@@ -186,53 +192,55 @@ export const deleteButton = (id) => {
 };
 
 export const editButton = (id) => {
-  const editButton = document.createElement("button");
-  editButton.textContent = "edit";
-  editButton.className = "fs-6 regular-calibri bg-transparent border-0";
-  editButton.role = "button";
-  editButton.id = id;
+  if (location.pathname === "/src/pages/post/index.html") {
+    const editButton = document.createElement("button");
+    editButton.textContent = "edit";
+    editButton.className = "fs-6 regular-calibri bg-transparent border-0";
+    editButton.role = "button";
+    editButton.id = id;
 
-  editButton.addEventListener("click", (e) => {
-    // current post media values.
-    const postTitle = document.getElementById("editTitle");
-    const postBody = document.getElementById("editBody");
-    const media = e.target.closest(".card").querySelector(".card-img-top");
+    editButton.addEventListener("click", (e) => {
+      // current post media values.
+      const postTitle = document.getElementById("editTitle");
+      const postBody = document.getElementById("editBody");
+      const media = e.target.closest(".card").querySelector(".card-img-top");
 
+      if (editButton.textContent === "update") {
+        const mediaInput = document.getElementById("editMedia");
+        updatePostForm(e, postTitle.value, postBody.value, mediaInput.value);
+      }
 
-    if (editButton.textContent === "update") {
-      const mediaInput = document.getElementById("editMedia");
-      updatePostForm(e, postTitle.value, postBody.value, mediaInput.value);
-    }
+      const postTitleContent = document.getElementById("editTitle").textContent;
+      const postInput = createInput(postTitleContent, "text");
+      postInput.className = "card-text w-50 border-0 mb-1 ps-1";
+      postInput.id = "editTitle";
 
+      postTitle.replaceWith(postInput);
 
-    const postTitleContent = document.getElementById("editTitle").textContent;
-    const postInput = createInput(postTitleContent, "text");
-    postInput.className = "card-text w-50 border-0 mb-1 ps-1";
-    postInput.id = "editTitle"
+      const postBodyContent = document.getElementById("editBody").textContent;
+      const postTextarea = createTextArea(postBodyContent);
+      postTextarea.className = "w-100 ps-1";
+      postTextarea.id = "editBody";
 
-    postTitle.replaceWith(postInput);
+      postBody.replaceWith(postTextarea);
 
-    const postBodyContent = document.getElementById("editBody").textContent;
-    const postTextarea = createTextArea(postBodyContent);
-    postTextarea.className = "w-100 ps-1";
-    postTextarea.id = "editBody"
+      if (editButton.textContent === "edit") {
+        const mediaContent = media.currentSrc;
+        const [postMedia, input] = createMediaInput(mediaContent);
+        input.className = "w-100 mt-1 border-0 ps-1";
+        input.id = "editMedia";
 
-    postBody.replaceWith(postTextarea);
+        media.replaceWith(postMedia, input);
+      }
 
-    if(editButton.textContent === "edit") {
-      const mediaContent = media.currentSrc;
-      const [postMedia, input] = createMediaInput(mediaContent);
-      input.className = "w-100 mt-1 border-0 ps-1";
-      input.id = "editMedia";
-  
-      media.replaceWith(postMedia, input);
-    }
+      editButton.textContent = "update";
+      editButton.className = "btn btn-success fs-6 regular-calibri text-white py-1";
+    });
 
-    editButton.textContent = "update";
-    editButton.className = "btn btn-success fs-6 regular-calibri text-white py-1";
-  });
-
-  return editButton;
+    return editButton;
+  } else {
+    return "";
+  }
 };
 
 export const createContainer = () => {
@@ -267,7 +275,7 @@ export const postHtml = (post) => {
 
   /** Creating comment html element */
   const reactionWrapper = createContainer();
-  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill me-lg-5 p-0 mt-2";
+  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill p-0";
 
   reactionWrapper.append(postComments(post.comments, post.id), postReactions(post.reactions));
 
@@ -276,7 +284,7 @@ export const postHtml = (post) => {
 
   postInfoWrapper.append(userAvatar(post.author.name, avatar), postInfo(post.author.name, post.updated));
 
-  postsBodyContent.append(postDelete, postInfoWrapper, postContent(post.title, post.body, post.id, post.author.name), reactionWrapper, bottomLinkWrapper);
+  postsBodyContent.append(postDelete, postInfoWrapper, postContent(post.title, post.body, post.id, post.author.name), reactionWrapper);
 
   /** Wrapper for all content */
   const contentWrapper = createContainer();
@@ -288,16 +296,15 @@ export const postHtml = (post) => {
   return posts;
 };
 
-// Generic html creations 
+// Generic html creations
 
 const createInput = (content, type) => {
-
   const input = document.createElement("input");
   input.value = content;
   input.type = type;
 
   return input;
-}
+};
 
 const createTextArea = (content) => {
   const textarea = document.createElement("textarea");
@@ -306,10 +313,9 @@ const createTextArea = (content) => {
   textarea.className = "";
 
   return textarea;
-}
+};
 
 const createMediaInput = (content) => {
-
   const img = document.createElement("img");
   img.src = content;
   img.className = "card-img-top";
@@ -319,19 +325,4 @@ const createMediaInput = (content) => {
   imgInput.className = "";
 
   return [img, imgInput];
-}
-
-export const deleteNode = (id) => {
-  const deleteContainer = document.createElement("div");
-  deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
-
-  const deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-xmark fs-5";
-  deleteIcon.id = id;
-
-  deleteIcon.addEventListener("click", deletePost);
-
-  deleteContainer.append(deleteIcon)
-
-  return deleteContainer;
-}
+};
