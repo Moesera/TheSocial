@@ -3,6 +3,7 @@ import { headers } from "../auth/fetchAuth.mjs";
 import { checkUserAuth } from "../auth/userAuth.mjs";
 import * as create from "./components/post.mjs";
 import { errorMessage } from "../../components/error.mjs";
+import * as comment from "./comments/index.mjs";
 
 export const container = document.getElementById("postsContainer");
 
@@ -30,12 +31,22 @@ export async function fetchPosts(url) {
 
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/index.html") {
-      arrayPosts = json;
-      createPosts(json);
+      let filterStrings = ["", "test"];
+
+      const filteredJson = json.filter((post) => {
+        const bodyMatches = post.body && filterStrings.some((filterString) => !post.body.includes(filterString));
+        const titleMatches = post.title && filterStrings.some((filterString) => !post.title.includes(filterString));
+  
+        return bodyMatches && titleMatches;
+      });
+
+      arrayPosts = filteredJson;
+      createPosts(filteredJson);
     } else {
       createPost(json);
     }
   } catch (error) {
+    console.log(error);
     const message = "Could not fetch posts, if error presist, please contact customer support";
     container.append(errorMessage(error, message));
   } finally {
@@ -49,6 +60,7 @@ export async function fetchPosts(url) {
  * @returns a HTML object of each array value from the API.
  */
 export const createPosts = (postArray) => {
+  
   posts = postArray.map((posts) => {
     /** Post container for each post */
     const post = document.createElement("div");
@@ -71,13 +83,18 @@ export const createPosts = (postArray) => {
  * @returns a HTML object of the API values.
  */
 const createPost = (selectedPost) => {
-  /** Container for single postPage */
+  console.log(selectedPost)
+
   const singlePost = document.getElementById("postContainer");
 
-  const post = document.createElement("div");
-  post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
+  const post = document.createElement("section");
+  post.className = "editableContext container bg-primary p-2 box d-flex flex-wrap mt-2 xl-container-sm";
+
+  const postComments = comment.comments(selectedPost.comments);
+  postComments.className = "container mw-50 pt-0 px-0 d-flex flex-column gap-3 row-gap-3 mt-5";
+
+  const commentForm = comment.form();
 
   post.append(create.postHtml(selectedPost));
-
-  singlePost.appendChild(post);
+  singlePost.append(post, commentForm, postComments);
 };

@@ -33,30 +33,21 @@ footer {
   box-shadow: custom-styles.$container-shadow;
 }
 
-// Custom grid-area
-
-.banner-left {
-  width: 7%;
-  grid-area: banner-left;
-  color: custom-styles.$text-color;
-  @include custom-styles.element-border(5px, none);
-  box-shadow: custom-styles.$container-shadow;
-}
-
-.banner-right {
-  width: 7%;
-  grid-area: banner-right;
-  color: custom-styles.$text-color;
-  @include custom-styles.element-border(5px, none);
-  box-shadow: custom-styles.$container-shadow;
-}
-
 a h2 {
-  text-decoration: none;
   color: custom-styles.$text-color;
   cursor: pointer;
 }
 
 a:hover {
   text-decoration: none !important;
+}
+
+.post-comments:nth-child(odd) {
+  background: green;
+  align-self: flex-start;
+}
+
+.post-comments:nth-child(even) {
+  background: blue;
+  align-self: flex-end;
 }

@@ -1,4 +1,3 @@
-import { createUpdateForm } from "../components/updateForm.mjs";
 import { updatePostFetch } from "../updatePost.mjs";
 
 /**
@@ -7,25 +6,14 @@ import { updatePostFetch } from "../updatePost.mjs";
  * @param {object} event Contains the event of the eventListener.
  * @returns An updated form with values from the post.
  */
-export const updatePostForm = (event) => {
-  const formSection = document.getElementById("postForm");
-
-  // updating header h2.
-  document.getElementById("formHeader").innerText = "Update Post";
-
-  // current post media values.
-  const postTitle = event.path[3].childNodes[3].children[0].innerText;
-  const postBody = event.path[3].childNodes[3].children[1].innerText;
-  const media = event.path[4].childNodes[0].children[0].currentSrc;
-
+export const updatePostForm = (event, title, body, mediaValue) => {
   // takes the id and place it in the url.
   const postId = event.target.id;
 
+  updatePost(title, body, mediaValue);
+
   // Adds post id to url without refreshing the page.
   window.history.replaceState(null, null, `?id=${postId}`);
-
-  // replaces create form to update form.
-  formSection.replaceChildren(createUpdateForm(media, postTitle, postBody));
 
   window.scrollTo(0, 0);
 };
@@ -52,17 +40,18 @@ export const cancelUpdate = () => {
  * @returns Form data constructed from the values of the form.
  * and then sent further to the ```updatePostFetch()```.
  */
-export const updatePost = (event) => {
-  event.preventDefault();
+export const updatePost = (title, body, media) => {
 
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
 
-  const form = event.target;
+  const data = {
+    title, 
+    body, 
+    media
+  }
 
-  const formData = new FormData(form);
-  const formValues = Object.fromEntries(formData.entries());
-  formValues.id = id;
+  console.log(data)
 
-  updatePostFetch(formValues);
+  updatePostFetch(id, data);
 };

@@ -68,8 +68,8 @@ textarea {
 }
 
 .avatar-size {
-  width: 4rem !important;
-  height: 4rem;
+  width: 3rem !important;
+  height: 3rem;
 }
 
 .fa-heart {
@@ -98,12 +98,32 @@ textarea {
   }
 }
 
-.edit-btn {
-  color: $secondary;
-  font-weight: bold;
+.editableContext {
+  button {
+    color: $secondary;
+    visibility: hidden;
+  }
 
-  &:hover {
-    cursor: pointer;
-    color: white;
+  .fa-xmark {
+    visibility: hidden;
+  }
+}
+
+.editableContext:hover{
+  button {
+    visibility: visible;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .fa-xmark {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 60rem !important;
   }
 }
