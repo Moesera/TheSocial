@@ -19,7 +19,7 @@ export const checkPage = () => {
     getUser();
 
     /** Fetches Profile Posts */
-    userPosts(`${BASE_URL}${profileUrl}/${user.name}`);
+    userPosts(`${BASE_URL}${profileUrl}/${user.name}/posts`);
 
     createPostForm.addEventListener("submit", createPostFormData);
 
