@@ -29,7 +29,7 @@ export const logout = () => {
    */
 export const checkUserAuth = () => {
   if (load("token") === null) {
-    // window.location.replace("/src/pages/login/index.html");
+    window.location.replace("/src/pages/login/index.html");
   } else {
     return;
   }
