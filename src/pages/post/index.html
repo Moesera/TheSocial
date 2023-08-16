@@ -16,30 +16,33 @@
 
 <body class="bg-secondary">
 
-  <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg bg-primary shadow w-100 mb-3 mt-3 mx-2">
-      <div class="container-fluid bg-primary box">
+  <header class="fixed-top shadow mb">
+    <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary">
+      <div class="container-fluid box bg-secondary">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px">
+        <div class="collapse navbar-collapse bg-secondary" id="navbarScroll">
+          <div class="d-flex justify-content-center">
+            <img class="logo-img" src="../../../assets/social-logo.png">
+          </div>
+          <ul class="navbar-nav me-auto my-2 my-lg-0 ms-2" style="--bs-scroll-height: 100px">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="../../../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="/src/pages/profile/index.html">Profile</a>
+              <a class="nav-link text-white" aria-current="page" href="../profile/index.html">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
+              <a class="nav-link text-white" aria-current="page" href="../login/index.html" id="logoutBtn">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> logout
               </a>
             </li>
           </ul>
           <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
             <label class=" ps-5"></label>
-            <input class="form-control me-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
+            <input class="form-control me-2 ms-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
           </form>
         </div>
       </div>
@@ -62,9 +65,9 @@
     </div>
   </main>
 
-  <footer class="mx-9 my-2 bg-primary text-white">
+  <footer class="text-white shadow-lg mt">
     <div class="d-flex justify-content-center bold-calibri">
-      <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p>
+      <!-- <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p> -->
     </div>
   </footer>
 </body>
