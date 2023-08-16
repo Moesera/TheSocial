@@ -83,7 +83,6 @@ export const createPosts = (postArray) => {
  * @returns a HTML object of the API values.
  */
 const createPost = (selectedPost) => {
-  console.log(selectedPost)
 
   const singlePost = document.getElementById("postContainer");
 
