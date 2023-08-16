@@ -1,12 +1,5 @@
-.logo-box {
-  width: 7%;
-  background-color: custom-styles.$box-color;
-  @include custom-styles.element-border(5px, none);
-  box-shadow: custom-styles.$container-shadow;
-}
-
 .logo-img {
-  width: 75%;
+  width: 80px;
 }
 
 .navbar {
@@ -17,26 +10,4 @@
 .nav-item {
   font-family: custom-styles.$gill-sans;
   font-weight: custom-styles.$bold;
-}
-
-.profile-btn {
-  background-color: custom-styles.$box-color;
-  width: 7%;
-  @include custom-styles.element-border(5px, none);
-  box-shadow: custom-styles.$container-shadow;
-  font-family: custom-styles.$gill-sans;
-}
-
-.profile-btn h2 {
-  font-size: 3vw;
-}
-
-@media only screen and (min-width: 768px) {
-  .profile-btn h2 {
-    font-size: 22px;
-  }
-
-  .logo-img {
-    width: 75px;
-  }
 }
