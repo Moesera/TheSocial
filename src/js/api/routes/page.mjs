@@ -67,7 +67,7 @@ export const checkPage = () => {
     });
 
     /** RUNS ON SPECIFIC POST PAGE */
-  } else if (location.pathname === "/src/pages/post/") {
+  } else if (location.pathname === "/src/pages/post/index.html") {
     /** retrieves the id from the url */
     const url = new URL(location.href);
     const postId = url.searchParams.get("id");
