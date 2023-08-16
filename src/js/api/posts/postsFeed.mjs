@@ -30,7 +30,7 @@ export async function fetchPosts(url) {
     const json = await response.json();
 
     // An if statement to check witch page your one to load the right function.
-    if (location.pathname === "/index.html") {
+    if (location.pathname === "/") {
       let filterStrings = ["", "test"];
 
       const filteredJson = json.filter((post) => {
@@ -46,7 +46,6 @@ export async function fetchPosts(url) {
       createPost(json);
     }
   } catch (error) {
-    console.log(error);
     const message = "Could not fetch posts, if error presist, please contact customer support";
     container.append(errorMessage(error, message));
   } finally {
