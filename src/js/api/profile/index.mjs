@@ -3,8 +3,6 @@ import { BASE_URL, profileUrl } from "../helpers/constants.mjs";
 import { headers } from "../auth/fetchAuth.mjs";
 
 const userName = document.getElementById("userName");
-const userBirth = document.getElementById("userBirth");
-const userFollowers = document.getElementById("userFollowers");
 
 
 
