@@ -3,6 +3,12 @@ import { updatePostForm } from "../handlers/update.mjs";
 import * as response from "../handlers/filterResponse.mjs";
 import { user } from "../../storage/user.mjs";
 
+export const createContainer = () => {
+  const container = document.createElement("div");
+
+  return container;
+};
+
 /**
  * This functions builds the media element for the posts
  * @param {string} postMedia Contains the post media from API.
@@ -52,14 +58,14 @@ export const postInfo = (author, date) => {
   const dateUpdated = newDate.replace("T", ", ");
 
   const postInfoWrapper = document.createElement("div");
-  postInfoWrapper.className = "d-flex flex-column align-self-center p-0 w-100 ps-2 gap-1";
+  postInfoWrapper.className = "d-flex flex-column p-0 w-100 ps-2";
 
   const authorName = document.createElement("p");
-  authorName.className = "mb-0 bold-calibri fw-semibold fs-5  rounded-1 fs-6 card-text";
+  authorName.className = "mb-0 bold-calibri fw-semibold rounded-1 fs-5 card-text";
   authorName.textContent = author;
 
   const postDate = document.createElement("p");
-  postDate.className = "m-0 regular-calibri bg-secondary rounded-1 p-1 fst-italic fs-6 card-text";
+  postDate.className = "m-0 regular-calibri rounded-1 fst-italic fs-6 card-text";
   postDate.textContent = dateUpdated;
 
   postInfoWrapper.append(authorName, postDate);
@@ -97,10 +103,10 @@ export const userAvatar = (author, userAvatar) => {
  */
 export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("section");
-  postContentWrapper.className = "mt-4 container-md px-0";
+  postContentWrapper.className = "container-md px-0";
 
   const postTitle = document.createElement("h2");
-  postTitle.className = "fs-6 bold-calibri fs-4 card-text mb-2";
+  postTitle.className = "bold-calibri fs-5 card-text mb-2";
   postTitle.textContent = title;
   postTitle.id = "editTitle";
 
@@ -108,7 +114,7 @@ export const postContent = (title, body) => {
   postBody.id = "editBody";
 
   if (body) {
-    postBody.className = "w-100 regular-calibri fs-6 bg-secondary p-1 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
+    postBody.className = "w-100 regular-calibri fs-5 bg-secondary p-1 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
     postBody.textContent = `${body}`;
   }
 
@@ -126,7 +132,7 @@ export const postContent = (title, body) => {
 export const postComments = (comment, id) => {
   const commentWrapper = document.createElement("a");
   commentWrapper.href = `/src/pages/post/index.html?id=${id}`;
-  commentWrapper.className = "d-flex me-3 me-lg-4 align-items-center fs-6 text-decoration-none";
+  commentWrapper.className = "d-flex me-3 me-lg-4 align-items-center fs-5 text-decoration-none";
 
   const commentIcon = document.createElement("i");
   commentIcon.className = "fa-solid fa-comment";
@@ -151,7 +157,7 @@ export const postReactions = (likes) => {
 
   /** Creating the like html element */
   const likeWrapper = document.createElement("div");
-  likeWrapper.className = "d-flex align-items-center fs-6";
+  likeWrapper.className = "d-flex align-items-center fs-5";
 
   const likeIcon = document.createElement("i");
   likeIcon.className = "fa-solid fa-heart";
@@ -171,14 +177,12 @@ export const postReactions = (likes) => {
  * @returns a constructed HTML element of a cross icon.
  */
 export const deleteButton = (id) => {
-
   const deleteContainer = document.createElement("div");
   deleteContainer.className = "d-flex justify-content-end p-0 align-items-center mb-2";
 
   if (location.pathname === "/src/pages/post/index.html") {
     deleteContainer.className = "d-flex justify-content-between p-0 align-items-center mb-2";
   }
-
 
   const deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-xmark fs-5";
@@ -243,12 +247,6 @@ export const editButton = (id) => {
   }
 };
 
-export const createContainer = () => {
-  const container = document.createElement("div");
-
-  return container;
-};
-
 /**
  * This functions is assembling the post HTML nodes into one node.
  * @param {object} post Contains the values from the API.
@@ -261,36 +259,34 @@ export const postHtml = (post) => {
   /** Checks if the post belongs to the user and then adds delete and edit button. */
   let postDelete;
 
-  /** creates a wrapper for the bottom links and checks if post belongs to user and append it to the html node.*/
-  let bottomLinkWrapper = createContainer();
-  bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
-
   if (post.author.name === user.name) {
     postDelete = deleteButton(post.id);
   } else {
     postDelete = "";
   }
 
+  /** creates a wrapper for the bottom links and checks if post belongs to user and append it to the html node.*/
+  let bottomLinkWrapper = createContainer();
+  bottomLinkWrapper.className = "d-flex mt-2 justify-content-between p-0";
+
   const postsBodyContent = postBodyContainer();
 
   /** Creating comment html element */
   const reactionWrapper = createContainer();
-  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill p-0";
-
+  reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill p-0 mt-3";
   reactionWrapper.append(postComments(post.comments, post.id), postReactions(post.reactions));
 
   const postInfoWrapper = createContainer();
-  postInfoWrapper.className = "d-flex p-0 align-items-center";
-
+  postInfoWrapper.className = "d-flex p-0 mb-3 mt-2";
   postInfoWrapper.append(userAvatar(post.author.name, avatar), postInfo(post.author.name, post.updated));
 
-  postsBodyContent.append(postDelete, postInfoWrapper, postContent(post.title, post.body, post.id, post.author.name), reactionWrapper);
+  postsBodyContent.append(postDelete, postContent(post.title, post.body, post.id, post.author.name), reactionWrapper);
 
   /** Wrapper for all content */
   const contentWrapper = createContainer();
   contentWrapper.className = "card bg-primary border-0 w-100 lg-w-50";
 
-  contentWrapper.append(postHeaderImage(post.media), postsBodyContent);
+  contentWrapper.append(postInfoWrapper, postHeaderImage(post.media), postsBodyContent);
 
   const posts = contentWrapper;
   return posts;
