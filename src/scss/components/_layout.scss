@@ -43,11 +43,9 @@ a:hover {
 }
 
 .post-comments:nth-child(odd) {
-  background: green;
   align-self: flex-start;
 }
 
 .post-comments:nth-child(even) {
-  background: blue;
   align-self: flex-end;
 }
