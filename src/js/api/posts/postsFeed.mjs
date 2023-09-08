@@ -36,7 +36,7 @@ export async function fetchPosts(url) {
       const filteredJson = json.filter((post) => {
         const bodyMatches = post.body && filterStrings.some((filterString) => !post.body.includes(filterString));
         const titleMatches = post.title && filterStrings.some((filterString) => !post.title.includes(filterString));
-  
+
         return bodyMatches && titleMatches;
       });
 
@@ -59,7 +59,6 @@ export async function fetchPosts(url) {
  * @returns a HTML object of each array value from the API.
  */
 export const createPosts = (postArray) => {
-  
   posts = postArray.map((posts) => {
     /** Post container for each post */
     const post = document.createElement("div");
@@ -82,14 +81,13 @@ export const createPosts = (postArray) => {
  * @returns a HTML object of the API values.
  */
 const createPost = (selectedPost) => {
-
   const singlePost = document.getElementById("postContainer");
 
   const post = document.createElement("section");
   post.className = "editableContext container bg-primary p-2 box d-flex flex-wrap mt-2 xl-container-sm";
 
   const postComments = comment.comments(selectedPost.comments);
-  postComments.className = "container mw-50 pt-0 px-0 d-flex flex-column gap-3 row-gap-3 mt-5";
+  postComments.className = "container mw-50 pt-0 px-0 d-flex flex-column gap-3 row-gap-3 my-5";
 
   const commentForm = comment.form();
 
