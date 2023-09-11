@@ -16,37 +16,71 @@
 
 <body class="bg-secondary">
 
+  <!-- Header -->
   <header class="fixed-top shadow mb">
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary">
-      <div class="container-fluid box bg-secondary">
+
+      <!-- header wrapper -->
+      <div class="container-fluid bg-secondary">
+        <!-- logo container -->
+        <div class="d-flex justify-content-center">
+          <!-- ! <img class="logo-img" src="./assets/social-logo.png"> -->
+          <span class="text-charcoal">your logo</span>
+        </div>
+        <!-- logo container end -->
+
+
+        <!-- toggle button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse bg-secondary mt-2" id="navbarScroll">
-          <div class="d-flex justify-content-center">
-            <img class="logo-img" src="./assets/social-logo.png">
-          </div>
-          <ul class="navbar-nav me-auto my-2 my-lg-0 ms-2" style="--bs-scroll-height: 100px">
+        <!-- toggle button end -->
+
+        <!-- navbar collapse -->
+        <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
+
+          <!-- search bar -->
+          <!-- ? Make form the search bar style, add :focus effect on it, and remove that from the input -->
+          <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
+            <label class=" ps-5"></label>
+            <!-- ! Put a search icon here -->
+            <input class="form-control me-2 ms-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
+          </form>
+          <!-- searchbar end -->
+
+          <!-- nav link list  -->
+          <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              <!-- ? Could make this an cool button -->
+              <a class="nav-link" aria-current="page" href="/index.html"><i class="active bg-success p-2 rounded-2 shadow fa-solid fa-house-chimney"
+                  style="color: #ffffff;"></i>
+                <span class="text-charcoal d-lg-none">Home</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="/src/pages/profile/index.html">Profile</a>
+              <!-- ! This nav item is going to contain the profile image or if not logged in - nothing, 
+                ? needs to have a placeholder if image is not provided  -->
+              <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
+                <span class="text-charcoal d-lg-none">Profile</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> logout
+              <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
+                <i class="link-border text-white bg-danger p-2 rounded-2 shadow fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="text-charcoal d-lg-none">logout</span>
               </a>
             </li>
           </ul>
-          <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
-            <label class=" ps-5"></label>
-            <input class="form-control me-2 ms-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
-          </form>
+          <!-- link list end -->
+
         </div>
+        <!-- navbar collapse end -->
       </div>
+      <!-- header wrapper end -->
     </nav>
+    <!-- nav end -->
   </header>
 
   <main class="bg-secondary">
@@ -74,12 +108,13 @@
         <!-- End of create post input form  -->
         <div class="w-100 container m-auto p-0 fs-5 d-flex align-items-center justify-content-center gap-1" id="feedback"></div>
       </section>
-      <h2 class="container p-0">Feed</h2>
-      <select id="filterSelect" class="form-select form-select-sm container" aria-label="Default select example" placeholder="Filter">
-        <option value="newFirst">new - old</option>
-        <option value="title-az">title a-z</option>
-        <option value="title-za">title z-a</option>
-      </select>
+      <section class="container p-0">
+        <select id="filterSelect" class="form-select-sm p-0" aria-label="Default select example" placeholder="Filter">
+          <option value="newFirst">new - old</option>
+          <option value="title-az">title a-z</option>
+          <option value="title-za">title z-a</option>
+        </select>
+      </section>
       <!-- Start of post feed  -->
       <section class="box d-flex flex-wrap mt-2 justify-content-center" id="postsContainer">
         <div id="loader">
@@ -92,11 +127,119 @@
     </div>
   </main>
 
-  <footer class="text-white shadow-lg mt">
-    <div class="d-flex justify-content-center bold-calibri">
-      <!-- <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p> -->
-    </div>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-secondary mb-auto mt-4 bg-primary">
+    <!-- Section: Links -->
+    <section>
+      <!--Grid row-->
+      <div class="row no-gutters">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Company name
+          </h6>
+          <p>
+            Share your opinions freely, this platform support's free speech,
+            but not targeting and harm against other people or companies without public reasoning.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Created with</h6>
+          <p>
+            <a href="https://getbootstrap.com/" class="text-secondary">Bootstrap</a>
+          </p>
+          <p>
+            <a href="https://no.wikipedia.org/wiki/JavaScript" class="text-secondary">Javascript</a>
+          </p>
+          <p>
+            <a class="text-secondary">Noroff API</a>
+          </p>
+          <p>
+            <a href="https://sass-lang.com/documentation/syntax/" class="text-secondary ">Sass/Scss</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Useful links
+          </h6>
+          <p>
+            <a href="https://github.com/Moesera" class="text-secondary">Github Account</a>
+          </p>
+          <p>
+            <a href="https://github.com/Moesera/TheSocial" class="text-secondary">Repository</a>
+          </p>
+          <p>
+            <a href="https://www.noroff.no/en/" class="text-secondary">Noroff</a>
+          </p>
+          <p>
+            <a href="https://portfolio-panda-dev.netlify.app/" class="text-secondary">Creator Portfolio</a>
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="my-3">
+
+    <!-- Section: Copyright -->
+    <section class="p-3 pt-0">
+      <div class="row d-flex align-items-center">
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8 text-center text-md-start">
+          <!-- Copyright -->
+          <div class="p-3">
+            © 2022 Copyright:
+            <a class="text-white" href="https://www.linkedin.com/in/sigvel/">Tony</a>
+          </div>
+          <!-- Copyright -->
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-facebook-f"></i></a>
+
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-twitter"></i></a>
+
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-google"></i></a>
+
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-instagram"></i></a>
+        </div>
+        <!-- Grid column -->
+      </div>
+    </section>
+    <!-- Grid container -->
   </footer>
+  <!-- Footer -->
+
 
 </body>
 
