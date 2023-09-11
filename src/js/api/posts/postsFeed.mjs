@@ -29,9 +29,11 @@ export async function fetchPosts(url) {
     const response = await fetch(url, postsData);
     const json = await response.json();
 
+    console.log(json);
+
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/") {
-      let filterStrings = ["", "test"];
+      let filterStrings = ["", "test", "New blog post title"];
 
       const filteredJson = json.filter((post) => {
         const bodyMatches = post.body && filterStrings.some((filterString) => !post.body.includes(filterString));
