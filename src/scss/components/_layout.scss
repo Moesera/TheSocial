@@ -5,19 +5,17 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 100px auto 70px;
+  grid-template-rows: auto;
   grid-template-areas:
-    "header header header"
-    "main main main"
-    "footer footer footer";
+    "header"
+    "main"
+    "footer";
 }
 
 header {
   grid-area: header;
   background-color: custom-styles.$bg-color;
   display: flex;
-  color: custom-styles.$text-color;
-  height: 90px;
 }
 
 main {
@@ -34,7 +32,6 @@ footer {
 }
 
 a h2 {
-  color: custom-styles.$text-color;
   cursor: pointer;
 }
 
