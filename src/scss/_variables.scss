@@ -1,16 +1,22 @@
 // Colors
-$blue: #0d6efd;
+$blue: #131c34;
+$off-white: #fcf6f6;
 $indigo: #6610f2;
 $purple: #6f42c1;
 $pink: #d63384;
 $red: #bc5b5e;
+$purple-red: #bf7387;
+$brown-green: #989572;
 $orange: #fd7e14;
 $yellow: #ffc107;
+$dark-green: #101920;
 $green: #8dc53e;
+$light-green: #e6e8d1;
 $teal: #20c997;
 $cyan: #0dcaf0;
 $light-red: #c67476;
 $light-green: #72c387;
+$charcoal: #45484a;
 
 //Solid white to black colors
 $white: #fff;
@@ -26,8 +32,8 @@ $gray-900: #212529;
 $black: #000;
 
 // scss-docs-start theme-color-variables
-$primary: $gray-600;
-$secondary: $gray-700;
+$primary: $brown-green;
+$secondary: $off-white;
 $success: $green;
 $info: $cyan;
 $warning: $yellow;
@@ -52,8 +58,8 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // scss-docs-start theme-color-variables
-$primary: $gray-600;
-$secondary: $gray-700;
+$primary: $blue;
+$secondary: $off-white;
 $success: $green;
 $info: $cyan;
 $warning: $yellow;
@@ -136,3 +142,5 @@ $font-sizes: (
   "5": 1.1rem,
   "6": 0.8rem,
 );
+
+$grid-gutter-width: 0;
