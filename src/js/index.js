@@ -2,10 +2,14 @@ import { logout, logoutBtn, checkUserAuth } from "./api/auth/userAuth.mjs";
 import { registerUser } from "./api/auth/register.mjs";
 import { loginUser } from "./api/auth/login.mjs";
 import { checkPage } from "./api/routes/page.mjs";
+import { avatarLink } from "./api/profile/components/avatar.mjs";
 
 if (location.pathname !== "/src/pages/login/index.html" && location.pathname !== "/src/pages/register/index.html") {
   /** checks if user has token, if not is sent to login page. */
   checkUserAuth();
+
+  const profileBox = document.getElementById("profileLink");
+  avatarLink(profileBox);
 
   logoutBtn.addEventListener("click", logout);
 }
