@@ -5,6 +5,14 @@
   background-color: custom-styles.$bg-color;
 }
 
+.active {
+  border: solid black 0.15rem;
+}
+
+.link-border {
+  border: solid transparent 0.15rem;
+}
+
 .main-content h2 {
   font-family: custom-styles.$gill-sans;
 }
