@@ -17,7 +17,7 @@
 <body class="bg-secondary">
 
   <!-- Header -->
-  <header class="fixed-top shadow mb">
+  <header class="fixed-top shadow">
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary">
 
@@ -87,36 +87,39 @@
     <div class="main-content mx-9 w-50">
       <h1 class="invisible overflow-hidden position-absolute">Welcome to TheSocial</h1>
       <section id="postForm">
-        <!-- Start for create post form -->
-        <form id="createPost" class="container p-0">
-          <div class="bg-primary p-2 box">
-            <input class="form-control w-50" name="title" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2"
-              required />
-          </div>
-          <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
-            <label for="body" class="form-label mt-2 w-100">
-              <textarea class="form-control" name="body" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
+        <form id="createPost" class="container p-1 box bg-secondary shadow-lg">
+          <!-- container div -->
+          <div class="bg-primary p-2 box bg-white input-wrapper border">
+
+            <input class="form-control-plaintext w-50" name="title" type="text" placeholder="Title.." aria-label=".form-control-sm example"
+              minlength="2" required />
+
+            <label class="" for="media">
+              <input type="url" name="media" class="form-control-plaintext border-0" size="160" id="imageInput" placeholder="Image url..." />
             </label>
-            <label class="form-label" for="media">
-              <input type="url" name="media" class="form-control border-0" size="160" id="imageInput" placeholder="Media" />
+
+            <label for="body" class="w-100">
+              <textarea class="form-control-plaintext" name="body" id="createTextarea" rows="3" placeholder="Body.."></textarea>
             </label>
+
             <div class="d-flex justify-content-end">
               <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
             </div>
+
           </div>
         </form>
         <!-- End of create post input form  -->
         <div class="w-100 container m-auto p-0 fs-5 d-flex align-items-center justify-content-center gap-1" id="feedback"></div>
       </section>
-      <section class="container p-0">
-        <select id="filterSelect" class="form-select-sm p-0" aria-label="Default select example" placeholder="Filter">
+      <section class="container p-0 mt-5">
+        <select id="filterSelect" class="form-select-sm p-1" aria-label="Default select example" placeholder="Filter">
           <option value="newFirst">new - old</option>
           <option value="title-az">title a-z</option>
           <option value="title-za">title z-a</option>
         </select>
       </section>
       <!-- Start of post feed  -->
-      <section class="box d-flex flex-wrap mt-2 justify-content-center" id="postsContainer">
+      <section class="d-flex flex-wrap justify-content-center" id="postsContainer">
         <div id="loader">
           <div class="spinner-border text-success mt-4" role="status">
             <span class="visually-hidden"></span>
