@@ -9,7 +9,7 @@ export const userAvatar = (author, userAvatar) => {
   postAvatarContainer.className = "col-1 p-0 avatar-size";
 
   const avatar = document.createElement("img");
-  avatar.className = "rounded-circle w-100 h-100 object-fit-cover";
+  avatar.className = "rounded-circle w-100 h-100 object-fit-cover border";
   avatar.src = userAvatar;
   avatar.alt = `${author}'s avatar`;
 

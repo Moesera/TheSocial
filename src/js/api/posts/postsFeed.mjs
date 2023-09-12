@@ -64,7 +64,7 @@ export const createPosts = (postArray) => {
   posts = postArray.map((posts) => {
     /** Post container for each post */
     const post = document.createElement("div");
-    post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2";
+    post.className = "container bg-secondary p-1 box d-flex flex-wrap mt-2 shadow-lg border";
 
     post.append(create.postHtml(posts));
 

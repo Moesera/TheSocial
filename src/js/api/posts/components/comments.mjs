@@ -13,7 +13,7 @@ export const postComments = (comment, id) => {
   commentIcon.className = "fa-solid fa-comment";
 
   const commentCount = document.createElement("p");
-  commentCount.className = "m-0 ms-2 text-white";
+  commentCount.className = "m-0 ms-2";
   commentCount.textContent = comment.length;
 
   commentWrapper.append(commentIcon, commentCount);
