@@ -9,6 +9,21 @@
   border: solid black 0.15rem;
 }
 
+.link-btn {
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px !important;
+}
+
+.link-hover:hover {
+  border: solid black 0.15rem;
+}
+
+.fa-arrow-right-from-bracket {
+  &:hover {
+    background-color: $danger;
+    color: $secondary !important;
+  }
+}
+
 .link-border {
   border: solid transparent 0.15rem;
 }
