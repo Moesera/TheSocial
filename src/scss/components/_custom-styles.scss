@@ -3,7 +3,7 @@
 // Sass styles
 $bg-color: variables.$secondary;
 $box-color: variables.$primary;
-$text-color: white;
+$text-color: variables.$charcoal;
 
 $regular: 400;
 $bold: 700;
@@ -12,6 +12,8 @@ $calibri: calibri, sans-serif;
 $gill-sans: gill-sans-nova, sans-serif;
 
 $container-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+$custom-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 
 // Mixins
 @mixin element-border($radius, $style) {
