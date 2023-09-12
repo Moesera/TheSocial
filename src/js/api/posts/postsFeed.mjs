@@ -33,7 +33,7 @@ export async function fetchPosts(url) {
 
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/") {
-      let filterStrings = ["", "test", "New blog post title"];
+      let filterStrings = ["", "string"];
 
       const filteredJson = json.filter((post) => {
         const bodyMatches = post.body && filterStrings.some((filterString) => !post.body.includes(filterString));
