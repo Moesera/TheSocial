@@ -22,14 +22,33 @@ h3 {
 }
 
 input[type="text"],
-input[type="search"],
 input[type="url"],
 textarea {
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border: none;
+  border-bottom: 0.1rem solid lightgray !important;
+  padding-left: 0.2rem !important;
+
+  &:focus {
+    border-bottom: 0.1rem solid $charcoal !important;
+  }
 }
 
-textarea {
-  resize: none;
+input[type="search"] {
+  &:focus {
+    border: none;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  }
+}
+
+.input-wrapper {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shadow-box {
+  box-shadow: custom-styles.$custom-shadow;
 }
 
 .box {
