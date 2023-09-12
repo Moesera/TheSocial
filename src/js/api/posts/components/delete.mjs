@@ -1,4 +1,5 @@
 import { deletePost } from "../deletePost.mjs";
+import { editButton } from "../components/edit.mjs";
 
 /**
  * This creates the delete button element for the post
