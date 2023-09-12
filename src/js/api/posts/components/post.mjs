@@ -9,6 +9,7 @@ import { postContent } from "./content.mjs";
 import { postComments } from "./comments.mjs";
 import { postReactions } from "./reactions.mjs";
 import { deleteButton } from "./delete.mjs";
+import { postTags } from "./tags.mjs";
 
 /**
  * Creates the post body container.
@@ -48,7 +49,7 @@ export const postHtml = (post) => {
   /** Creating comment html element */
   const reactionWrapper = createContainer();
   reactionWrapper.className = "d-flex align-items-end justify-content-end flex-fill p-0 mt-3";
-  reactionWrapper.append(postComments(post.comments, post.id), postReactions(post.reactions));
+  reactionWrapper.append(postTags(post.tags), postComments(post.comments, post.id), postReactions(post.reactions, post.id));
 
   const postInfoWrapper = createContainer();
   postInfoWrapper.className = "d-flex p-0 mb-3 mt-2";
