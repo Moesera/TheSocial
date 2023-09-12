@@ -17,7 +17,7 @@ export const postContent = (title, body) => {
   postBody.id = "editBody";
 
   if (body) {
-    postBody.className = "w-100 regular-calibri fs-5 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext";
+    postBody.className = "w-100 regular-calibri fs-5 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext text-truncate";
     postBody.textContent = `${body}`;
   }
 
