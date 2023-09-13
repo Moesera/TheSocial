@@ -19,7 +19,7 @@ export const postContent = (title, body) => {
   if (body) {
     postBody.className = "regular-calibri d-inline-block fs-5 mb-0 rounded-1 card-text editableContext text-truncate";
     postBody.textContent = `${body}`;
-    postBody.style = "max-width: 150px;";
+    postBody.style = "max-width: 300px;";
   }
 
   postContentWrapper.append(postTitle, postBody);
