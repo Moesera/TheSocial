@@ -11,7 +11,7 @@ export const postInfo = (author, date) => {
   const dateUpdated = newDate.replace("T", ", ");
 
   const postInfoWrapper = document.createElement("div");
-  postInfoWrapper.className = "d-flex flex-column p-0 w-100 ps-2";
+  postInfoWrapper.className = "d-flex flex-column p-0 w-100 ps-3";
 
   const authorName = document.createElement("p");
   authorName.className = "mb-0 bold-calibri fw-semibold rounded-1 fs-5 card-text";
