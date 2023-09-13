@@ -42,26 +42,27 @@
         <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
 
           <!-- search bar -->
-          <!-- ? Make form the search bar style, add :focus effect on it, and remove that from the input -->
-          <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
-            <label class=" ps-5"></label>
-            <!-- ! Put a search icon here -->
-            <input class="form-control me-2 ms-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
+          <form class="p-1 row border box shadow-lg" role="search" id="searchForm">
+            <label class="ps-5"></label>
+
+            <div class="form-control me-2 d-flex align-items-center input-focus">
+
+              <i class="fa-solid fa-magnifying-glass pe-2 border-end"></i>
+              <input class="p-0 ps-2 form-control-plaintext" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
+            </div>
+
           </form>
           <!-- searchbar end -->
 
           <!-- nav link list  -->
           <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
             <li class="nav-item">
-              <!-- ? Could make this an cool button -->
               <a class="nav-link " aria-current="page" href="/index.html"><i
                   class="active bg-success p-2 link-btn rounded-2 fa-solid fa-house-chimney" style="color: #ffffff;"></i>
                 <span class="text-charcoal d-lg-none">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <!-- ! This nav item is going to contain the profile image or if not logged in - nothing, 
-                ? needs to have a placeholder if image is not provided  -->
               <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
                 <span class="text-charcoal d-lg-none">Profile</span>
               </a>
@@ -122,8 +123,8 @@
       </section>
       <!-- Start of post feed  -->
       <section class="d-flex flex-column justify-content-center gap-4" id="postsContainer">
-        <div id="loader">
-          <div class="spinner-border text-success mt-4" role="status">
+        <div id="loader" class="d-flex justify-content-center">
+          <div class="spinner-border text-primary mt-4" role="status">
             <span class="visually-hidden"></span>
           </div>
         </div>

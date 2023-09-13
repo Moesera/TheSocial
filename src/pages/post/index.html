@@ -16,37 +16,72 @@
 
 <body class="bg-secondary">
 
-  <header class="fixed-top shadow mb">
-    <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary">
-      <div class="container-fluid box bg-secondary">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+  <!-- Header -->
+  <header class="fixed-top shadow">
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary px-4">
+
+      <!-- header wrapper -->
+      <div class="container-fluid bg-secondary">
+        <!-- logo container -->
+        <div class="d-flex justify-content-center">
+          <!-- ! <img class="logo-img" src="./assets/social-logo.png"> -->
+          <span class="text-charcoal">SocialSector</span>
+        </div>
+        <!-- logo container end -->
+
+
+        <!-- toggle button -->
+        <button class="navbar-toggler link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse bg-secondary mt-2" id="navbarScroll">
-          <div class="d-flex justify-content-center">
-            <img class="logo-img" src="../../../assets/social-logo.png">
-          </div>
-          <ul class="navbar-nav me-auto my-2 my-lg-0 ms-2" style="--bs-scroll-height: 100px">
+        <!-- toggle button end -->
+
+        <!-- navbar collapse -->
+        <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
+
+          <!-- search bar -->
+          <form class="p-1 row border box shadow-lg" role="search" id="searchForm">
+            <label class="ps-5"></label>
+
+            <div class="form-control me-2 d-flex align-items-center input-focus">
+
+              <i class="fa-solid fa-magnifying-glass pe-2 border-end"></i>
+              <input class="p-0 ps-2 form-control-plaintext" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
+            </div>
+
+          </form>
+          <!-- searchbar end -->
+
+          <!-- nav link list  -->
+          <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="../../../index.html">Home</a>
+              <a class="nav-link " aria-current="page" href="/index.html"><i
+                  class="active bg-success p-2 link-btn rounded-2 fa-solid fa-house-chimney" style="color: #ffffff;"></i>
+                <span class="text-charcoal d-lg-none">Home</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="../profile/index.html">Profile</a>
+              <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
+                <span class="text-charcoal d-lg-none">Profile</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="../login/index.html" id="logoutBtn">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> logout
+              <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
+                <i class="link-btn link-border text-danger p-2 rounded-2 fa-solid hover-bg-danger hover-text-primary fa-arrow-right-from-bracket"></i>
+                <span class="text-charcoal d-lg-none">logout</span>
               </a>
             </li>
           </ul>
-          <form class="pb-2 pb-lg-0 row me-2" role="search" id="searchForm">
-            <label class=" ps-5"></label>
-            <input class="form-control me-2 ms-2" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
-          </form>
+          <!-- link list end -->
+
         </div>
+        <!-- navbar collapse end -->
       </div>
+      <!-- header wrapper end -->
     </nav>
+    <!-- nav end -->
   </header>
 
   <main class="bg-secondary">
