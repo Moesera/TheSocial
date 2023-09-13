@@ -59,7 +59,7 @@ export const postHtml = (post) => {
 
   /** Wrapper for all content */
   const contentWrapper = createContainer();
-  contentWrapper.className = "card bg-secondary w-100 lg-w-50 border p-2 shadow-box";
+  contentWrapper.className = "card bg-secondary w-100 border p-2 shadow-box";
 
   contentWrapper.append(postDelete, postInfoWrapper, postHeaderImage(post.media), postsBodyContent);
 

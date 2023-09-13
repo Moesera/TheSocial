@@ -6,7 +6,7 @@
  */
 export const postContent = (title, body) => {
   const postContentWrapper = document.createElement("section");
-  postContentWrapper.className = "container-md px-0";
+  postContentWrapper.className = "px-0";
 
   const postTitle = document.createElement("h2");
   postTitle.className = "bold-calibri fs-5 card-text mb-2";
@@ -17,8 +17,9 @@ export const postContent = (title, body) => {
   postBody.id = "editBody";
 
   if (body) {
-    postBody.className = "w-100 regular-calibri fs-5 mb-0 rounded-1 card-text d-flex justify-content-between align-items-end editableContext text-truncate";
+    postBody.className = "regular-calibri d-inline-block fs-5 mb-0 rounded-1 card-text editableContext text-truncate";
     postBody.textContent = `${body}`;
+    postBody.style = "max-width: 150px;";
   }
 
   postContentWrapper.append(postTitle, postBody);
