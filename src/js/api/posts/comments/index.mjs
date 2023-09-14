@@ -30,12 +30,12 @@ export const comments = (comments) => {
 
 export const form = () => {
   const form = document.createElement("form");
-  form.className = "bg-primary p-2 rounded-1 container mt-2";
+  form.className = "bg-secondary p-2 rounded-1 container mt-2 shadow-lg";
 
   const textarea = document.createElement("textarea");
   textarea.placeholder = "comment..";
   textarea.name = "body";
-  textarea.className = "w-100 font-inherit ps-1";
+  textarea.className = "w-100 font-inherit ps-2 shadow-box";
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "comment";
