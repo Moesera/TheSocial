@@ -5,7 +5,7 @@ export const comments = (comments) => {
 
   comments.forEach((comment) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "bg-primary p-2 g-col-6 rounded-1 w-75 post-comments editableContext";
+    wrapper.className = "bg-secondary shadow-lg border p-2 g-col-6 rounded-1 w-75 post-comments editableContext";
 
     const authorWrapper = document.createElement("section");
     authorWrapper.className = "d-flex justify-content-between align-items-center";
@@ -17,7 +17,7 @@ export const comments = (comments) => {
     authorWrapper.append(author);
 
     const body = document.createElement("p");
-    body.className = "bg-secondary p-1 mb-1 rounded-1";
+    body.className = "p-2 mb-1 rounded-1 border shadow-box";
     body.innerText = comment.body;
 
     wrapper.append(body, authorWrapper);
