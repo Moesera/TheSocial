@@ -14,7 +14,7 @@ export const userAvatar = (author, userAvatar) => {
   avatar.alt = `${author}'s avatar`;
 
   avatar.onerror = function () {
-    avatar.src = "../../assets/images/default-imgs/avatar-placeholder.png";
+    avatar.src = "../../../../../assets/images/default-imgs/avatar-placeholder.png";
   };
 
   postAvatarContainer.appendChild(avatar);
