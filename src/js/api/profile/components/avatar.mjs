@@ -7,7 +7,7 @@ export function avatarLink(container) {
   avatar.src = `${load("user").avatar}`;
 
   avatar.onerror = function () {
-    avatar.src = "../../assets/images/default-imgs/avatar-placeholder.png";
+    avatar.src = "../../../../../assets/images/default-imgs/avatar-placeholder.png";
   };
 
   container.prepend(avatar);
