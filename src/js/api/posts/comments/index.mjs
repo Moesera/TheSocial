@@ -5,7 +5,7 @@ export const comments = (comments) => {
 
   comments.forEach((comment) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "bg-secondary shadow-lg border p-2 g-col-6 rounded-1 w-75 post-comments editableContext";
+    wrapper.className = "bg-secondary shadow border p-2 g-col-6 rounded-1 w-75 post-comments editableContext";
 
     const authorWrapper = document.createElement("section");
     authorWrapper.className = "d-flex justify-content-between align-items-center";
@@ -30,12 +30,12 @@ export const comments = (comments) => {
 
 export const form = () => {
   const form = document.createElement("form");
-  form.className = "bg-secondary p-2 rounded-1 container mt-2 shadow-lg";
+  form.className = "bg-secondary p-2 rounded-1 container mt-2 shadow";
 
   const textarea = document.createElement("textarea");
   textarea.placeholder = "comment..";
   textarea.name = "body";
-  textarea.className = "w-100 font-inherit ps-2 shadow-box";
+  textarea.className = "w-100 font-inherit ps-2 shadow-box box";
 
   const submitButton = document.createElement("button");
   submitButton.textContent = "comment";
