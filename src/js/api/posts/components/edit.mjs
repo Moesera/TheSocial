@@ -1,12 +1,13 @@
 import { createInput } from "./html/input.mjs";
 import { createTextArea } from "./html/textarea.mjs";
 import { createMediaInput } from "./html/media.mjs";
+import { updatePostForm } from "../handlers/update.mjs";
 
 export const editButton = (id) => {
   if (location.pathname === "/src/pages/post/index.html") {
     const editButton = document.createElement("button");
     editButton.textContent = "edit";
-    editButton.className = "fs-6 regular-calibri bg-transparent border-0";
+    editButton.className = "fs-6 regular-calibri bg-transparent border-0 text-black";
     editButton.role = "button";
     editButton.id = id;
 
@@ -23,14 +24,14 @@ export const editButton = (id) => {
 
       const postTitleContent = document.getElementById("editTitle").textContent;
       const postInput = createInput(postTitleContent, "text");
-      postInput.className = "card-text w-50 border-0 mb-1 ps-1";
+      postInput.className = "card-text w-50 border-0 mb-1 ps-1 input-wrapper box";
       postInput.id = "editTitle";
 
       postTitle.replaceWith(postInput);
 
       const postBodyContent = document.getElementById("editBody").textContent;
       const postTextarea = createTextArea(postBodyContent);
-      postTextarea.className = "w-100 ps-1";
+      postTextarea.className = "w-100 ps-1 input-wrapper box";
       postTextarea.id = "editBody";
 
       postBody.replaceWith(postTextarea);
@@ -38,7 +39,7 @@ export const editButton = (id) => {
       if (editButton.textContent === "edit") {
         const mediaContent = media.currentSrc;
         const [postMedia, input] = createMediaInput(mediaContent);
-        input.className = "w-100 mt-1 border-0 ps-1";
+        input.className = "w-100 mt-1 border-0 ps-1 input-wrapper box";
         input.id = "editMedia";
 
         media.replaceWith(postMedia, input);
