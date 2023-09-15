@@ -15,7 +15,7 @@ export const deleteButton = (id) => {
   }
 
   const deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-xmark fs-5";
+  deleteIcon.className = "fa-solid fa-xmark fs-5 text-black";
   deleteIcon.id = id;
 
   deleteIcon.addEventListener("click", deletePost);
