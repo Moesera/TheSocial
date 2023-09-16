@@ -14,174 +14,179 @@
   <title>TheSocial | Profile</title>
 </head>
 
-<!-- Header -->
-<header class="fixed-top shadow">
-  <!-- Nav -->
-  <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary px-4">
+<body class="bg-secondary">
+  <!-- Header -->
+  <header class="fixed-top shadow">
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg shadow-none w-100 bg-secondary px-4">
 
-    <!-- header wrapper -->
-    <div class="container-fluid bg-secondary">
-      <!-- logo container -->
-      <div class="d-flex justify-content-center">
-        <!-- ! <img class="logo-img" src="./assets/social-logo.png"> -->
-        <span class="text-charcoal">SocialSector</span>
-      </div>
-      <!-- logo container end -->
+      <!-- header wrapper -->
+      <div class="container-fluid bg-secondary">
+        <!-- logo container -->
+        <div class="d-flex justify-content-center">
+          <!-- ! <img class="logo-img" src="./assets/social-logo.png"> -->
+          <span class="text-charcoal">SocialSector</span>
+        </div>
+        <!-- logo container end -->
 
 
-      <!-- toggle button -->
-      <button class="navbar-toggler link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- toggle button end -->
+        <!-- toggle button -->
+        <button class="navbar-toggler link-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- toggle button end -->
 
-      <!-- navbar collapse -->
-      <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
+        <!-- navbar collapse -->
+        <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
 
-        <!-- search bar -->
-        <form class="p-1 row border box shadow-lg" role="search" id="searchForm">
-          <label class="ps-5"></label>
+          <!-- search bar -->
+          <form class="p-1 row border box shadow-lg" role="search" id="searchForm">
+            <label class="ps-5"></label>
 
-          <div class="form-control me-2 d-flex align-items-center input-focus">
+            <div class="form-control me-2 d-flex align-items-center input-focus">
 
-            <i class="fa-solid fa-magnifying-glass pe-2 border-end"></i>
-            <input class="p-0 ps-2 form-control-plaintext" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
-          </div>
-
-        </form>
-        <!-- searchbar end -->
-
-        <!-- nav link list  -->
-        <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/index.html"><i class="bg-success p-2 link-btn rounded-2 fa-solid fa-house-chimney"
-                style="color: #ffffff;"></i>
-              <span class="text-charcoal d-lg-none">Home</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
-              <span class="text-charcoal d-lg-none">Profile</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
-              <i class="link-btn link-border text-danger p-2 rounded-2 fa-solid hover-bg-danger hover-text-primary fa-arrow-right-from-bracket"></i>
-              <span class="text-charcoal d-lg-none">logout</span>
-            </a>
-          </li>
-        </ul>
-        <!-- link list end -->
-
-      </div>
-      <!-- navbar collapse end -->
-    </div>
-    <!-- header wrapper end -->
-  </nav>
-  <!-- nav end -->
-</header>
-
-<main class="bg-secondary container">
-  <!-- Start of main content  -->
-  <div class="main-content mx-9 w-50">
-    <h1 class="invisible overflow-hidden position-absolute">theSocial profile</h1>
-    <div class="bg-primary p-2 box">
-      <!-- Profile info container -->
-      <div class="container">
-        <div class="col mb-3 mt-2">
-          <div class="d-flex">
-            <div class="profile-img">
-              <img class="w-100 rounded-circle" src="/assets/images/Rubber ducky HAIR far.jpg" alt="Profile image" />
+              <i class="fa-solid fa-magnifying-glass pe-2 border-end"></i>
+              <input class="p-0 ps-2 form-control-plaintext" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
             </div>
-            <div class="col d-flex flex-column ms-3 align-items-start justify-content-center">
-              <h2 id="userName" class="fs-5"></h2>
-              <div class="col">
-                <p class="bold-calibri mb-0">Date of birth:</p>
-                <p id="userBirth" class="regular-calibri">19/08/1998</p>
+
+          </form>
+          <!-- searchbar end -->
+
+          <!-- nav link list  -->
+          <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/index.html"><i class="bg-success p-2 link-btn rounded-2 fa-solid fa-house-chimney"
+                  style="color: #ffffff;"></i>
+                <span class="text-charcoal d-lg-none">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
+                <span class="text-charcoal d-lg-none">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
+                <i class="link-btn link-border text-danger p-2 rounded-2 fa-solid hover-bg-danger hover-text-primary fa-arrow-right-from-bracket"></i>
+                <span class="text-charcoal d-lg-none">logout</span>
+              </a>
+            </li>
+          </ul>
+          <!-- link list end -->
+
+        </div>
+        <!-- navbar collapse end -->
+      </div>
+      <!-- header wrapper end -->
+    </nav>
+    <!-- nav end -->
+  </header>
+
+  <main class="bg-secondary container mt-10">
+    <!-- Start of main content  -->
+    <div class="main-content mx-9 w-50">
+      <h1 class="invisible overflow-hidden position-absolute">theSocial profile</h1>
+      <div class="bg-primary p-2 box bg-secondary shadow-lg border">
+        <!-- Profile info container -->
+        <div class="container bg-secondary shadow-box box p-3 border">
+          <div class="col mb-3 mt-2">
+            <div class="d-flex">
+              <div class="profile-img">
+                <img class="w-100 rounded-circle link-btn" src="/assets/images/Rubber ducky HAIR far.jpg" alt="Profile image" />
+              </div>
+              <div class="col d-flex flex-column ms-3 align-items-start justify-content-center">
+                <h2 id="userName" class="fs-5"></h2>
+                <div class="col">
+                  <p class="bold-calibri mb-0">Date of birth:</p>
+                  <p id="userBirth" class="regular-calibri">19/08/1998</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mt-1 d-flex flex-column">
-          <p class="bold-calibri mb-0">About:</p>
-          <p class="regular-calibri me-xl-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque pariatur molestias repellat quis quibusdam enim ad, sint voluptatum
-            architecto, placeat ipsam hic
-            totam adipisci necessitatibus aliquam illo, veniam nisi! A?
-          </p>
-        </div>
-        <h3 class="fs-5">Followers</h3>
-        <div id="userFollowers" class="d-flex gap-6 mb-2">
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/Rubber ducky 3.jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Manny Opsie</p>
+          <div class="mt-1 d-flex flex-column">
+            <p class="bold-calibri mb-0">About:</p>
+            <p class="regular-calibri me-xl-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque pariatur molestias repellat quis quibusdam enim ad, sint voluptatum
+              architecto, placeat ipsam hic
+              totam adipisci necessitatibus aliquam illo, veniam nisi! A?
+            </p>
           </div>
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/rubber ducky close.jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Greg Mandem</p>
+          <h3 class="fs-5">Followers</h3>
+          <div id="userFollowers" class="d-flex gap-6 mb-2">
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/Rubber ducky 3.jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Manny Opsie</p>
+            </div>
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/rubber ducky close.jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Greg Mandem</p>
+            </div>
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/Rubber ducky 2.jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Oliver Helstrøm</p>
+            </div>
           </div>
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/Rubber ducky 2.jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Oliver Helstrøm</p>
-          </div>
-        </div>
-        <div class="d-flex gap-6 mt-6">
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/last ned (4).jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Sam Smith</p>
-          </div>
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/profile-image2.jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Jack Junior</p>
-          </div>
-          <div class="friends-img">
-            <img class="w-100 rounded-circle" src="/assets/images/logo-Jns.jpg" alt="contacts image" />
-            <p class="bold-calibri mb-0">Wenke bech</p>
+          <div class="d-flex gap-6 mt-6">
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/last ned (4).jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Sam Smith</p>
+            </div>
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/profile-image2.jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Jack Junior</p>
+            </div>
+            <div class="friends-img">
+              <img class="w-100 rounded-circle link-btn" src="/assets/images/logo-Jns.jpg" alt="contacts image" />
+              <p class="bold-calibri mb-0">Wenke bech</p>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Start of create post form -->
+      <section id="postForm" class="mt-4">
+        <!-- Start for create post form -->
+        <form id="createPost" class="container p-1 box bg-secondary shadow-lg">
+          <!-- container div -->
+          <div class="bg-primary p-2 box bg-white input-wrapper border">
+
+            <input class="form-control-plaintext w-50" name="title" type="text" placeholder="Title.." aria-label=".form-control-sm example"
+              minlength="2" required />
+
+            <label class="" for="media">
+              <input type="url" name="media" class="form-control-plaintext border-0" size="160" id="imageInput" placeholder="Image url..." />
+            </label>
+
+            <label for="body" class="w-100">
+              <textarea class="form-control-plaintext" name="body" id="createTextarea" rows="3" placeholder="Body.."></textarea>
+            </label>
+
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+          </div>
+        </form>
+        <div class="w-100 container m-auto p-0 fs-5 d-flex align-items-center justify-content-center gap-1" id="feedback"></div>
+      </section>
+      <!-- End of create post form -->
+      <!-- Start of profile feed  -->
+      <h2>Your posts</h2>
+      <section class="box d-flex flex-wrap mt-2 justify-content-center" id="profileFeed">
+        <div id="loader">
+          <div class="spinner-border text-success mt-4" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+        </div>
+      </section>
     </div>
-    <!-- Start of create post form -->
-    <section id="postForm" class="mt-4">
-      <!-- Start for create post form -->
-      <form id="createPost">
-        <div class="bg-primary p-2 box">
-          <input class="form-control w-50" name="title" type="text" placeholder="Title" aria-label=".form-control-sm example" minlength="2"
-            required />
-        </div>
-        <div class="bg-primary px-2 pb-4 mb-3 mt-2 box">
-          <label for="body" class="form-label mt-2 w-100">
-            <textarea class="form-control" name="body" id="createTextarea" rows="3" placeholder="Whats on your mind ?"></textarea>
-          </label>
-          <label class="form-label" for="media">
-            <input type="url" name="media" class="form-control border-0" size="160" id="imageInput" placeholder="Media" />
-          </label>
-          <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i></button>
-          </div>
-        </div>
-      </form>
-      <div class="w-100 container m-auto p-0 fs-5 d-flex align-items-center justify-content-center gap-1" id="feedback"></div>
-    </section>
-    <!-- End of create post form -->
-    <!-- Start of profile feed  -->
-    <h2>Profile Feed</h2>
-    <section class="box d-flex flex-wrap mt-2 justify-content-center" id="profileFeed">
-      <div id="loader">
-        <div class="spinner-border text-success mt-4" role="status">
-          <span class="visually-hidden"></span>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- End of main content  -->
-</main>
-<footer class="text-white shadow-lg mt">
-  <div class="d-flex justify-content-center bold-calibri">
-    <!-- <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p> -->
-  </div>
-</footer>
+    <!-- End of main content  -->
+  </main>
+  <footer class="text-white shadow-lg mt">
+    <div class="d-flex justify-content-center bold-calibri">
+      <!-- <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p> -->
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -86,7 +86,7 @@ const createPost = (selectedPost) => {
   const singlePost = document.getElementById("postContainer");
 
   const post = document.createElement("section");
-  post.className = "editableContext container bg-primary p-2 box d-flex flex-wrap mt-2 xl-container-sm";
+  post.className = "editableContext container bg-secondary shadow-lg border p-2 box d-flex flex-wrap mt-2 xl-container-sm";
 
   const postComments = comment.comments(selectedPost.comments);
   postComments.className = "container mw-50 pt-0 px-0 d-flex flex-column gap-3 row-gap-3 my-5";
