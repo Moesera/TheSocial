@@ -44,7 +44,7 @@
           <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
-                <i class="fa-solid fa-user-plus p-2 rounded-2 link-btn link-border hover-text-primary"></i>
+                <i class="fa-solid fa-user-plus p-2 rounded-2 link-btn link-border hover-text-primary border"></i>
                 <span class="text-charcoal d-lg-none">create user</span>
               </a>
             </li>
@@ -58,12 +58,12 @@
     </nav>
     <!-- nav end -->
   </header>
-  <main class="bg-secondary container shadow-lg box border my-10">
-    <div class="main-content mx-9 w-50 shadow-box my-3 box border">
-      <h1 class="invisible overflow-hidden">Login to theSocial</h1>
-      <h2 class="fs-1 text-center mb-7 mt-2">Login</h2>
+  <main class="bg-secondary container d-flex flex-column my-10">
+    <h1 class="invisible overflow-hidden">Login to theSocial</h1>
+    <h2 class="fs-1 text-center">Login</h2>
+    <section class="main-content w-75 shadow-lg box border p-3 align-self-center mt-5">
       <!-- Form for user login -->
-      <form class="regular-calibri fs-5 mb-5 m-auto w-75 was-validated" id="loginForm">
+      <form class="regular-calibri fs-5 p-3 was-validated box border shadow-box" id="loginForm">
         <div class="mb-3">
           <label for="loginEmail" class="form-label">Email address</label>
           <input type="email" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" pattern="^[\w\-.]+@(stud.)?noroff.no$"
@@ -82,7 +82,7 @@
       <!-- End of user login form -->
       <!-- Feedback on creating an account -->
       <div class="w-50 m-auto p-0 fs-5 d-flex align-items-center justify-content-center" id="feedback"></div>
-    </div>
+    </section>
   </main>
   <!-- Footer -->
   <footer class="text-center text-lg-start text-secondary mb-auto mt-4 bg-primary">
