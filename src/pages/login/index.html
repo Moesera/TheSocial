@@ -40,36 +40,12 @@
         <!-- navbar collapse -->
         <div class="collapse navbar-collapse mt-2 justify-content-end" id="navbarScroll">
 
-          <!-- search bar -->
-          <form class="p-1 row border box shadow-lg" role="search" id="searchForm">
-            <label class="ps-5"></label>
-
-            <div class="form-control me-2 d-flex align-items-center input-focus">
-
-              <i class="fa-solid fa-magnifying-glass pe-2 border-end"></i>
-              <input class="p-0 ps-2 form-control-plaintext" type="search" id="searchInput" placeholder="search.." aria-label="Search" />
-            </div>
-
-          </form>
-          <!-- searchbar end -->
-
           <!-- nav link list  -->
           <ul class="navbar-nav my-2 my-lg-0 ms-2 align-items-center" style="--bs-scroll-height: 100px">
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/index.html"><i
-                  class="active bg-success p-2 link-btn rounded-2 fa-solid fa-house-chimney" style="color: #ffffff;"></i>
-                <span class="text-charcoal d-lg-none">Home</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a id="profileLink" class="nav-link" aria-current="page" href="/src/pages/profile/index.html">
-                <span class="text-charcoal d-lg-none">Profile</span>
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/src/pages/login/index.html" id="logoutBtn">
-                <i class="link-btn link-border text-danger p-2 rounded-2 fa-solid hover-bg-danger hover-text-primary fa-arrow-right-from-bracket"></i>
-                <span class="text-charcoal d-lg-none">logout</span>
+                <i class="fa-solid fa-user-plus p-2 rounded-2 link-btn link-border hover-text-primary"></i>
+                <span class="text-charcoal d-lg-none">create user</span>
               </a>
             </li>
           </ul>
@@ -82,10 +58,10 @@
     </nav>
     <!-- nav end -->
   </header>
-  <main class="bg-secondary container">
-    <div class="main-content mx-9 w-50">
+  <main class="bg-secondary container shadow-lg box border my-10">
+    <div class="main-content mx-9 w-50 shadow-box my-3 box border">
       <h1 class="invisible overflow-hidden">Login to theSocial</h1>
-      <h2 class="fs-1 text-center mb-7 mt-7">Login</h2>
+      <h2 class="fs-1 text-center mb-7 mt-2">Login</h2>
       <!-- Form for user login -->
       <form class="regular-calibri fs-5 mb-5 m-auto w-75 was-validated" id="loginForm">
         <div class="mb-3">
@@ -108,11 +84,118 @@
       <div class="w-50 m-auto p-0 fs-5 d-flex align-items-center justify-content-center" id="feedback"></div>
     </div>
   </main>
-  <footer class="text-white shadow-lg mt">
-    <div class="d-flex justify-content-center bold-calibri">
-      <!-- <p class="d-flex m-0 fs-6">Copyrights &copy; Tony</p> -->
-    </div>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-secondary mb-auto mt-4 bg-primary">
+    <!-- Section: Links -->
+    <section>
+      <!--Grid row-->
+      <div class="row no-gutters">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Company name
+          </h6>
+          <p>
+            Share your opinions freely, this platform support's free speech,
+            but not targeting and harm against other people or companies without public reasoning.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Created with</h6>
+          <p>
+            <a href="https://getbootstrap.com/" class="text-secondary">Bootstrap</a>
+          </p>
+          <p>
+            <a href="https://no.wikipedia.org/wiki/JavaScript" class="text-secondary">Javascript</a>
+          </p>
+          <p>
+            <a class="text-secondary">Noroff API</a>
+          </p>
+          <p>
+            <a href="https://sass-lang.com/documentation/syntax/" class="text-secondary ">Sass/Scss</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Useful links
+          </h6>
+          <p>
+            <a href="https://github.com/Moesera" class="text-secondary">Github Account</a>
+          </p>
+          <p>
+            <a href="https://github.com/Moesera/TheSocial" class="text-secondary">Repository</a>
+          </p>
+          <p>
+            <a href="https://www.noroff.no/en/" class="text-secondary">Noroff</a>
+          </p>
+          <p>
+            <a href="https://portfolio-panda-dev.netlify.app/" class="text-secondary">Creator Portfolio</a>
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="my-3">
+
+    <!-- Section: Copyright -->
+    <section class="p-3 pt-0">
+      <div class="row d-flex align-items-center">
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8 text-center text-md-start">
+          <!-- Copyright -->
+          <div class="p-3">
+            © 2022 Copyright:
+            <a class="text-white" href="https://www.linkedin.com/in/sigvel/">Tony</a>
+          </div>
+          <!-- Copyright -->
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-facebook-f"></i></a>
+
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-twitter"></i></a>
+
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-google"></i></a>
+
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-instagram"></i></a>
+        </div>
+        <!-- Grid column -->
+      </div>
+    </section>
+    <!-- Grid container -->
   </footer>
+  <!-- Footer -->
 </body>
 
 </html>
