@@ -32,7 +32,7 @@ export async function fetchPosts(url) {
     console.log(json);
 
     // An if statement to check witch page your one to load the right function.
-    if (location.pathname === "/") {
+    if (location.pathname === "/" || location.pathname === "/index.html") {
       let filterStrings = ["", "string"];
 
       const filteredJson = json.filter((post) => {
