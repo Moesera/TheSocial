@@ -30,7 +30,7 @@ export const checkPage = () => {
     });
 
     /** RUNS ON HOMEPAGE. */
-  } else if (location.pathname.includes("/index.html")) {
+  } else if (location.pathname === "/index.html" || location.pathname === "/") {
     fetchPosts(BASE_URL + postUrl + postsOption);
 
     createPostForm.addEventListener("submit", createPostFormData);
