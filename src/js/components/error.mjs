@@ -5,7 +5,7 @@ export const errorMessage = (error, message) => {
   /** creating error message */
   const msgWrapper = document.createElement("p");
   msgWrapper.textContent = `"${error}": ${message}`;
-  msgWrapper.className = "alert-danger alert";
+  msgWrapper.className = "alert-danger alert text-center";
 
   /** appending message to container */
   const errorFeedback = errorWrapper.appendChild(msgWrapper);
