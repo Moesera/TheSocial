@@ -1,12 +1,38 @@
+h3 {
+  font-family: custom-styles.$gill-sans;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+  border: none;
+  border-bottom: 0.1rem solid lightgray !important;
+  padding-left: 0.2rem !important;
+
+  &:focus {
+    border-bottom: 0.1rem solid $charcoal !important;
+  }
+}
+
+.bold-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$bold;
+}
+
+.regular-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$regular;
+}
+
+.active {
+  border: solid black 0.15rem;
+}
+
 .main-content {
   flex-basis: 100%;
   margin-left: 4px;
   margin-right: 4px;
   background-color: custom-styles.$bg-color;
-}
-
-.active {
-  border: solid black 0.15rem;
 }
 
 .link-btn {
@@ -30,22 +56,6 @@
 
 .main-content h2 {
   font-family: custom-styles.$gill-sans;
-}
-
-h3 {
-  font-family: custom-styles.$gill-sans;
-}
-
-input[type="text"],
-input[type="url"],
-textarea {
-  border: none;
-  border-bottom: 0.1rem solid lightgray !important;
-  padding-left: 0.2rem !important;
-
-  &:focus {
-    border-bottom: 0.1rem solid $charcoal !important;
-  }
 }
 
 .input-focus:focus-within {
@@ -75,16 +85,7 @@ textarea {
   width: 80px;
 }
 
-.bold-calibri {
-  font-family: custom-styles.$calibri;
-  font-weight: custom-styles.$bold;
-}
-
-.regular-calibri {
-  font-family: custom-styles.$calibri;
-  font-weight: custom-styles.$regular;
-}
-
+// ! What is this ?.
 .custom-file-btn {
   @include custom-styles.element-border(5px, none);
   background-color: $danger;
@@ -98,6 +99,7 @@ textarea {
   }
 }
 
+// Different image sizes
 .profile-img {
   max-width: 100px;
 }
@@ -110,6 +112,8 @@ textarea {
   width: 4rem !important;
   height: 4rem;
 }
+
+//  Icons
 
 .fa-heart {
   color: $danger;
@@ -127,6 +131,7 @@ textarea {
   }
 }
 
+// Delete icon
 .fa-xmark {
   text-decoration: none;
   color: $secondary;
@@ -137,6 +142,7 @@ textarea {
   }
 }
 
+// Placed on container you can edit, to hide and show a button & delete icon
 .editableContext {
   button {
     color: $secondary;
@@ -159,6 +165,12 @@ textarea {
   .fa-xmark {
     visibility: visible;
   }
+}
+
+// Custom classes because bootstrap is bad.
+
+.flex-basis-50 {
+  flex-basis: 50%;
 }
 
 @media (min-width: 1200px) {
