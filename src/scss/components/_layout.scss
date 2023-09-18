@@ -1,3 +1,21 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 // Html element styles
 body {
   margin: 0;
@@ -12,12 +30,14 @@ body {
 }
 
 header {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
   grid-area: header;
   background-color: custom-styles.$bg-color;
   display: flex;
 }
 
 main {
+  animation: fadeIn ease-out 1s;
   grid-area: main;
   background-color: custom-styles.$bg-color;
   display: flex;
@@ -25,6 +45,7 @@ main {
 }
 
 footer {
+  animation: fadeIn ease-out 1s;
   grid-area: footer;
   @include custom-styles.element-border(5px, none);
   box-shadow: custom-styles.$container-shadow;
