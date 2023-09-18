@@ -4,7 +4,7 @@ import { loginUser } from "./api/auth/login.mjs";
 import { checkPage } from "./api/routes/page.mjs";
 import { avatarLink } from "./api/profile/components/avatar.mjs";
 
-if (location.pathname !== "/src/pages/login/index.html" && location.pathname !== "/src/pages/register/index.html") {
+if (!location.pathname.includes("/src/pages/login/") && !location.pathname.includes("/src/pages/register/")) {
   /** checks if user has token, if not is sent to login page. */
   checkUserAuth();
 
@@ -15,9 +15,9 @@ if (location.pathname !== "/src/pages/login/index.html" && location.pathname !==
 }
 
 /** checks if you are on register page or login page, and adds event listener accordingly. */
-if (location.pathname === "/src/pages/register/index.html") {
+if (location.pathname.includes("/src/pages/register/")) {
   registerUser();
-} else if (location.pathname === "/src/pages/login/index.html") {
+} else if (location.pathname.includes("/src/pages/register/")) {
   loginUser();
 }
 
