@@ -17,7 +17,7 @@ if (!location.pathname.includes("/src/pages/login/") && !location.pathname.inclu
 /** checks if you are on register page or login page, and adds event listener accordingly. */
 if (location.pathname.includes("/src/pages/register/")) {
   registerUser();
-} else if (location.pathname.includes("/src/pages/register/")) {
+} else if (location.pathname.includes("/src/pages/login/")) {
   loginUser();
 }
 
