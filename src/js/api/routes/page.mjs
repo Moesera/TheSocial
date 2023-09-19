@@ -13,8 +13,7 @@ import * as sort from "../posts/components/functions/sort.mjs";
  */
 export const checkPage = () => {
   /** RUNS ON PROFILE */
-  if (location.pathname === "/src/pages/profile/") {
-
+  if (location.pathname.includes("/src/pages/profile/")) {
     /** Fetches user information */
     getUser();
 
@@ -31,7 +30,7 @@ export const checkPage = () => {
     });
 
     /** RUNS ON HOMEPAGE. */
-  } else if (location.pathname === "/") {
+  } else if (location.pathname === "/index.html" || location.pathname === "/") {
     fetchPosts(BASE_URL + postUrl + postsOption);
 
     createPostForm.addEventListener("submit", createPostFormData);
@@ -67,7 +66,7 @@ export const checkPage = () => {
     });
 
     /** RUNS ON SPECIFIC POST PAGE */
-  } else if (location.pathname === "/src/pages/post/index.html") {
+  } else if (location.pathname.includes("/src/pages/post/index.html")) {
     /** retrieves the id from the url */
     const url = new URL(location.href);
     const postId = url.searchParams.get("id");

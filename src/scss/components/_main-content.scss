@@ -1,3 +1,33 @@
+h3 {
+  font-family: custom-styles.$gill-sans;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+  border: none;
+  border-bottom: 0.1rem solid lightgray !important;
+  padding-left: 0.2rem !important;
+
+  &:focus {
+    border-bottom: 0.1rem solid $charcoal !important;
+  }
+}
+
+.bold-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$bold;
+}
+
+.regular-calibri {
+  font-family: custom-styles.$calibri;
+  font-weight: custom-styles.$regular;
+}
+
+.active {
+  border: solid black 0.15rem;
+}
+
 .main-content {
   flex-basis: 100%;
   margin-left: 4px;
@@ -5,23 +35,42 @@
   background-color: custom-styles.$bg-color;
 }
 
+.link-btn {
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px !important;
+}
+
+.link-hover:hover {
+  border: solid black 0.15rem;
+}
+
+.fa-arrow-right-from-bracket {
+  &:hover {
+    background-color: $danger;
+    color: $secondary !important;
+  }
+}
+
+.link-border {
+  border: solid transparent 0.15rem;
+}
+
 .main-content h2 {
   font-family: custom-styles.$gill-sans;
 }
 
-h3 {
-  font-family: custom-styles.$gill-sans;
-}
-
-input[type="text"],
-input[type="search"],
-input[type="url"],
-textarea {
+.input-focus:focus-within {
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
-textarea {
-  resize: none;
+.input-wrapper {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shadow-box {
+  box-shadow: custom-styles.$custom-shadow;
 }
 
 .box {
@@ -36,16 +85,7 @@ textarea {
   width: 80px;
 }
 
-.bold-calibri {
-  font-family: custom-styles.$calibri;
-  font-weight: custom-styles.$bold;
-}
-
-.regular-calibri {
-  font-family: custom-styles.$calibri;
-  font-weight: custom-styles.$regular;
-}
-
+// ! What is this ?.
 .custom-file-btn {
   @include custom-styles.element-border(5px, none);
   background-color: $danger;
@@ -59,6 +99,7 @@ textarea {
   }
 }
 
+// Different image sizes
 .profile-img {
   max-width: 100px;
 }
@@ -68,9 +109,11 @@ textarea {
 }
 
 .avatar-size {
-  width: 3rem !important;
-  height: 3rem;
+  width: 4rem !important;
+  height: 4rem;
 }
+
+//  Icons
 
 .fa-heart {
   color: $danger;
@@ -88,6 +131,7 @@ textarea {
   }
 }
 
+// Delete icon
 .fa-xmark {
   text-decoration: none;
   color: $secondary;
@@ -98,6 +142,7 @@ textarea {
   }
 }
 
+// Placed on container you can edit, to hide and show a button & delete icon
 .editableContext {
   button {
     color: $secondary;
@@ -109,7 +154,7 @@ textarea {
   }
 }
 
-.editableContext:hover{
+.editableContext:hover {
   button {
     visibility: visible;
     &:hover {
@@ -120,6 +165,12 @@ textarea {
   .fa-xmark {
     visibility: visible;
   }
+}
+
+// Custom classes because bootstrap is bad.
+
+.flex-basis-50 {
+  flex-basis: 50%;
 }
 
 @media (min-width: 1200px) {
