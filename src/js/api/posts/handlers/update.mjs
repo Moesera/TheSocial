@@ -41,17 +41,14 @@ export const cancelUpdate = () => {
  * and then sent further to the ```updatePostFetch()```.
  */
 export const updatePost = (title, body, media) => {
-
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
 
   const data = {
-    title, 
-    body, 
-    media
-  }
-
-  console.log(data)
+    title,
+    body,
+    media,
+  };
 
   updatePostFetch(id, data);
 };

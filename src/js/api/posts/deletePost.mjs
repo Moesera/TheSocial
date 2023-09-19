@@ -14,8 +14,6 @@ export async function deletePost(event) {
     headers: headers(),
   });
 
-  console.log(response);
-
   if (response.ok === false) {
     return;
   } else if (location.pathname === "/src/pages/post/index.html") {

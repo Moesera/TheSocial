@@ -24,16 +24,13 @@ export async function createPost(postData) {
     const data = await response.json();
 
     if (!response.ok && data.status !== 200) {
-      console.log("status code not 200");
       throw new Error(data.errors[0].message);
     } else {
       window.location.reload();
     }
 
-    
     return await data;
-
-  } catch(err) {
+  } catch (err) {
     feedbackMsg.classList.add("alert-danger");
     feedbackMsg.classList.add("alert");
     feedbackMsg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="me-2 bi bi-exclamation-triangle ps-2" viewBox="0 0 16 16">

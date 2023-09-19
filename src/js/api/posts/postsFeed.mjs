@@ -29,8 +29,6 @@ export async function fetchPosts(url) {
     const response = await fetch(url, postsData);
     const json = await response.json();
 
-    console.log(json);
-
     // An if statement to check witch page your one to load the right function.
     if (location.pathname === "/" || location.pathname === "/index.html") {
       let filterStrings = ["", "string"];

@@ -47,7 +47,6 @@ export async function userPosts(url) {
  */
 function createProfilePosts(responseData) {
   profilePosts = responseData.map((posts) => {
-    console.log(posts);
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2 bg-secondary shadow-lg border";
     post.id = `${posts.id}`;
