@@ -58,6 +58,10 @@ textarea {
   font-family: custom-styles.$gill-sans;
 }
 
+.content-body-width {
+  max-width: 500px;
+}
+
 .input-focus:focus-within {
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
@@ -171,6 +175,12 @@ textarea {
 
 .flex-basis-50 {
   flex-basis: 50%;
+}
+
+@media (width <= 600px) {
+  .content-body-width {
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 1200px) {
