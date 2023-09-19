@@ -17,9 +17,13 @@ export const postContent = (title, body) => {
   postBody.id = "editBody";
 
   if (body) {
-    postBody.className = "regular-calibri d-inline-block fs-5 mb-0 rounded-1 card-text editableContext text-truncate";
+    if (location.pathname.includes("/src/pages/post/index.html")) {
+      postBody.className = "regular-calibri d-inline-block fs-5 mb-0 rounded-1 card-text editableContext content-body-width";
+    } else {
+      postBody.className = "regular-calibri d-inline-block fs-5 mb-0 rounded-1 card-text editableContext text-truncate content-body-width";
+    }
+
     postBody.textContent = `${body}`;
-    postBody.style = "max-width: 300px;";
   }
 
   postContentWrapper.append(postTitle, postBody);
