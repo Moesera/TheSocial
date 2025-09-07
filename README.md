@@ -68,11 +68,3 @@ To contribute to the project, please follow these steps:
 - Submit a pull request to the project when you have completed your contribution.
 
 If you want to learn more about forking, pull requests, and contributing to a project, you can follow this link: [Contribution to projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
-
-## Contact
-
-[My LinkedIn page](https://www.linkedin.com/in/tony-sigvel/)
-
-### Trello link for my planning.
-
-https://trello.com/b/qGfrVQZI/js-2
