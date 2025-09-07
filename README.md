@@ -56,7 +56,7 @@ After executing the commands above in the given order, your project should be up
 <a name="testing"></a>
 ### Testing
 
-1. Create an account using a @noroff.no or @stud.noroff.no email address.
+1. Create an account using a fake @noroff.no or @stud.noroff.no email address.
 
 2. For the password, error messages should guide you. If you encounter any issues or have suggestions, please submit an issue.
 
