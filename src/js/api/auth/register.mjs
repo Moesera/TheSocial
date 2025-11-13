@@ -6,14 +6,22 @@ const registerForm = document.getElementById("registerForm");
  * Eventlistener for submit of the register form element,
  * will create new form data to be sent with the createAccount post.
  */
-export const registerUser = () => {
-  registerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+export const registerUser = (registerForm = "#registerForm") => {
+  const form =  document.querySelector(registerForm);
+  if (!form) return
 
-    const form = event.target;
+  form.classList.remove("was-validated");
+  form.setAttribute("novalidate", "true");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    form.classList.add("was-validated");
+    if(!form.checkValidity()) return;
+
     const formData = new FormData(form);
     const user = Object.fromEntries(formData.entries());
 
-    registerAccount(user);
+    await registerAccount(user);
   });
 };

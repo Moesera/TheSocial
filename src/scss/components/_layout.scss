@@ -18,15 +18,10 @@
 
 // Html element styles
 body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -41,6 +36,7 @@ main {
   grid-area: main;
   background-color: custom-styles.$bg-color;
   display: flex;
+  flex: 1;
   color: custom-styles.$text-color;
 }
 
