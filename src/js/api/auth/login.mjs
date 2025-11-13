@@ -1,20 +1,25 @@
 import { userLogin } from "../services/login.mjs";
 
-const loginForm = document.getElementById("loginForm");
-
 /**
  * Eventlistener for the submit login form element.
  * Will create new formData and retrieve the values and pass it on to the login post.
  */
-export const loginUser = () => {
-  // event listener for the submission of the form.
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+export const loginUser = (formSelector = "#loginForm") => {
+  const form = document.querySelector(formSelector);
+  if (!form) return
 
-    const form = event.target;
+  form.classList.remove("was-validated");
+  form.setAttribute("novalidate", "true");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    form.classList.add("was-validated");
+    if(!form.checkValidity()) return;
+
     const formData = new FormData(form);
     const user = Object.fromEntries(formData.entries());
 
-    userLogin(user);
+    await userLogin(user);
   });
 };

@@ -57,16 +57,15 @@
     <!-- nav end -->
   </header>
 
-  <main class="bg-secondary container d-flex flex-column my-10">
-    <h1 class="invisible overflow-hidden">Login to theSocial</h1>
-    <h2 class="fs-1 text-center">Login</h2>
+  <main class="bg-secondary container d-flex flex-column mt-10">
+    <h1 class="fs-1 text-center">Login</h1>
     <section class="main-content w-75 shadow-lg box border p-3 align-self-center mt-5 d-flex flex-column flex-lg-row gap-3">
       <!-- Form for user login -->
-      <form class="regular-calibri fs-5 p-3 was-validated box border shadow-box flex-basis-50" id="loginForm">
+      <form class="regular-calibri fs-5 p-3 box border shadow-box flex-basis-50" id="loginForm" novalidate>
         <div class="mb-3">
           <label for="loginEmail" class="form-label">Email address</label>
           <input type="email" name="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" pattern="^[\w\-.]+@(stud.)?noroff.no$"
-            autocomplete="username" required />
+            autocomplete="email" required />
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
@@ -174,8 +173,7 @@
         <div class="col-md-7 col-lg-8 text-center text-md-start">
           <!-- Copyright -->
           <div class="p-3">
-            © 2022 Copyright:
-            <a class="text-white" href="https://www.linkedin.com/in/sigvel/">Tony</a>
+            © 2022 Copyright
           </div>
           <!-- Copyright -->
         </div>
