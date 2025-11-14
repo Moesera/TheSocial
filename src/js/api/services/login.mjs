@@ -22,8 +22,6 @@ import { feedbackMsg, BASE_URL, loginUrl } from "../helpers/constants.mjs";
  * ´´´
  */
 export async function userLogin(user) {
-  // Debug outgoing
-  console.log("[login] POST", user);
   
     try {
     const res = await fetch(`${BASE_URL}${loginUrl}`, {

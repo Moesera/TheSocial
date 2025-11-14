@@ -1,6 +1,5 @@
 import * as response from "../handlers/filterResponse.mjs";
-import { user } from "../../storage/user.mjs";
-
+import { getUser } from "../../storage/user.mjs";
 import { createContainer } from "./html/container.mjs";
 import { postHeaderImage } from "./header.mjs";
 import { postInfo } from "./info.mjs";
@@ -30,11 +29,16 @@ export const postBodyContainer = () => {
 export const postHtml = (post) => {
   /** Filters bad avatar images and returns placeholder image if there is none. */
   let avatar = response.checkAvatar(post.author.avatar);
-
   /** Checks if the post belongs to the user and then adds delete and edit button. */
   let postDelete;
 
-  if (post.author.name === user.name) {
+  const stored = getUser({});
+  if (!stored || !stored.name) {
+    console.warn("No stored user — abort profile fetch");
+    return;
+  }
+
+  if (post.author.name === encodeURIComponent(stored.name)) {
     postDelete = deleteButton(post.id);
   } else {
     postDelete = "";

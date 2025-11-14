@@ -1,9 +1,9 @@
 import { createPostFormData, createPostForm } from "../posts/handlers/create.mjs";
-import { user } from "../storage/user.mjs";
+import { getUser } from "../storage/user.mjs";
 import { searchPosts, searchProfilePosts, search } from "../posts/components/functions/search.mjs";
 import { BASE_URL, postUrl, profileUrl, postsOption } from "../helpers/constants.mjs";
 import { userPosts } from "../posts/profilePosts.mjs";
-import { getUser } from "../profile/index.mjs";
+import { getProfileUser } from "../profile/index.mjs";
 import { fetchPosts, createPosts, container } from "../posts/postsFeed.mjs";
 import * as sort from "../posts/components/functions/sort.mjs";
 
@@ -15,10 +15,15 @@ export const checkPage = () => {
   /** RUNS ON PROFILE */
   if (location.pathname.includes("/src/pages/profile/")) {
     /** Fetches user information */
-    getUser();
+    getProfileUser();
 
     /** Fetches Profile Posts */
-    userPosts(`${BASE_URL}${profileUrl}/${user.name}/posts`);
+    const stored = getUser({});
+    if (!stored || !stored.name) {
+      console.warn("No stored user — abort profile fetch");
+      return;
+    }
+    userPosts(`${BASE_URL}${profileUrl}/${encodeURIComponent(stored.name)}/posts`);
 
     createPostForm.addEventListener("submit", createPostFormData);
 
