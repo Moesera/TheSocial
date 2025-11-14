@@ -21,7 +21,7 @@ export async function userPosts(url) {
     const json = await response.json();
     const data = json;
 
-    if (data.length === 0) {
+    if (data.length > 0) {
       const div = document.createElement("div");
       const paragraph = document.createElement("p");
       paragraph.textContent = "You haven't created any posts yet.";
@@ -46,6 +46,7 @@ export async function userPosts(url) {
  * @returns HTML object of the posts.
  */
 function createProfilePosts(responseData) {
+  if (!responseData) return;
   profilePosts = responseData.map((posts) => {
     const post = document.createElement("div");
     post.className = "container bg-primary p-2 box d-flex flex-wrap mt-2 bg-secondary shadow-lg border";

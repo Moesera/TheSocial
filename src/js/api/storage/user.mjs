@@ -1,4 +1,4 @@
-export const user = JSON.parse(localStorage.getItem("user"));
+export const user = localStorage.getItem("user");
 
 /**
  * This function retrieves an item from localStorage.
@@ -6,5 +6,5 @@ export const user = JSON.parse(localStorage.getItem("user"));
  * @returns The item that has the value of the key.
  */
 export const load = (item) => {
-  return JSON.parse(localStorage.getItem(item));
+  return localStorage.getItem(item);
 };

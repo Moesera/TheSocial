@@ -1,7 +1,5 @@
 import { registerAccount } from "../services/register.mjs";
 
-const registerForm = document.getElementById("registerForm");
-
 /**
  * Eventlistener for submit of the register form element,
  * will create new form data to be sent with the createAccount post.

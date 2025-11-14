@@ -5,6 +5,7 @@ import { userLogin } from "../services/login.mjs";
  * Will create new formData and retrieve the values and pass it on to the login post.
  */
 export const loginUser = (formSelector = "#loginForm") => {
+  console.log("form listening");
   const form = document.querySelector(formSelector);
   if (!form) return
 
